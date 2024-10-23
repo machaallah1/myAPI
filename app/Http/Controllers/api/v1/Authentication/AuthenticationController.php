@@ -7,11 +7,10 @@ namespace App\Http\Controllers\api\v1\Authentication;
 use Exception;
 use App\Models\User;
 use App\Mail\OtpMail;
+use App\Models\OtpCode;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Resources\v1\UserResource;
-use App\Repositories\Concerns\SmsContract;
 use App\Repositories\AuthenticationRepository;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Requests\v1\Authentication\LoginRequest;
@@ -28,12 +27,11 @@ final class AuthenticationController extends Controller
     /**
      * Constructor for the AuthenticationController class.
      *
-     * @param AuthenticationRepository $repositoy The authentication repository instance.
-     * @param SmsContract $smsRepositoy The SMS repository instance.
+     * @param AuthenticationRepository $repository The authentication repository instance.
      */
     public function __construct(
-        private readonly AuthenticationRepository $repositoy,
-        private readonly SmsContract $smsRepositoy,
+        private readonly AuthenticationRepository $repository,
+        // private readonly SmsContract $smsRepositoy,
     ) {
         // Inject the authentication repository instance.
     }
@@ -59,48 +57,43 @@ final class AuthenticationController extends Controller
      * @return JsonResource|JsonResponse The user resource or a JSON response indicating the result of the authentication and OTP sending.
      */
     public function authenticate(AuthenticateRequest $request): JsonResource|JsonResponse
-    {
-        try {
-            // Authenticate the user using the repository
-            $user = $this->repositoy->authenticate(request: $request);
+{
+    try {
+        // Authentifier l'utilisateur en utilisant le repository
+        $user = $this->repository->authenticate(request: $request);
 
-            // Check if the request has a hash parameter
-            $hash = $request->has(key: 'hash') ? $request->hash : '';
-
-            // Send the OTP to the user and get the state
-            $state = $this->repositoy->sendOtp(
-                phone: $user->phone,
-                smsRepository: $this->smsRepositoy,
-                hash: $hash,
-            );
-
-            // Set the message based on the state
-            $message = $state ?
-                __(key: 'messages.success.otp')
-                : __(key: 'messages.error.general');
-
-            // If the OTP was sent successfully, return the user resource with the message
-            if ($state) {
-                return UserResource::make($user)
-                    ->additional(data: [
-                        'message' => $message,
-                    ]);
-            }
-
-            // If the OTP sending failed, return a JSON response with the error message
-            return response()->json(
-                data: ['message' => $message],
-                status: JsonResponse::HTTP_BAD_REQUEST,
-            );
-        } catch (Exception $exception) {
-            return response()->json(
-                data: [
-                    'message' => $exception->getMessage(),
-                ],
-                status: JsonResponse::HTTP_INTERNAL_SERVER_ERROR,
-            );
+        // Vérifier si l'utilisateur existe
+        if (!$user) {
+            return response()->json([
+                'message' => 'Utilisateur non trouvé.',
+            ], 404);
         }
+
+        // Générer un OTP (vous pouvez adapter cette logique)
+        $otp = rand(100000, 999999); // Code OTP de 6 chiffres
+
+        // Optionnel : enregistrer l'OTP dans la base de données si vous le souhaitez
+        OtpCode::create([
+            'user_id' => $user->id,
+            'otp' => $otp,
+            'expire_at' => now()->addMinutes(10),
+        ]);
+
+        // Envoyer l'OTP par email
+        Mail::to($user->email)->send(new OtpMail((string)$otp));
+
+        return response()->json([
+            'message' => 'OTP envoyé avec succès à l\'adresse email.',
+        ], 200);
+
+    } catch (\Exception $e) {
+        // Gérer les exceptions et renvoyer un message d'erreur
+        return response()->json([
+            'message' => 'Une erreur s\'est produite lors de l\'authentification : ' . $e->getMessage(),
+        ], 500);
     }
+}
+
 
     /**
      * Login
@@ -120,7 +113,7 @@ final class AuthenticationController extends Controller
     public function login(LoginRequest $request): JsonResource|JsonResponse
     {
         // Authenticate the user using the repository
-        return $this->repositoy->login(request: $request);
+        return $this->repository->login(request: $request);
     }
 
     /**
@@ -148,7 +141,7 @@ final class AuthenticationController extends Controller
     public function loginWithOtp(LoginWithOtpRequest $request): JsonResource|JsonResponse
     {
         // Authenticate the user using the repository
-        return $this->repositoy->loginWithOtp(request: $request);
+        return $this->repository->loginWithOtp(request: $request);
     }
 
     /**

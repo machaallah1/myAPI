@@ -10,7 +10,8 @@
         "ichtrojan/laravel-otp": "^2.0",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "spomky-labs/otphp": "^11.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
