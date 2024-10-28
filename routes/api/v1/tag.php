@@ -5,8 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\api\v1\Tag\TagController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth:sanctum'])
-    ->prefix('tags')
+Route::prefix('tags')
     ->name('tags.')
     ->group(function (): void {
         Route::get('', [TagController::class, 'index'])
@@ -16,14 +15,14 @@ Route::middleware(['auth:sanctum'])
             ->name('pagination');
 
         Route::post('', [TagController::class, 'store'])
-            ->name('store');
+            ->name('store')->middleware('auth:sanctum');
 
         Route::get('/{tag}', [TagController::class, 'show'])
             ->name('show');
 
         Route::put('/{tag}', [TagController::class, 'update'])
-            ->name('update');
+            ->name('update')->middleware('auth:sanctum');
 
         Route::delete('/{tag}', [TagController::class, 'destroy'])
-            ->name('destroy');
+            ->name('destroy')->middleware('auth:sanctum');
     });

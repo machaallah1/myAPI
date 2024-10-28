@@ -11,7 +11,7 @@ class TagRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,29 @@ class TagRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255',
+        ];
+    }
+
+    /**
+     * Retrieves the body parameters for the function.
+     *
+     * @return array<string, array<string, string>>
+     */
+    public function bodyParameters(): array
+    {
+        return [
+            'name' => [
+                'description' => 'The name of the tag.',
+                'type' => 'string',
+                'example' => 'Tag Name',
+            ],
+            'slug' => [
+                'description' => 'The slug of the tag.',
+                'type' => 'string',
+                'example' => 'tag-slug',
+            ],
         ];
     }
 }

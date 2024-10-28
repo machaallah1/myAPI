@@ -140,8 +140,9 @@ final class AuthenticationController extends Controller
      */
     public function loginWithOtp(LoginWithOtpRequest $request): JsonResource|JsonResponse
     {
+        print($request->all());
         // Authenticate the user using the repository
-        return $this->repository->loginWithOtp(request: $request);
+        // return $this->repository->loginWithOtp(request: $request);
     }
 
     /**
@@ -187,6 +188,26 @@ final class AuthenticationController extends Controller
             'error' => $e->getMessage(),
         ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
     }
+}
+
+/**
+ * logout
+ *
+ * Log out a user.
+ *
+ * @header Accept-Language en
+ *
+ * @apiResource \App\Http\Resources\v1\UserResource
+ * @apiResourceModel \App\Models\User
+ * @apiResourceAdditional token="48|78454"
+ * @apiResourceAdditional message="You've been logged out successfully."
+ *
+ * @param  User  $user  The user to log out.
+ * @return JsonResponse The JSON response indicating the result of the logout.
+ */
+public function logout(): JsonResponse
+{
+    return $this->repository->logout();
 }
 
 

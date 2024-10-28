@@ -24,10 +24,9 @@ final class LoginWithOtpRequest extends FormRequest
     public function bodyParameters(): array
     {
         return [
-            'user_id' => [
-                'description' => 'The ID of the user.',
-                'type' => 'integer',
-                'example' => '1',
+            'email' => [
+                'description' => 'The email address of the user.',
+                'example' => 'user@example.com',
             ],
             'otp' => [
                 'description' => 'The OTP code.',

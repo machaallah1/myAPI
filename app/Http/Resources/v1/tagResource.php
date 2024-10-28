@@ -5,7 +5,7 @@ namespace App\Http\Resources\v1;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class tagResource extends JsonResource
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,6 +14,12 @@ class tagResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+       return [
+           'id' => $this->id,
+           'name' => $this->name,
+           'slug' => $this->slug,
+           'createdAt' => $this->created_at,
+           'updatedAt' => $this->updated_at,
+       ];
     }
 }

@@ -5,8 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\api\v1\Comment\CommentController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth:sanctum'])
-    ->prefix('comments')
+Route::prefix('comments')
     ->name('comments.')
     ->group(function (): void {
         Route::get('', [CommentController::class, 'index'])
@@ -16,7 +15,7 @@ Route::middleware(['auth:sanctum'])
             ->name('pagination');
 
         Route::post('', [CommentController::class, 'store'])
-            ->name('store');
+            ->name('store')->middleware('auth:sanctum');
 
         Route::get('/{comment}', [CommentController::class, 'show'])
             ->name('show');
@@ -25,5 +24,5 @@ Route::middleware(['auth:sanctum'])
             ->name('update');
 
         Route::delete('/{comment}', [CommentController::class, 'destroy'])
-            ->name('destroy');
+            ->name('destroy')->middleware('auth:sanctum');
     });

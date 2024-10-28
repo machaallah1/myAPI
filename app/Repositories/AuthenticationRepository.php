@@ -162,7 +162,7 @@ public function login(FormRequest $request): JsonResource|JsonResponse
 
         // Find the OTP code with the given user ID and OTP code
         $otpCode = OtpCode::query()
-            ->where('user_id', $validated['user_id'])
+            ->where('email', $validated['email'])
             ->where('otp', $validated['otp'])
             ->first();
 
@@ -257,5 +257,5 @@ public function login(FormRequest $request): JsonResource|JsonResponse
         return $otpCode->expire_at->isFuture();
     }
 
-    
+
 }
