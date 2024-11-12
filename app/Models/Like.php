@@ -31,4 +31,14 @@ class Like extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get the comment that owns the like.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Comment>
+     */
+    public function comment()
+    {
+        return $this->belongsTo(Comment::class);
+    }
 }

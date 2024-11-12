@@ -11,18 +11,18 @@ Route::prefix('tags')
         Route::get('', [TagController::class, 'index'])
             ->name('index');
 
-        Route::get('pagination', [TagController::class, 'pagination'])
-            ->name('pagination');
+        Route::get('paginate', [TagController::class, 'paginate'])
+            ->name('paginate');
 
         Route::post('', [TagController::class, 'store'])
-            ->name('store')->middleware('auth:sanctum');
+            ->name('store');
 
-        Route::get('/{tag}', [TagController::class, 'show'])
+        Route::get('{id}', [TagController::class, 'show'])
             ->name('show');
 
-        Route::put('/{tag}', [TagController::class, 'update'])
-            ->name('update')->middleware('auth:sanctum');
+        Route::put('{id}', [TagController::class, 'update'])
+            ->name('update');
 
-        Route::delete('/{tag}', [TagController::class, 'destroy'])
-            ->name('destroy')->middleware('auth:sanctum');
+        Route::delete('{id}', [TagController::class, 'destroy'])
+            ->name('destroy');
     });

@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\api\v1\Comment;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Repositories\CommentRepository;
 use App\Http\Resources\v1\CommentResource;
+use App\Http\Requests\v1\Comment\CommentRequest;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -24,9 +26,7 @@ class CommentController extends Controller
      *
      * @param  \App\Repositories\CommentRepository  $commentRepository
      */
-    public function __construct(private readonly CommentRepository $repository)
-    {
-    }
+    public function __construct(private readonly CommentRepository $repository) {}
 
     /**
      * Get the list of comments
@@ -96,7 +96,10 @@ class CommentController extends Controller
     public function destroy(string $id): JsonResponse
     {
         $this->repository->delete($id);
-        return response()->json(['message' => 'Comment deleted successfully.'], status: JsonResponse::HTTP_NO_CONTENT);
+        return response()->json(
+            ['message' => 'Comment deleted successfully.'],
+            status: JsonResponse::HTTP_NO_CONTENT
+        );
     }
 
     /**
@@ -111,15 +114,20 @@ class CommentController extends Controller
      *
      * @response 201 scenario="Success" {"message": "Comment created successfully."}
      *
-     * @param Request $request
      *
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(CommentRequest $request): JsonResponse
     {
-        $validated = $request->validate();
-        $comment = $this->repository->create(attributes:$validated);
-        return response()->json(['message' => 'Comment created successfully.', 'comment' => $comment], status: JsonResponse::HTTP_CREATED);
+        $this->repository->create(
+            attributes: $request->validated(),
+        );
+        return response()->json(
+            [
+                'message' => 'Comment created successfully.',
+            ],
+            status: JsonResponse::HTTP_CREATED
+        );
     }
 
     /**
@@ -133,15 +141,17 @@ class CommentController extends Controller
      *
      * @response 200 scenario="Success" {"message": "Comment updated successfully."}
      *
-     * @param Request $request
      * @param string $id
      *
      * @return JsonResponse
      */
-    public function update(Request $request, string $id): JsonResponse
+    public function update(CommentRequest $request, string $id): JsonResponse
     {
-        $validated = $request->validate();
-        $this->repository->update($id, attributes:$validated);
-        return response()->json(['message' => 'Comment updated successfully.']);
+        $validated = $request->validated();
+        $this->repository->update($id, attributes: $validated);
+        return response()->json(
+            ['message' => 'Comment updated successfully.'],
+            status: JsonResponse::HTTP_OK
+        );
     }
 }

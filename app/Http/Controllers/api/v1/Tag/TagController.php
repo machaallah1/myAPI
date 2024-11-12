@@ -99,9 +99,12 @@ class TagController extends Controller
      */
     public function store(TagRequest $request): JsonResponse
     {
-        $validated = $request->validated();
-        $tag = $this->repository->create(attributes:$validated);
-        return response()->json(['message' => 'Tag created successfully.', 'tag' => $tag], status: JsonResponse::HTTP_CREATED);
+        $this->repository->create(
+            attributes: $request->validated(),
+        );
+        return response()->json([
+            'message' => 'Tag created successfully.',
+        ], status: JsonResponse::HTTP_CREATED);
     }
 
     /**
@@ -115,16 +118,18 @@ class TagController extends Controller
      *
      * @response 200 scenario="Success" {"message": "Tag updated successfully."}
      *
-     * @param Request $request
      * @param string $id
      *
      * @return JsonResponse
      */
-    public function update(Request $request, string $id): JsonResponse
+    public function update(TagRequest $request, string $id): JsonResponse
     {
-        $validated = $request->validate();
+        $validated = $request->validated();
         $this->repository->update($id, attributes:$validated);
-        return response()->json(['message' => 'Tag updated successfully.']);
+        return response()->json([
+            'message' => 'Tag updated successfully.'],
+            status: JsonResponse::HTTP_OK,
+        );
     }
 
     /**
@@ -143,6 +148,8 @@ class TagController extends Controller
     public function destroy(string $id): JsonResponse
     {
         $this->repository->delete($id);
-        return response()->json(['message' => 'Tag deleted successfully.']);
+        return response()->json([
+            'message' => 'Tag deleted successfully.'],
+         status: JsonResponse::HTTP_NO_CONTENT);
     }
 }

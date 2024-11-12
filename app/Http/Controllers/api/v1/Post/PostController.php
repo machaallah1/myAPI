@@ -79,7 +79,7 @@ class PostController extends Controller
     {
         /** @var \App\Models\Post $post */
         $post = $this->repository->find($id);
-        return new PostResource($post);
+        return new PostResource(resource:$post);
     }
 
     /**
@@ -97,15 +97,14 @@ class PostController extends Controller
      */
     public function store(PostRequest $request): JsonResponse
     {
-        $validated = $request->validated();
-
-        $this->repository->create(attributes:$validated);
-
-        /** @var Post $post */
-        $post = Post::query()->where('title', $validated['title'])->first();
-        return response()->json(data:[
+        $this->repository->create(
+            attributes: $request->validated(),
+        );
+        return response()->json(
+            data:[
             'message' => 'Post created successfully.'
-        ], status: JsonResponse::HTTP_CREATED);
+        ],
+         status: JsonResponse::HTTP_CREATED);
     }
 
     /**
@@ -123,7 +122,7 @@ class PostController extends Controller
      *
      * @return JsonResponse
      */
-    public function destroy(int $id): JsonResponse
+    public function destroy(string $id): JsonResponse
     {
         $this->repository->delete($id);
         return response()->json(['message' => 'Post deleted successfully.'],
@@ -141,15 +140,18 @@ class PostController extends Controller
      *
      * @response 200 scenario="Success" {"message": "Post updated successfully."}
      *
-     * @param Request $request
      * @param string $id
      *
      * @return JsonResponse
      */
-    public function update(Request $request, int $id): JsonResponse
+    public function update(PostRequest $request, string $id): JsonResponse
     {
-        $validated = $request->validate();
-        $this->repository->update($id, attributes:$validated);
-        return response()->json(['message' => 'Post updated successfully.'], status: JsonResponse::HTTP_OK);
+        $this->repository->update(
+            id: $id,
+            attributes: $request->validated(),
+        );
+        return response()->json([
+            'message' => 'Post updated successfully.'],
+            status: JsonResponse::HTTP_OK);
     }
 }

@@ -98,9 +98,15 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request): JsonResponse
     {
-        $validated = $request->validate();
-        $category = $this->repository->create(attributes:$validated);
-        return response()->json(['message' => 'Category created successfully.', 'category' => $category], status: JsonResponse::HTTP_CREATED);
+        $this->repository->create(
+            attributes: $request->validated(),
+        );
+
+        return response()->json(
+            data:[
+                'message' => 'Category created successfully.',
+             ],
+              status: JsonResponse::HTTP_CREATED);
     }
 
     /**
@@ -114,16 +120,21 @@ class CategoryController extends Controller
      *
      * @response 200 scenario="Success" {"message": "Category updated successfully."}
      *
-     * @param Request $request
      * @param string $id
      *
      * @return JsonResponse
      */
-    public function update(Request $request, int $id): JsonResponse
+    public function update(CategoryRequest $request, string $id): JsonResponse
     {
-        $validated = $request->validate();
-        $this->repository->update($id, attributes:$validated);
-        return response()->json(['message' => 'Category updated successfully.'], status: JsonResponse::HTTP_OK);
+        $this->repository->update(
+            id: $id,
+            attributes: $request->validated(),
+        );
+        return response()->json(
+         data:[
+            'message' => 'Category updated successfully.',
+        ],
+         status: JsonResponse::HTTP_OK);
     }
 
     /**
@@ -141,9 +152,10 @@ class CategoryController extends Controller
      *
      * @return JsonResponse
      */
-    public function destroy(int $id): JsonResponse
+    public function destroy(string $id): JsonResponse
     {
         $this->repository->delete($id);
-        return response()->json(['message' => 'Category deleted successfully.'], status: JsonResponse::HTTP_NO_CONTENT);
+        return response()->json(['message' => 'Category deleted successfully.'],
+         status: JsonResponse::HTTP_NO_CONTENT);
     }
 }

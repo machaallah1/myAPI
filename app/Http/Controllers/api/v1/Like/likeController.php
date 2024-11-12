@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\api\v1\Like;
 
-use Illuminate\Support\Js;
-use Termwind\Components\Li;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Repositories\LikeRepository;
@@ -71,13 +68,17 @@ class likeController extends Controller
      *
      * @param LikeRequest $request
      *
-     * @return JsonResource
+     * @return JsonResponse
      */
-    public function store(LikeRequest $request): JsonResource
+    public function store(LikeRequest $request): JsonResponse
     {
-        $validated = $request->validated();
-        $like = $this->repository->create(attributes:$validated);
-        return new LikeResource($like);
+        $this->repository->create(
+            attributes: $request->validated(),
+        );
+        return response()->json([
+            'message' => 'Like added successfully.',
+        ],
+            status: JsonResponse::HTTP_CREATED);
     }
 
     /**
@@ -93,6 +94,8 @@ class likeController extends Controller
     public function destroy(string $id): JsonResponse
     {
         $this->repository->delete($id);
-        return response()->json(null, status: JsonResponse::HTTP_NO_CONTENT);
+        return response()->json(
+            ['message' => 'Like deleted successfully.'],
+        status: JsonResponse::HTTP_NO_CONTENT);
     }
 }

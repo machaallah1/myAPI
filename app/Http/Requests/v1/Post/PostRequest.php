@@ -26,7 +26,9 @@ class PostRequest extends FormRequest
             'content' => 'required|string',
             'image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
             'status' => 'nullable|string|max:255',
-            'slug' => 'nullable|string|max:255',
+            'slug' => 'nullable|string|max:255|regex:/^[a-z0-9-]+$/',
+            'user_id' => 'required|integer|exists:users,id',
+            'category_id' => 'required|integer|exists:categories,id',
         ];
     }
 
@@ -62,6 +64,16 @@ class PostRequest extends FormRequest
                 'description' => 'The slug of the post.',
                 'type' => 'string',
                 'example' => 'post-slug',
+            ],
+            'user_id' => [
+                'description' => 'The ID of the user.',
+                'type' => 'integer',
+                'example' => 1,
+            ],
+            'category_id' => [
+                'description' => 'The ID of the category.',
+                'type' => 'integer',
+                'example' => 1,
             ],
         ];
     }

@@ -11,12 +11,12 @@ Route::prefix('likes')
         Route::get('', [LikeController::class, 'index'])
             ->name('index');
 
-        Route::get('pagination', [LikeController::class, 'pagination'])
-            ->name('pagination');
+        Route::get('paginate', [LikeController::class, 'paginate'])
+            ->name('paginate');
 
-        Route::delete('/{like}', [LikeController::class, 'destroy'])
+        Route::delete('/{id}', [LikeController::class, 'destroy'])
             ->name('destroy');
 
         Route::post('', [LikeController::class, 'store'])
-            ->name('store')->middleware('auth:sanctum');
+            ->name('store');
     });

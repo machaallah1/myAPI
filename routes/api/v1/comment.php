@@ -15,14 +15,14 @@ Route::prefix('comments')
             ->name('pagination');
 
         Route::post('', [CommentController::class, 'store'])
-            ->name('store')->middleware('auth:sanctum');
+            ->name('store');
 
-        Route::get('/{comment}', [CommentController::class, 'show'])
+        Route::get('/{id}', [CommentController::class, 'show'])
             ->name('show');
 
-        Route::put('/{comment}', [CommentController::class, 'update'])
+        Route::put('/{id}', [CommentController::class, 'update'])
             ->name('update');
 
-        Route::delete('/{comment}', [CommentController::class, 'destroy'])
-            ->name('destroy')->middleware('auth:sanctum');
+        Route::delete('/{id}', [CommentController::class, 'destroy'])
+            ->name('destroy');
     });

@@ -6,18 +6,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\v1\User\UserRequest;
 use App\Repositories\UserRepository;
 use App\Http\Resources\v1\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-  /**
-     * @group User
-     *
-     * APIs for user
-     *
-     * @authenticated
-     */
+/**
+ * @group User
+ *
+ * APIs for user
+ *
+ * @authenticated
+ */
 class UserController extends Controller
 {
     /**
@@ -26,9 +27,7 @@ class UserController extends Controller
      * @param UserRepository $repository the user repository instance
      */
 
-    public function __construct(private UserRepository $repository)
-    {
-    }
+    public function __construct(private UserRepository $repository) {}
 
 
     /**
@@ -94,15 +93,26 @@ class UserController extends Controller
      *
      * @return JsonResponse
      */
-    public function store(Request $request): JsonResponse
+    public function store(UserRequest $request): JsonResponse
     {
-        $validated = $request-> validate();
-
-        $this->repository->create(attributes:$validated);
+        $validated = $request->validated();
+        $this->repository->create(
+            attributes: $validated
+        );
 
         /** @var \App\Models\User $user */
-        $user = User::query()->where('email', $validated['email'])->first();
-        return response()->json(['message' => 'User created successfully.'], status: JsonResponse::HTTP_CREATED);
+        $user = User::query()
+            ->where(
+                column: 'email',
+                operator: '=',
+                value: $validated['email']
+            )->first();
+        return response()->json(
+            data: [
+                'message' => 'User created successfully.'
+            ],
+            status: JsonResponse::HTTP_CREATED
+        );
     }
 
     /**
@@ -116,16 +126,31 @@ class UserController extends Controller
      *
      * @response 200 scenario="Success" {"message": "User updated successfully."}
      *
-     * @param Request $request
-     * @param int $id
+     * @param UserRequest $request
+     * @param string $id
      *
      * @return JsonResponse
      */
-    public function update(Request $request, int $id): JsonResponse
+    public function update(UserRequest $request, string $id): JsonResponse
     {
-        $validated = $request->validate();
-        $this->repository->update($id, attributes:$validated);
-        return response()->json(['message' => 'User updated successfully.'], status: JsonResponse::HTTP_OK);
+        $validated = $request->validated();
+        $this->repository->update(
+            id: $id,
+            attributes: $validated
+        );
+
+        /** @var \App\Models\User $user */
+        $user = User::query()
+            ->findOrFail(
+                id: $id
+            );
+        return response()->json(
+            data: [
+                'message' => 'User updated successfully.',
+                'data' => new UserResource($user)
+            ],
+            status: JsonResponse::HTTP_OK
+        );
     }
 
     /**

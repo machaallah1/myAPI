@@ -15,14 +15,14 @@ Route::prefix('posts')
             ->name('pagination');
 
         Route::post('', [PostController::class, 'store'])
-            ->name('store')->middleware('auth:sanctum');
+            ->name('store');
 
-        Route::get('/{post}', [PostController::class, 'show'])
+        Route::get('{id}', [PostController::class, 'show'])
             ->name('show');
 
-        Route::put('/{post}', [PostController::class, 'update'])
-            ->name('update')->middleware('auth:sanctum');
+        Route::put('{id}', [PostController::class, 'update'])
+            ->name('update');
 
-        Route::delete('/{post}', [PostController::class, 'destroy'])
-            ->name('destroy')->middleware('auth:sanctum');
+        Route::delete('{id}', [PostController::class, 'destroy'])
+            ->name('destroy');
     });

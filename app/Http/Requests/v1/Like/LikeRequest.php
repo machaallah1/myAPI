@@ -25,7 +25,7 @@ class LikeRequest extends FormRequest
             'user_id' => 'required|exists:users,id',
             'post_id' => 'required|exists:posts,id',
             'liked' => 'required|boolean',
-            'comment_id' => 'nullable|exists:comments,id',
+            'comment_id' => 'nullable|exists:comments,id', // Rendre comment_id optionnel
         ];
     }
 
@@ -50,7 +50,7 @@ class LikeRequest extends FormRequest
                 'example' => 'true',
             ],
             'comment_id' => [
-                'description' => 'The ID of the comment that was liked.',
+                'description' => 'The ID of the comment that was liked, if applicable.',
                 'example' => '1',
             ],
         ];
