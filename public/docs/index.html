@@ -108,9 +108,6 @@
                                                                                 <li class="tocify-item level-2" data-unique="category-PUTapi-v1-categories--id-">
                                 <a href="#category-PUTapi-v1-categories--id-">Update Category</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="category-DELETEapi-v1-categories--id-">
-                                <a href="#category-DELETEapi-v1-categories--id-">Delete Category</a>
-                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-comment" class="tocify-header">
@@ -120,6 +117,9 @@
                                     <ul id="tocify-subheader-comment" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="comment-GETapi-v1-comments">
                                 <a href="#comment-GETapi-v1-comments">Get the list of comments</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="comment-GETapi-v1-comments-paginate">
+                                <a href="#comment-GETapi-v1-comments-paginate">Get a paginate listing of the comment resources.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="comment-POSTapi-v1-comments">
                                 <a href="#comment-POSTapi-v1-comments">Store Comment</a>
@@ -162,8 +162,14 @@
                                                     <li class="tocify-item level-2" data-unique="post-GETapi-v1-posts">
                                 <a href="#post-GETapi-v1-posts">Get the list of posts</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="post-POSTapi-v1-posts">
+                                <a href="#post-POSTapi-v1-posts">Store Post</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="post-GETapi-v1-posts--id-">
                                 <a href="#post-GETapi-v1-posts--id-">Show Post</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="post-PUTapi-v1-posts--id-">
+                                <a href="#post-PUTapi-v1-posts--id-">Update Post</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="post-DELETEapi-v1-posts--id-">
                                 <a href="#post-DELETEapi-v1-posts--id-">Delete Post</a>
@@ -206,8 +212,14 @@
                                                                                 <li class="tocify-item level-2" data-unique="user-GETapi-v1-users-paginate">
                                 <a href="#user-GETapi-v1-users-paginate">Get a paginate listing of the user resources.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-POSTapi-v1-users">
+                                <a href="#user-POSTapi-v1-users">Store User</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-GETapi-v1-users--id-">
                                 <a href="#user-GETapi-v1-users--id-">Show User</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-PUTapi-v1-users--id-">
+                                <a href="#user-PUTapi-v1-users--id-">Update User</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-DELETEapi-v1-users--id-">
                                 <a href="#user-DELETEapi-v1-users--id-">Delete User</a>
@@ -223,7 +235,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: November 12, 2024</li>
+        <li>Last updated: February 24, 2025</li>
     </ul>
 </div>
 
@@ -301,15 +313,20 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 130,
-        &quot;name&quot;: &quot;Kim Hickle&quot;,
-        &quot;email&quot;: &quot;thompson.stephan@example.net&quot;,
-        &quot;emailVerifiedAt&quot;: &quot;2024-11-12T21:52:30.000000Z&quot;,
-        &quot;image&quot;: &quot;https://via.placeholder.com/300x300.png/0011ee?text=people+faker+est&quot;,
-        &quot;phone&quot;: &quot;+1-364-864-2056&quot;,
+        &quot;id&quot;: 66,
+        &quot;lastName&quot;: &quot;Murazik&quot;,
+        &quot;firstName&quot;: &quot;Shawn&quot;,
+        &quot;email&quot;: &quot;anais.jakubowski@example.org&quot;,
+        &quot;emailVerifiedAt&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+        &quot;phone&quot;: &quot;+18035512506&quot;,
         &quot;role&quot;: &quot;auteur&quot;,
-        &quot;createdAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;
+        &quot;image&quot;: &quot;&quot;,
+        &quot;thumbnail&quot;: &quot;&quot;,
+        &quot;createdAt&quot;: {
+            &quot;datetime&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+            &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+            &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:18 PM&quot;
+        }
     },
     &quot;message&quot;: &quot;An OTP code has been successfully sent&quot;
 }</code>
@@ -436,8 +453,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"hohara@example.net\",
-    \"password\": \"repellat\"
+    \"email\": \"izabella.mraz@example.net\",
+    \"password\": \"iure\"
 }"
 </code></pre></div>
 
@@ -454,8 +471,8 @@ const headers = {
 };
 
 let body = {
-    "email": "hohara@example.net",
-    "password": "repellat"
+    "email": "izabella.mraz@example.net",
+    "password": "iure"
 };
 
 fetch(url, {
@@ -474,15 +491,20 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 131,
-        &quot;name&quot;: &quot;Arnold Corkery&quot;,
-        &quot;email&quot;: &quot;keebler.lukas@example.org&quot;,
-        &quot;emailVerifiedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-        &quot;image&quot;: &quot;https://via.placeholder.com/300x300.png/009944?text=people+faker+esse&quot;,
-        &quot;phone&quot;: &quot;(539) 631-0608&quot;,
-        &quot;role&quot;: &quot;auteur&quot;,
-        &quot;createdAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;
+        &quot;id&quot;: 67,
+        &quot;lastName&quot;: &quot;Weissnat&quot;,
+        &quot;firstName&quot;: &quot;Pedro&quot;,
+        &quot;email&quot;: &quot;lubowitz.amani@example.org&quot;,
+        &quot;emailVerifiedAt&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+        &quot;phone&quot;: &quot;+1.678.975.8397&quot;,
+        &quot;role&quot;: &quot;admin&quot;,
+        &quot;image&quot;: &quot;&quot;,
+        &quot;thumbnail&quot;: &quot;&quot;,
+        &quot;createdAt&quot;: {
+            &quot;datetime&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+            &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+            &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:18 PM&quot;
+        }
     },
     &quot;token&quot;: &quot;48|78454&quot;
 }</code>
@@ -575,10 +597,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="hohara@example.net"
+               value="izabella.mraz@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>hohara@example.net</code></p>
+<p>Must be a valid email address. Example: <code>izabella.mraz@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -586,10 +608,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-login"
-               value="repellat"
+               value="iure"
                data-component="body">
     <br>
-<p>Example: <code>repellat</code></p>
+<p>Example: <code>iure</code></p>
         </div>
         </form>
 
@@ -651,15 +673,20 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 132,
-        &quot;name&quot;: &quot;Zoie Toy&quot;,
-        &quot;email&quot;: &quot;lubowitz.tre@example.net&quot;,
-        &quot;emailVerifiedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-        &quot;image&quot;: &quot;https://via.placeholder.com/300x300.png/00ffbb?text=people+faker+et&quot;,
-        &quot;phone&quot;: &quot;+1-228-216-3038&quot;,
-        &quot;role&quot;: &quot;lecteur&quot;,
-        &quot;createdAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;
+        &quot;id&quot;: 68,
+        &quot;lastName&quot;: &quot;Skiles&quot;,
+        &quot;firstName&quot;: &quot;Andrew&quot;,
+        &quot;email&quot;: &quot;jacobi.citlalli@example.org&quot;,
+        &quot;emailVerifiedAt&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+        &quot;phone&quot;: &quot;978-894-8597&quot;,
+        &quot;role&quot;: &quot;auteur&quot;,
+        &quot;image&quot;: &quot;&quot;,
+        &quot;thumbnail&quot;: &quot;&quot;,
+        &quot;createdAt&quot;: {
+            &quot;datetime&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+            &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+            &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:18 PM&quot;
+        }
     },
     &quot;token&quot;: &quot;48|78454&quot;
 }</code>
@@ -976,15 +1003,20 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 133,
-        &quot;name&quot;: &quot;Dorcas Hilpert&quot;,
-        &quot;email&quot;: &quot;zbailey@example.org&quot;,
-        &quot;emailVerifiedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-        &quot;image&quot;: &quot;https://via.placeholder.com/300x300.png/00bb66?text=people+faker+quam&quot;,
-        &quot;phone&quot;: &quot;838-332-7779&quot;,
-        &quot;role&quot;: &quot;admin&quot;,
-        &quot;createdAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-        &quot;updatedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;
+        &quot;id&quot;: 69,
+        &quot;lastName&quot;: &quot;Breitenberg&quot;,
+        &quot;firstName&quot;: &quot;Dee&quot;,
+        &quot;email&quot;: &quot;ghintz@example.com&quot;,
+        &quot;emailVerifiedAt&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+        &quot;phone&quot;: &quot;(480) 540-3701&quot;,
+        &quot;role&quot;: &quot;lecteur&quot;,
+        &quot;image&quot;: &quot;&quot;,
+        &quot;thumbnail&quot;: &quot;&quot;,
+        &quot;createdAt&quot;: {
+            &quot;datetime&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+            &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+            &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:18 PM&quot;
+        }
     },
     &quot;token&quot;: &quot;48|78454&quot;
 }</code>
@@ -1120,11 +1152,17 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 76,
-    &quot;name&quot;: &quot;ducimus&quot;,
-    &quot;slug&quot;: &quot;omnis-pariatur-aut-architecto-corrupti-excepturi-laudantium-eos-est&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;
+    &quot;id&quot;: 43,
+    &quot;name&quot;: &quot;sunt&quot;,
+    &quot;slug&quot;: &quot;eius-eos-est-modi-blanditiis&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:18 PM&quot;
+    },
+    &quot;image&quot;: &quot;&quot;,
+    &quot;thumbnail&quot;: &quot;&quot;,
+    &quot;updatedAt&quot;: &quot;2025-02-24T15:18:58.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -1254,11 +1292,17 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 77,
-    &quot;name&quot;: &quot;porro&quot;,
-    &quot;slug&quot;: &quot;quae-amet-in-animi-eveniet-quaerat-maiores&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:31.000000Z&quot;
+    &quot;id&quot;: 44,
+    &quot;name&quot;: &quot;ut&quot;,
+    &quot;slug&quot;: &quot;molestias-qui-et-officia-ducimus-harum&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:18:59.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:18 PM&quot;
+    },
+    &quot;image&quot;: &quot;&quot;,
+    &quot;thumbnail&quot;: &quot;&quot;,
+    &quot;updatedAt&quot;: &quot;2025-02-24T15:18:59.000000Z&quot;
 }</code>
  </pre>
     </span>
@@ -1357,7 +1401,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/categories/voluptas" \
+    --get "http://localhost/api/v1/categories/recusandae" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1365,7 +1409,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/categories/voluptas"
+    "http://localhost/api/v1/categories/recusandae"
 );
 
 const headers = {
@@ -1395,7 +1439,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;No query results for model [App\\Models\\Category] voluptas&quot;
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Category] recusandae&quot;
 }</code>
  </pre>
     </span>
@@ -1486,10 +1530,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-categories--id-"
-               value="voluptas"
+               value="recusandae"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>voluptas</code></p>
+<p>The ID of the category. Example: <code>recusandae</code></p>
             </div>
                     </form>
 
@@ -1508,13 +1552,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/v1/categories" \
     --header "Accept-Language: en" \
-    --header "Content-Type: application/json" \
+    --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --data "{
-    \"name\": \"Electronics\",
-    \"slug\": \"electronics\"
-}"
-</code></pre></div>
+    --form "name=Electronics"\
+    --form "slug=electronics"\
+    --form "image=@C:\Users\MACHBOY\AppData\Local\Temp\phpCE73.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1524,19 +1566,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 const headers = {
     "Accept-Language": "en",
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
-let body = {
-    "name": "Electronics",
-    "slug": "electronics"
-};
+const body = new FormData();
+body.append('name', 'Electronics');
+body.append('slug', 'electronics');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
-    body: JSON.stringify(body),
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -1548,11 +1590,17 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 78,
-    &quot;name&quot;: &quot;consequatur&quot;,
-    &quot;slug&quot;: &quot;nemo-eaque-unde-debitis-aut&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:32.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:32.000000Z&quot;
+    &quot;id&quot;: 45,
+    &quot;name&quot;: &quot;aut&quot;,
+    &quot;slug&quot;: &quot;corrupti-hic-quia-suscipit-perferendis-et-esse-veritatis&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:18:59.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:18 PM&quot;
+    },
+    &quot;image&quot;: &quot;&quot;,
+    &quot;thumbnail&quot;: &quot;&quot;,
+    &quot;updatedAt&quot;: &quot;2025-02-24T15:18:59.000000Z&quot;
 }</code>
  </pre>
             <blockquote>
@@ -1583,7 +1631,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-v1-categories" data-method="POST"
       data-path="api/v1/categories"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-categories', this);">
@@ -1629,10 +1677,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi-v1-categories"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -1668,6 +1716,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The slug of the category. Must not be greater than 255 characters. Example: <code>electronics</code></p>
         </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="image"                data-endpoint="POSTapi-v1-categories"
+               value=""
+               data-component="body">
+    <br>
+<p>The image of the category. Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\MACHBOY\AppData\Local\Temp\phpCE73.tmp</code></p>
+        </div>
         </form>
 
                     <h2 id="category-PUTapi-v1-categories--id-">Update Category</h2>
@@ -1683,49 +1742,47 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/categories/et" \
+    "http://localhost/api/v1/categories/11" \
     --header "Accept-Language: en" \
-    --header "Content-Type: application/json" \
+    --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --data "{
-    \"name\": \"Electronics\",
-    \"slug\": \"electronics\"
-}"
-</code></pre></div>
+    --form "name=Electronics"\
+    --form "slug=electronics"\
+    --form "image=@C:\Users\MACHBOY\AppData\Local\Temp\phpCEC2.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/categories/et"
+    "http://localhost/api/v1/categories/11"
 );
 
 const headers = {
     "Accept-Language": "en",
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
-let body = {
-    "name": "Electronics",
-    "slug": "electronics"
-};
+const body = new FormData();
+body.append('name', 'Electronics');
+body.append('slug', 'electronics');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
     method: "PUT",
     headers,
-    body: JSON.stringify(body),
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
 <span id="example-responses-PUTapi-v1-categories--id-">
             <blockquote>
-            <p>Example response (200, Success):</p>
+            <p>Example response (200, Updated):</p>
         </blockquote>
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Category updated successfully.&quot;
+    &quot;message&quot;: &quot;Category updated successfully&quot;
 }</code>
  </pre>
     </span>
@@ -1747,7 +1804,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-PUTapi-v1-categories--id-" data-method="PUT"
       data-path="api/v1/categories/{id}"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-categories--id-', this);">
@@ -1793,10 +1850,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="PUTapi-v1-categories--id-"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -1812,14 +1869,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="PUTapi-v1-categories--id-"
-               value="et"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-categories--id-"
+               value="11"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>et</code></p>
+<p>The ID of the category. Example: <code>11</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1844,146 +1901,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The slug of the category. Must not be greater than 255 characters. Example: <code>electronics</code></p>
         </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="image"                data-endpoint="PUTapi-v1-categories--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>The image of the category. Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\MACHBOY\AppData\Local\Temp\phpCEC2.tmp</code></p>
+        </div>
         </form>
-
-                    <h2 id="category-DELETEapi-v1-categories--id-">Delete Category</h2>
-
-<p>
-</p>
-
-<p>Remove the specified resource from storage.</p>
-
-<span id="example-requests-DELETEapi-v1-categories--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/categories/cupiditate" \
-    --header "Accept-Language: en" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/categories/cupiditate"
-);
-
-const headers = {
-    "Accept-Language": "en",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-categories--id-">
-            <blockquote>
-            <p>Example response (204, Success):</p>
-        </blockquote>
-                <pre>
-<code>Empty response</code>
- </pre>
-    </span>
-<span id="execution-results-DELETEapi-v1-categories--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-categories--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-categories--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-categories--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-categories--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-v1-categories--id-" data-method="DELETE"
-      data-path="api/v1/categories/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-categories--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-categories--id-"
-                    onclick="tryItOut('DELETEapi-v1-categories--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-categories--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-categories--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-categories--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/categories/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept-Language</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept-Language"                data-endpoint="DELETEapi-v1-categories--id-"
-               value="en"
-               data-component="header">
-    <br>
-<p>Example: <code>en</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-categories--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-categories--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="DELETEapi-v1-categories--id-"
-               value="cupiditate"
-               data-component="url">
-    <br>
-<p>The ID of the category. Example: <code>cupiditate</code></p>
-            </div>
-                    </form>
 
                 <h1 id="comment">Comment</h1>
 
@@ -2033,10 +1962,9 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 32,
-    &quot;content&quot;: &quot;Doloremque in nesciunt laborum temporibus hic molestias. Dicta qui culpa iusto sunt sed aut. Ea ut quod soluta sequi. Rerum neque perspiciatis aliquid eligendi sequi qui.&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;
+    &quot;id&quot;: null,
+    &quot;content&quot;: null,
+    &quot;createdAt&quot;: null
 }</code>
  </pre>
     </span>
@@ -2122,6 +2050,138 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="comment-GETapi-v1-comments-paginate">Get a paginate listing of the comment resources.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-comments-paginate">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/comments/paginate" \
+    --header "Accept-Language: en" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/comments/paginate"
+);
+
+const headers = {
+    "Accept-Language": "en",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-comments-paginate">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: null,
+    &quot;content&quot;: null,
+    &quot;createdAt&quot;: null
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-comments-paginate" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-comments-paginate"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-comments-paginate"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-comments-paginate" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-comments-paginate">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-comments-paginate" data-method="GET"
+      data-path="api/v1/comments/paginate"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-comments-paginate', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-comments-paginate"
+                    onclick="tryItOut('GETapi-v1-comments-paginate');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-comments-paginate"
+                    onclick="cancelTryOut('GETapi-v1-comments-paginate');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-comments-paginate"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/comments/paginate</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept-Language</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept-Language"                data-endpoint="GETapi-v1-comments-paginate"
+               value="en"
+               data-component="header">
+    <br>
+<p>Example: <code>en</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-comments-paginate"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-comments-paginate"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
                     <h2 id="comment-POSTapi-v1-comments">Store Comment</h2>
 
 <p>
@@ -2179,10 +2239,9 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 33,
-    &quot;content&quot;: &quot;Voluptas quos pariatur et in tenetur corrupti. Ut nemo mollitia aut saepe molestiae. Dolorum odit aliquid nihil praesentium. Et esse tempore qui maiores.&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;
+    &quot;id&quot;: null,
+    &quot;content&quot;: null,
+    &quot;createdAt&quot;: null
 }</code>
  </pre>
             <blockquote>
@@ -2324,7 +2383,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/comments/eum" \
+    --get "http://localhost/api/v1/comments/voluptatibus" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2332,7 +2391,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/comments/eum"
+    "http://localhost/api/v1/comments/voluptatibus"
 );
 
 const headers = {
@@ -2355,10 +2414,9 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 34,
-    &quot;content&quot;: &quot;Excepturi perspiciatis nulla pariatur enim perspiciatis dolores. Quibusdam inventore aperiam dicta eos nihil nesciunt. Occaecati praesentium minima nihil animi sit praesentium et.&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;
+    &quot;id&quot;: null,
+    &quot;content&quot;: null,
+    &quot;createdAt&quot;: null
 }</code>
  </pre>
     </span>
@@ -2449,10 +2507,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-comments--id-"
-               value="eum"
+               value="voluptatibus"
                data-component="url">
     <br>
-<p>The ID of the comment. Example: <code>eum</code></p>
+<p>The ID of the comment. Example: <code>voluptatibus</code></p>
             </div>
                     </form>
 
@@ -2469,7 +2527,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/comments/vel" \
+    "http://localhost/api/v1/comments/rerum" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2483,7 +2541,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/comments/vel"
+    "http://localhost/api/v1/comments/rerum"
 );
 
 const headers = {
@@ -2604,10 +2662,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-comments--id-"
-               value="vel"
+               value="rerum"
                data-component="url">
     <br>
-<p>The ID of the comment. Example: <code>vel</code></p>
+<p>The ID of the comment. Example: <code>rerum</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2658,7 +2716,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/comments/tempore" \
+    "http://localhost/api/v1/comments/voluptas" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2666,7 +2724,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/comments/tempore"
+    "http://localhost/api/v1/comments/voluptas"
 );
 
 const headers = {
@@ -2777,10 +2835,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-comments--id-"
-               value="tempore"
+               value="voluptas"
                data-component="url">
     <br>
-<p>The ID of the comment. Example: <code>tempore</code></p>
+<p>The ID of the comment. Example: <code>voluptas</code></p>
             </div>
                     </form>
 
@@ -2832,10 +2890,10 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 13,
-    &quot;liked&quot;: 1,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;
+    &quot;id&quot;: null,
+    &quot;liked&quot;: null,
+    &quot;createdAt&quot;: null,
+    &quot;updatedAt&quot;: null
 }</code>
  </pre>
     </span>
@@ -2965,10 +3023,10 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 14,
-    &quot;liked&quot;: 1,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:33.000000Z&quot;
+    &quot;id&quot;: null,
+    &quot;liked&quot;: null,
+    &quot;createdAt&quot;: null,
+    &quot;updatedAt&quot;: null
 }</code>
  </pre>
     </span>
@@ -3067,14 +3125,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/likes/9" \
+    "http://localhost/api/v1/likes/6" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/likes/9"
+    "http://localhost/api/v1/likes/6"
 );
 
 const headers = {
@@ -3096,10 +3154,10 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 15,
-    &quot;liked&quot;: 1,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;
+    &quot;id&quot;: null,
+    &quot;liked&quot;: null,
+    &quot;createdAt&quot;: null,
+    &quot;updatedAt&quot;: null
 }</code>
  </pre>
     </span>
@@ -3179,10 +3237,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-likes--id-"
-               value="9"
+               value="6"
                data-component="url">
     <br>
-<p>The ID of the like. Example: <code>9</code></p>
+<p>The ID of the like. Example: <code>6</code></p>
             </div>
                     </form>
 
@@ -3243,10 +3301,10 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 16,
-    &quot;liked&quot;: 0,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;
+    &quot;id&quot;: null,
+    &quot;liked&quot;: null,
+    &quot;createdAt&quot;: null,
+    &quot;updatedAt&quot;: null
 }</code>
  </pre>
     </span>
@@ -3424,14 +3482,14 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 68,
-    &quot;title&quot;: &quot;Accusamus beatae excepturi qui sit ipsa molestiae iusto enim.&quot;,
-    &quot;content&quot;: &quot;Ipsum vel est provident ex tempore quia corrupti pariatur. Et voluptatem hic porro quisquam. Praesentium corrupti cupiditate et sit molestias autem cumque.&quot;,
-    &quot;image&quot;: &quot;https://via.placeholder.com/300x300.png/009944?text=people+faker+ipsa&quot;,
+    &quot;id&quot;: null,
+    &quot;title&quot;: &quot;Tenetur aut natus aspernatur tenetur.&quot;,
+    &quot;content&quot;: &quot;Est hic porro doloremque impedit voluptatibus est nemo. Modi sed accusantium voluptas iure qui. Consequatur ipsam ipsam veritatis eligendi nobis omnis rem. In rerum sit porro ea.&quot;,
     &quot;status&quot;: &quot;published&quot;,
-    &quot;slug&quot;: &quot;accusantium-sit-alias-ex-voluptatem-quidem-suscipit&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;
+    &quot;slug&quot;: &quot;architecto-eligendi-commodi-odit-natus&quot;,
+    &quot;createdAt&quot;: null,
+    &quot;image&quot;: &quot;&quot;,
+    &quot;thumbnail&quot;: &quot;&quot;
 }</code>
  </pre>
     </span>
@@ -3517,6 +3575,253 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="post-POSTapi-v1-posts">Store Post</h2>
+
+<p>
+</p>
+
+<p>Store a newly created resource in storage.</p>
+
+<span id="example-requests-POSTapi-v1-posts">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/posts" \
+    --header "Accept-Language: en" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "title=Post Title"\
+    --form "content=Post Content"\
+    --form "status=Post Status"\
+    --form "slug=post-slug"\
+    --form "user_id=1"\
+    --form "category_id=1"\
+    --form "tag_id[]=dolorem"\
+    --form "image=@C:\Users\MACHBOY\AppData\Local\Temp\phpD3E4.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/posts"
+);
+
+const headers = {
+    "Accept-Language": "en",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('title', 'Post Title');
+body.append('content', 'Post Content');
+body.append('status', 'Post Status');
+body.append('slug', 'post-slug');
+body.append('user_id', '1');
+body.append('category_id', '1');
+body.append('tag_id[]', 'dolorem');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-posts">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: null,
+    &quot;title&quot;: &quot;Non odit nulla quia accusantium.&quot;,
+    &quot;content&quot;: &quot;Quia et beatae repudiandae magnam aut quaerat in perferendis. Reprehenderit eveniet explicabo vero ut ex. Distinctio repudiandae ut labore.&quot;,
+    &quot;status&quot;: &quot;published&quot;,
+    &quot;slug&quot;: &quot;quas-ullam-earum-excepturi-est-hic-eum&quot;,
+    &quot;createdAt&quot;: null,
+    &quot;image&quot;: &quot;&quot;,
+    &quot;thumbnail&quot;: &quot;&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-posts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-posts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-posts"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-posts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-posts">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-posts" data-method="POST"
+      data-path="api/v1/posts"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-posts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-posts"
+                    onclick="tryItOut('POSTapi-v1-posts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-posts"
+                    onclick="cancelTryOut('POSTapi-v1-posts');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-posts"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/posts</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept-Language</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept-Language"                data-endpoint="POSTapi-v1-posts"
+               value="en"
+               data-component="header">
+    <br>
+<p>Example: <code>en</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-posts"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-posts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="POSTapi-v1-posts"
+               value="Post Title"
+               data-component="body">
+    <br>
+<p>The title of the post. Must not be greater than 255 characters. Example: <code>Post Title</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>content</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="content"                data-endpoint="POSTapi-v1-posts"
+               value="Post Content"
+               data-component="body">
+    <br>
+<p>The content of the post. Example: <code>Post Content</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="POSTapi-v1-posts"
+               value="Post Status"
+               data-component="body">
+    <br>
+<p>The status of the post. Must not be greater than 255 characters. Example: <code>Post Status</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="POSTapi-v1-posts"
+               value="post-slug"
+               data-component="body">
+    <br>
+<p>The slug of the post. Must match the regex /^[a-z0-9-]+$/. Must not be greater than 255 characters. Example: <code>post-slug</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="POSTapi-v1-posts"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the user. The <code>id</code> of an existing record in the users table. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="category_id"                data-endpoint="POSTapi-v1-posts"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the category. The <code>id</code> of an existing record in the categories table. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="image"                data-endpoint="POSTapi-v1-posts"
+               value=""
+               data-component="body">
+    <br>
+<p>The image of the post. Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\MACHBOY\AppData\Local\Temp\phpD3E4.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tag_id</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tag_id[0]"                data-endpoint="POSTapi-v1-posts"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="tag_id[1]"                data-endpoint="POSTapi-v1-posts"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the tags table.</p>
+        </div>
+        </form>
+
                     <h2 id="post-GETapi-v1-posts--id-">Show Post</h2>
 
 <p>
@@ -3530,7 +3835,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/posts/temporibus" \
+    --get "http://localhost/api/v1/posts/dolore" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3538,7 +3843,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/posts/temporibus"
+    "http://localhost/api/v1/posts/dolore"
 );
 
 const headers = {
@@ -3556,7 +3861,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-posts--id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -3568,7 +3873,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Post] dolore&quot;
 }</code>
  </pre>
     </span>
@@ -3659,12 +3964,264 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-posts--id-"
-               value="temporibus"
+               value="dolore"
                data-component="url">
     <br>
-<p>The ID of the post. Example: <code>temporibus</code></p>
+<p>The ID of the post. Example: <code>dolore</code></p>
             </div>
                     </form>
+
+                    <h2 id="post-PUTapi-v1-posts--id-">Update Post</h2>
+
+<p>
+</p>
+
+<p>Update the specified resource in storage.</p>
+
+<span id="example-requests-PUTapi-v1-posts--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/v1/posts/aperiam" \
+    --header "Accept-Language: en" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "title=Post Title"\
+    --form "content=Post Content"\
+    --form "status=Post Status"\
+    --form "slug=post-slug"\
+    --form "user_id=1"\
+    --form "category_id=1"\
+    --form "tag_id[]=voluptatem"\
+    --form "image=@C:\Users\MACHBOY\AppData\Local\Temp\phpD433.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/posts/aperiam"
+);
+
+const headers = {
+    "Accept-Language": "en",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('title', 'Post Title');
+body.append('content', 'Post Content');
+body.append('status', 'Post Status');
+body.append('slug', 'post-slug');
+body.append('user_id', '1');
+body.append('category_id', '1');
+body.append('tag_id[]', 'voluptatem');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-posts--id-">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Post updated successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-posts--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-posts--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-posts--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-posts--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-posts--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-posts--id-" data-method="PUT"
+      data-path="api/v1/posts/{id}"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-posts--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-posts--id-"
+                    onclick="tryItOut('PUTapi-v1-posts--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-posts--id-"
+                    onclick="cancelTryOut('PUTapi-v1-posts--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-posts--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/posts/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept-Language</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept-Language"                data-endpoint="PUTapi-v1-posts--id-"
+               value="en"
+               data-component="header">
+    <br>
+<p>Example: <code>en</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-posts--id-"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-posts--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-v1-posts--id-"
+               value="aperiam"
+               data-component="url">
+    <br>
+<p>The ID of the post. Example: <code>aperiam</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PUTapi-v1-posts--id-"
+               value="Post Title"
+               data-component="body">
+    <br>
+<p>The title of the post. Must not be greater than 255 characters. Example: <code>Post Title</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>content</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="content"                data-endpoint="PUTapi-v1-posts--id-"
+               value="Post Content"
+               data-component="body">
+    <br>
+<p>The content of the post. Example: <code>Post Content</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="PUTapi-v1-posts--id-"
+               value="Post Status"
+               data-component="body">
+    <br>
+<p>The status of the post. Must not be greater than 255 characters. Example: <code>Post Status</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="PUTapi-v1-posts--id-"
+               value="post-slug"
+               data-component="body">
+    <br>
+<p>The slug of the post. Must match the regex /^[a-z0-9-]+$/. Must not be greater than 255 characters. Example: <code>post-slug</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="PUTapi-v1-posts--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the user. The <code>id</code> of an existing record in the users table. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="category_id"                data-endpoint="PUTapi-v1-posts--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the category. The <code>id</code> of an existing record in the categories table. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="image"                data-endpoint="PUTapi-v1-posts--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>The image of the post. Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\MACHBOY\AppData\Local\Temp\phpD433.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tag_id</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tag_id[0]"                data-endpoint="PUTapi-v1-posts--id-"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="tag_id[1]"                data-endpoint="PUTapi-v1-posts--id-"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the tags table.</p>
+        </div>
+        </form>
 
                     <h2 id="post-DELETEapi-v1-posts--id-">Delete Post</h2>
 
@@ -3679,7 +4236,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/posts/optio" \
+    "http://localhost/api/v1/posts/accusamus" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3687,7 +4244,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/posts/optio"
+    "http://localhost/api/v1/posts/accusamus"
 );
 
 const headers = {
@@ -3798,10 +4355,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-posts--id-"
-               value="optio"
+               value="accusamus"
                data-component="url">
     <br>
-<p>The ID of the post. Example: <code>optio</code></p>
+<p>The ID of the post. Example: <code>accusamus</code></p>
             </div>
                     </form>
 
@@ -3853,11 +4410,14 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 23,
-    &quot;name&quot;: &quot;sed&quot;,
-    &quot;slug&quot;: &quot;exercitationem-tempore-modi-rerum-maxime-consequatur-a-voluptas&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;
+    &quot;id&quot;: 9,
+    &quot;name&quot;: &quot;ratione&quot;,
+    &quot;slug&quot;: &quot;deserunt-porro-ut-doloribus&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:19:00.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:19 PM&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -3987,11 +4547,14 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 24,
-    &quot;name&quot;: &quot;ut&quot;,
-    &quot;slug&quot;: &quot;aut-repudiandae-occaecati-doloribus-autem&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:34.000000Z&quot;
+    &quot;id&quot;: 10,
+    &quot;name&quot;: &quot;sequi&quot;,
+    &quot;slug&quot;: &quot;voluptatem-amet-enim-aperiam-aspernatur-saepe-dolor-saepe&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:19:00.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:19 PM&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -4132,11 +4695,14 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 25,
-    &quot;name&quot;: &quot;natus&quot;,
-    &quot;slug&quot;: &quot;velit-ut-placeat-ullam-vel&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;
+    &quot;id&quot;: 11,
+    &quot;name&quot;: &quot;labore&quot;,
+    &quot;slug&quot;: &quot;perspiciatis-consequuntur-hic-assumenda-consectetur-nihil&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:19:00.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:19 PM&quot;
+    }
 }</code>
  </pre>
             <blockquote>
@@ -4267,7 +4833,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/tags/alias" \
+    --get "http://localhost/api/v1/tags/sit" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4275,7 +4841,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/tags/alias"
+    "http://localhost/api/v1/tags/sit"
 );
 
 const headers = {
@@ -4298,11 +4864,14 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 26,
-    &quot;name&quot;: &quot;sint&quot;,
-    &quot;slug&quot;: &quot;ut-temporibus-eaque-nisi-pariatur-quis&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;
+    &quot;id&quot;: 12,
+    &quot;name&quot;: &quot;rerum&quot;,
+    &quot;slug&quot;: &quot;reiciendis-fuga-culpa-accusamus-voluptas-rerum&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:19:00.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:19 PM&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -4393,10 +4962,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-tags--id-"
-               value="alias"
+               value="sit"
                data-component="url">
     <br>
-<p>The ID of the tag. Example: <code>alias</code></p>
+<p>The ID of the tag. Example: <code>sit</code></p>
             </div>
                     </form>
 
@@ -4413,7 +4982,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/tags/eum" \
+    "http://localhost/api/v1/tags/itaque" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -4426,7 +4995,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/tags/eum"
+    "http://localhost/api/v1/tags/itaque"
 );
 
 const headers = {
@@ -4546,10 +5115,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-tags--id-"
-               value="eum"
+               value="itaque"
                data-component="url">
     <br>
-<p>The ID of the tag. Example: <code>eum</code></p>
+<p>The ID of the tag. Example: <code>itaque</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4589,7 +5158,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/tags/reiciendis" \
+    "http://localhost/api/v1/tags/ut" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4597,7 +5166,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/tags/reiciendis"
+    "http://localhost/api/v1/tags/ut"
 );
 
 const headers = {
@@ -4711,10 +5280,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-tags--id-"
-               value="reiciendis"
+               value="ut"
                data-component="url">
     <br>
-<p>The ID of the tag. Example: <code>reiciendis</code></p>
+<p>The ID of the tag. Example: <code>ut</code></p>
             </div>
                     </form>
 
@@ -4765,15 +5334,20 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 157,
-    &quot;name&quot;: &quot;Jamison Boyle&quot;,
-    &quot;email&quot;: &quot;jalyn.wintheiser@example.org&quot;,
-    &quot;emailVerifiedAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;,
-    &quot;image&quot;: &quot;https://via.placeholder.com/300x300.png/004422?text=people+faker+autem&quot;,
-    &quot;phone&quot;: &quot;+1.475.878.5587&quot;,
+    &quot;id&quot;: 98,
+    &quot;lastName&quot;: &quot;McDermott&quot;,
+    &quot;firstName&quot;: &quot;Malika&quot;,
+    &quot;email&quot;: &quot;ocartwright@example.net&quot;,
+    &quot;emailVerifiedAt&quot;: &quot;2025-02-24T15:19:01.000000Z&quot;,
+    &quot;phone&quot;: &quot;1-332-353-7525&quot;,
     &quot;role&quot;: &quot;auteur&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;
+    &quot;image&quot;: &quot;&quot;,
+    &quot;thumbnail&quot;: &quot;&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:19:01.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:19 PM&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -4893,15 +5467,20 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 158,
-    &quot;name&quot;: &quot;Dr. Pedro Klein&quot;,
-    &quot;email&quot;: &quot;phackett@example.org&quot;,
-    &quot;emailVerifiedAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;,
-    &quot;image&quot;: &quot;https://via.placeholder.com/300x300.png/009999?text=people+faker+omnis&quot;,
-    &quot;phone&quot;: &quot;(607) 288-7794&quot;,
+    &quot;id&quot;: 99,
+    &quot;lastName&quot;: &quot;Christiansen&quot;,
+    &quot;firstName&quot;: &quot;Manuela&quot;,
+    &quot;email&quot;: &quot;schowalter.ted@example.net&quot;,
+    &quot;emailVerifiedAt&quot;: &quot;2025-02-24T15:19:01.000000Z&quot;,
+    &quot;phone&quot;: &quot;559-480-0534&quot;,
     &quot;role&quot;: &quot;admin&quot;,
-    &quot;createdAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;,
-    &quot;updatedAt&quot;: &quot;2024-11-12T21:52:35.000000Z&quot;
+    &quot;image&quot;: &quot;&quot;,
+    &quot;thumbnail&quot;: &quot;&quot;,
+    &quot;createdAt&quot;: {
+        &quot;datetime&quot;: &quot;2025-02-24T15:19:01.000000Z&quot;,
+        &quot;humanDiff&quot;: &quot;0 seconds ago&quot;,
+        &quot;human&quot;: &quot;Mon, Feb 24, 2025 3:19 PM&quot;
+    }
 }</code>
  </pre>
     </span>
@@ -4987,6 +5566,308 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="user-POSTapi-v1-users">Store User</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Strore a newly created resource in storage.</p>
+
+<span id="example-requests-POSTapi-v1-users">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/users" \
+    --header "Accept-Language: en" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "first_name=John"\
+    --form "last_name=Doe"\
+    --form "email=n9vI3@example.com"\
+    --form "password=password"\
+    --form "role=admin"\
+    --form "phone=123456789"\
+    --form "address[place_id]=dolorem"\
+    --form "address[place_name]=whcxxtcyv"\
+    --form "address[longitude]=499.5"\
+    --form "address[latitude]=259.94172"\
+    --form "address[street_name]=cdtcsybdmcjwpvbvemtwku"\
+    --form "image=@C:\Users\MACHBOY\AppData\Local\Temp\phpD666.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/users"
+);
+
+const headers = {
+    "Accept-Language": "en",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('first_name', 'John');
+body.append('last_name', 'Doe');
+body.append('email', 'n9vI3@example.com');
+body.append('password', 'password');
+body.append('role', 'admin');
+body.append('phone', '123456789');
+body.append('address[place_id]', 'dolorem');
+body.append('address[place_name]', 'whcxxtcyv');
+body.append('address[longitude]', '499.5');
+body.append('address[latitude]', '259.94172');
+body.append('address[street_name]', 'cdtcsybdmcjwpvbvemtwku');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-users">
+            <blockquote>
+            <p>Example response (201, Created):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;User created successfully.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-users" data-method="POST"
+      data-path="api/v1/users"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-users"
+                    onclick="tryItOut('POSTapi-v1-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-users"
+                    onclick="cancelTryOut('POSTapi-v1-users');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/users</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept-Language</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept-Language"                data-endpoint="POSTapi-v1-users"
+               value="en"
+               data-component="header">
+    <br>
+<p>Example: <code>en</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-users"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="first_name"                data-endpoint="POSTapi-v1-users"
+               value="John"
+               data-component="body">
+    <br>
+<p>The first name of the user. Must not be greater than 255 characters. Example: <code>John</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="last_name"                data-endpoint="POSTapi-v1-users"
+               value="Doe"
+               data-component="body">
+    <br>
+<p>The last name of the user. Must not be greater than 255 characters. Example: <code>Doe</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-v1-users"
+               value="n9vI3@example.com"
+               data-component="body">
+    <br>
+<p>The email of the user. Must be a valid email address. Must not be greater than 255 characters. Example: <code>n9vI3@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-v1-users"
+               value="password"
+               data-component="body">
+    <br>
+<p>The password of the user. Must be at least 8 characters. Example: <code>password</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="role"                data-endpoint="POSTapi-v1-users"
+               value="admin"
+               data-component="body">
+    <br>
+<p>The role of the user. Must not be greater than 255 characters. Example: <code>admin</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="phone"                data-endpoint="POSTapi-v1-users"
+               value="123456789"
+               data-component="body">
+    <br>
+<p>The phone number of the user. Must match the regex /^([0-9\s-+()]*)$/. Must be at least 8 characters. Must not be greater than 12 characters. Example: <code>123456789</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="image"                data-endpoint="POSTapi-v1-users"
+               value=""
+               data-component="body">
+    <br>
+<p>The image of the user. Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\MACHBOY\AppData\Local\Temp\phpD666.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>place_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address.place_id"                data-endpoint="POSTapi-v1-users"
+               value="dolorem"
+               data-component="body">
+    <br>
+<p>Example: <code>dolorem</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>place_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address.place_name"                data-endpoint="POSTapi-v1-users"
+               value="whcxxtcyv"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>whcxxtcyv</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>longitude</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="address.longitude"                data-endpoint="POSTapi-v1-users"
+               value="499.5"
+               data-component="body">
+    <br>
+<p>Example: <code>499.5</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>latitude</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="address.latitude"                data-endpoint="POSTapi-v1-users"
+               value="259.94172"
+               data-component="body">
+    <br>
+<p>Example: <code>259.94172</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>street_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address.street_name"                data-endpoint="POSTapi-v1-users"
+               value="cdtcsybdmcjwpvbvemtwku"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>cdtcsybdmcjwpvbvemtwku</code></p>
+                    </div>
+                                    </details>
+        </div>
+        </form>
+
                     <h2 id="user-GETapi-v1-users--id-">Show User</h2>
 
 <p>
@@ -5001,7 +5882,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/users/sit" \
+    --get "http://localhost/api/v1/users/error" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5009,7 +5890,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/sit"
+    "http://localhost/api/v1/users/error"
 );
 
 const headers = {
@@ -5027,7 +5908,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-users--id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -5039,7 +5920,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\User] error&quot;
 }</code>
  </pre>
     </span>
@@ -5130,12 +6011,330 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-users--id-"
-               value="sit"
+               value="error"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>sit</code></p>
+<p>The ID of the user. Example: <code>error</code></p>
             </div>
                     </form>
+
+                    <h2 id="user-PUTapi-v1-users--id-">Update User</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Update the specified resource in storage.</p>
+
+<span id="example-requests-PUTapi-v1-users--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/v1/users/1" \
+    --header "Accept-Language: en" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "first_name=John"\
+    --form "last_name=Doe"\
+    --form "email=n9vI3@example.com"\
+    --form "password=password"\
+    --form "role=admin"\
+    --form "phone=123456789"\
+    --form "address[place_id]=id"\
+    --form "address[place_name]=qlrjdcxoqcds"\
+    --form "address[longitude]=1190215.35"\
+    --form "address[latitude]=33070199.9"\
+    --form "address[street_name]=obfynlchefdiunwwi"\
+    --form "image=@C:\Users\MACHBOY\AppData\Local\Temp\phpD696.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/users/1"
+);
+
+const headers = {
+    "Accept-Language": "en",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('first_name', 'John');
+body.append('last_name', 'Doe');
+body.append('email', 'n9vI3@example.com');
+body.append('password', 'password');
+body.append('role', 'admin');
+body.append('phone', '123456789');
+body.append('address[place_id]', 'id');
+body.append('address[place_name]', 'qlrjdcxoqcds');
+body.append('address[longitude]', '1190215.35');
+body.append('address[latitude]', '33070199.9');
+body.append('address[street_name]', 'obfynlchefdiunwwi');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-users--id-">
+            <blockquote>
+            <p>Example response (200, Updated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+&quot;message&quot;:&quot;User updated successfully&quot;
+ &quot;data&quot;: {
+    // user and address details here
+  }
+
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-users--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-users--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-users--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-users--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-users--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-users--id-" data-method="PUT"
+      data-path="api/v1/users/{id}"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-users--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-users--id-"
+                    onclick="tryItOut('PUTapi-v1-users--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-users--id-"
+                    onclick="cancelTryOut('PUTapi-v1-users--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-users--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/users/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept-Language</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept-Language"                data-endpoint="PUTapi-v1-users--id-"
+               value="en"
+               data-component="header">
+    <br>
+<p>Example: <code>en</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-users--id-"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-users--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-users--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="first_name"                data-endpoint="PUTapi-v1-users--id-"
+               value="John"
+               data-component="body">
+    <br>
+<p>The first name of the user. Must not be greater than 255 characters. Example: <code>John</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="last_name"                data-endpoint="PUTapi-v1-users--id-"
+               value="Doe"
+               data-component="body">
+    <br>
+<p>The last name of the user. Must not be greater than 255 characters. Example: <code>Doe</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="PUTapi-v1-users--id-"
+               value="n9vI3@example.com"
+               data-component="body">
+    <br>
+<p>The email of the user. Must be a valid email address. Must not be greater than 255 characters. Example: <code>n9vI3@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="PUTapi-v1-users--id-"
+               value="password"
+               data-component="body">
+    <br>
+<p>The password of the user. Must be at least 8 characters. Example: <code>password</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="role"                data-endpoint="PUTapi-v1-users--id-"
+               value="admin"
+               data-component="body">
+    <br>
+<p>The role of the user. Must not be greater than 255 characters. Example: <code>admin</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="phone"                data-endpoint="PUTapi-v1-users--id-"
+               value="123456789"
+               data-component="body">
+    <br>
+<p>The phone number of the user. Must match the regex /^([0-9\s-+()]*)$/. Must be at least 8 characters. Must not be greater than 12 characters. Example: <code>123456789</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="image"                data-endpoint="PUTapi-v1-users--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>The image of the user. Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\MACHBOY\AppData\Local\Temp\phpD696.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>place_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address.place_id"                data-endpoint="PUTapi-v1-users--id-"
+               value="id"
+               data-component="body">
+    <br>
+<p>Example: <code>id</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>place_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address.place_name"                data-endpoint="PUTapi-v1-users--id-"
+               value="qlrjdcxoqcds"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>qlrjdcxoqcds</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>longitude</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="address.longitude"                data-endpoint="PUTapi-v1-users--id-"
+               value="1190215.35"
+               data-component="body">
+    <br>
+<p>Example: <code>1190215.35</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>latitude</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="address.latitude"                data-endpoint="PUTapi-v1-users--id-"
+               value="33070199.9"
+               data-component="body">
+    <br>
+<p>Example: <code>33070199.9</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>street_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address.street_name"                data-endpoint="PUTapi-v1-users--id-"
+               value="obfynlchefdiunwwi"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>obfynlchefdiunwwi</code></p>
+                    </div>
+                                    </details>
+        </div>
+        </form>
 
                     <h2 id="user-DELETEapi-v1-users--id-">Delete User</h2>
 
@@ -5151,7 +6350,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/users/consequatur" \
+    "http://localhost/api/v1/users/similique" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5159,7 +6358,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/consequatur"
+    "http://localhost/api/v1/users/similique"
 );
 
 const headers = {
@@ -5270,10 +6469,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-users--id-"
-               value="consequatur"
+               value="similique"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>consequatur</code></p>
+<p>The ID of the user. Example: <code>similique</code></p>
             </div>
                     </form>
 

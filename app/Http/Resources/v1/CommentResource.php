@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1;
 
+use App\Http\Resources\DateTimeResource; // ✅ Corrigé
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,8 +18,7 @@ class CommentResource extends JsonResource
         return [
             'id' => $this->id,
             'content' => $this->content,
-            'createdAt' => $this->created_at,
-            'updatedAt' => $this->updated_at,
+            'createdAt' => new DateTimeResource($this->created_at),
             'user' => UserResource::make($this->whenLoaded('user')),
             'post' => PostResource::make($this->whenLoaded('post')),
             'commentsCount' => $this->whenCounted('comments'),

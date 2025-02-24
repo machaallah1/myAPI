@@ -10,10 +10,10 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Repositories\PostRepository;
 use App\Http\Resources\v1\PostResource;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\v1\Post\PostRequest;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @group Post
@@ -96,23 +96,37 @@ class PostController extends Controller
      */
     public function store(PostRequest $request): JsonResponse
     {
-        // Initialiser les attributs validés de la requête
-        $attributes = $request->validated();
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagePath = $image->store('posts', 'public');
-            $validated['image'] = $imagePath;
+        $validated = $request->validated();
+
+        $this->repository->create(
+            attributes: $validated,
+        );
+
+        /** @var Product $post */
+        $post = Post::query()
+            ->where(
+                column: 'name',
+                operator: '=',
+                value: $validated['name'],
+            )
+            ->first();
+
+        if (isset($validated['image'])) {
+            $post->addMediaFromRequest(key: 'image')
+                ->toMediaCollection(collectionName: 'posts');
         }
-            $this->repository->create(
-                attributes: $attributes,
-            );
-            return response()->json(
-                data: [
-                    'message' => 'Post created successfully.'
-                ],
-                status: JsonResponse::HTTP_CREATED
-            );
+
+        if (isset($validated['tag_id']) && is_array($validated['tag_id'])) {
+            $post->tags()->attach($validated['tag_id']);
         }
+
+        return response()->json(
+            data: [
+                'message' => __('post.created'),
+            ],
+            status: Response::HTTP_CREATED,
+        );
+    }
 
     /**
      * Delete Post
@@ -156,23 +170,61 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, string $id): JsonResponse
     {
-        $attributes = $request->validated();
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('posts', 'public');
-            $attributes['image'] = $path;
-            $post = $this->repository->find($id);
-            if ($post && $post->image) {
-                Storage::disk('public')->delete($post->image);
-            }
-        }
+        $validated = $request->validated();
 
         $this->repository->update(
             id: $id,
-            attributes: $attributes,
+            attributes: collect($validated)->except('image', 'tag_id')->toArray(),
         );
 
-        return response()->json([
-            'message' => 'Post updated successfully.'
-        ], JsonResponse::HTTP_OK);
+        /** @var Post $post */
+        $post = Post::query()
+            ->findOrFail(id: $id);
+
+        if (isset($validated['image'])) {
+            $post->clearMediaCollection('posts');
+            $post->addMediaFromRequest(key: 'image')
+                ->toMediaCollection(collectionName: 'posts');
+        }
+
+        if (isset($validated['tag_id'])) {
+
+            $post->tags()->detach();
+
+
+            $post->tags()->attach($validated['tag_id']);
+        }
+
+        return response()->json(
+            data: [
+                'message' => __('post.updated'),
+            ],
+            status: Response::HTTP_OK,
+        );
+    }
+
+    /**
+     * Search Posts
+     *
+     * Search for posts based on various criteria.
+     *
+     * @header Accept-Language en
+     *
+     * @queryParam keyword string Optional. The search keyword for title or content. Example: "laravel"
+     *
+     * @apiResourceCollection \App\Http\Resources\v1\PostResource
+     * @apiResourceModel \App\Models\Post
+     *
+     * @param Request $request
+     * @return AnonymousResourceCollection
+     *
+     * @unauthenticated
+     */
+    public function search(Request $request): AnonymousResourceCollection
+    {
+        $criteria = $request->only(['keyword']);
+        $posts = $this->repository->searchPosts($criteria);
+
+        return PostResource::collection($posts);
     }
 }

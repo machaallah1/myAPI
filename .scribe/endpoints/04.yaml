@@ -32,7 +32,136 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":68,"title":"Accusamus beatae excepturi qui sit ipsa molestiae iusto enim.","content":"Ipsum vel est provident ex tempore quia corrupti pariatur. Et voluptatem hic porro quisquam. Praesentium corrupti cupiditate et sit molestias autem cumque.","image":"https:\/\/via.placeholder.com\/300x300.png\/009944?text=people+faker+ipsa","status":"published","slug":"accusantium-sit-alias-ex-voluptatem-quidem-suscipit","createdAt":"2024-11-12T21:52:34.000000Z","updatedAt":"2024-11-12T21:52:34.000000Z"}'
+        content: '{"id":null,"title":"Tenetur aut natus aspernatur tenetur.","content":"Est hic porro doloremque impedit voluptatibus est nemo. Modi sed accusantium voluptas iure qui. Consequatur ipsam ipsam veritatis eligendi nobis omnis rem. In rerum sit porro ea.","status":"published","slug":"architecto-eligendi-commodi-odit-natus","createdAt":null,"image":"","thumbnail":""}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/posts
+    metadata:
+      groupName: Post
+      groupDescription: |-
+
+        APIs for post management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store Post'
+      description: 'Store a newly created resource in storage.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'The title of the post. Must not be greater than 255 characters.'
+        required: true
+        example: 'Post Title'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      content:
+        name: content
+        description: 'The content of the post.'
+        required: true
+        example: 'Post Content'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: 'The status of the post. Must not be greater than 255 characters.'
+        required: false
+        example: 'Post Status'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      slug:
+        name: slug
+        description: 'The slug of the post. Must match the regex /^[a-z0-9-]+$/. Must not be greater than 255 characters.'
+        required: false
+        example: post-slug
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      user_id:
+        name: user_id
+        description: 'The ID of the user. The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category_id:
+        name: category_id
+        description: 'The ID of the category. The <code>id</code> of an existing record in the categories table.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      image:
+        name: image
+        description: 'The image of the post. Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      tag_id:
+        name: tag_id
+        description: 'The <code>id</code> of an existing record in the tags table.'
+        required: false
+        example:
+          - dolorem
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      title: 'Post Title'
+      content: 'Post Content'
+      status: 'Post Status'
+      slug: post-slug
+      user_id: 1
+      category_id: 1
+      tag_id:
+        - dolorem
+    fileParameters:
+      image: null
+    responses:
+      -
+        status: 200
+        content: '{"id":null,"title":"Non odit nulla quia accusantium.","content":"Quia et beatae repudiandae magnam aut quaerat in perferendis. Reprehenderit eveniet explicabo vero ut ex. Distinctio repudiandae ut labore.","status":"published","slug":"quas-ullam-earum-excepturi-est-hic-eum","createdAt":null,"image":"","thumbnail":""}'
         headers: []
         description: ''
         custom: []
@@ -66,14 +195,14 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: temporibus
+        example: dolore
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: temporibus
+      id: dolore
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -81,13 +210,156 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Post] dolore"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/posts/{id}'
+    metadata:
+      groupName: Post
+      groupDescription: |-
+
+        APIs for post management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Post'
+      description: 'Update the specified resource in storage.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: aperiam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: aperiam
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'The title of the post. Must not be greater than 255 characters.'
+        required: true
+        example: 'Post Title'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      content:
+        name: content
+        description: 'The content of the post.'
+        required: true
+        example: 'Post Content'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      status:
+        name: status
+        description: 'The status of the post. Must not be greater than 255 characters.'
+        required: false
+        example: 'Post Status'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      slug:
+        name: slug
+        description: 'The slug of the post. Must match the regex /^[a-z0-9-]+$/. Must not be greater than 255 characters.'
+        required: false
+        example: post-slug
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      user_id:
+        name: user_id
+        description: 'The ID of the user. The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category_id:
+        name: category_id
+        description: 'The ID of the category. The <code>id</code> of an existing record in the categories table.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      image:
+        name: image
+        description: 'The image of the post. Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      tag_id:
+        name: tag_id
+        description: 'The <code>id</code> of an existing record in the tags table.'
+        required: false
+        example:
+          - voluptatem
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      title: 'Post Title'
+      content: 'Post Content'
+      status: 'Post Status'
+      slug: post-slug
+      user_id: 1
+      category_id: 1
+      tag_id:
+        - voluptatem
+    fileParameters:
+      image: null
+    responses:
+      -
+        status: 200
+        content: '{"message": "Post updated successfully."}'
+        headers: []
+        description: Success
         custom: []
     responseFields: []
     auth: []
@@ -119,14 +391,14 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: optio
+        example: accusamus
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: optio
+      id: accusamus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

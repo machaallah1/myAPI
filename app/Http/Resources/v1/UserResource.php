@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1;
 
+use App\Http\Resources\DateTimeResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,15 +20,29 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'lastName' => $this->last_name,
+            'firstName' => $this->first_name,
             'email' => $this->email,
             'emailVerifiedAt' => $this->email_verified_at,
-            'image' => $this->image,
             'phone' => $this->phone,
             'role' => $this->role,
-            'createdAt' => $this->created_at,
-            'updatedAt' => $this->updated_at,
+            'image' => $this->getFirstMediaUrl(collectionName: 'users'),
+            'thumbnail' => $this->getFirstMediaUrl(
+                collectionName: 'users',
+                conversionName: 'thumb',
+            ),
             'usersCount' => $this->whenCounted('users'),
+            'addressesCount' => $this->whenCounted(
+                relationship: 'addresses',
+            ),
+            'addresses' => AddressResource::collection(
+                resource: $this->whenLoaded(
+                    relationship: 'addresses',
+                ),
+            ),
+            'createdAt' => new DateTimeResource(
+                resource: $this->created_at,
+            ),
         ];
     }
 }

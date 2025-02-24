@@ -103,4 +103,65 @@ abstract class Repository implements RepositoryContract
             attempts: 3,
         );
     }
+
+/**
+     * Search for products based on specified criteria.
+     *
+     * @param array<string, mixed> $criteria
+     * @return \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Database\Eloquent\Model>
+     */
+    public function searchPosts(array $criteria): Collection
+    {
+        $query = $this->query;
+
+        if ( ! empty($criteria['keyword']) && is_string($criteria['keyword'])) {
+            $keyword = $criteria['keyword'];
+            $query->where(function ($q) use ($keyword): void {
+                $q->where('name', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('description', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('mention', 'LIKE', '%' . $keyword . '%');
+            });
+        }
+
+        return $query->get();
+    }
+
+/**
+     * @param array<string,mixed> $attributes
+     *
+     * @return Model
+     */
+    public function store(array $attributes): Model
+    {
+        return $this->database->transaction(
+            callback: fn() => $this->query->create(
+                attributes: $attributes,
+            ),
+            attempts: 3,
+        );
+    }
+/**
+     * Retrieve products by category ID.
+     *
+     * @param string $categoryId
+     * @return Collection<int, Model>
+     */
+    public function findByCategoryId(string $categoryId): Collection
+    {
+        return $this->query->where('category_id', $categoryId)->get();
+    }
+
+
+    /**
+     * Retrieve products by tag ID.
+     *
+     * @param string $tagId
+     * @return \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Database\Eloquent\Model>
+     */
+    public function findByTagId(string $tagId): Collection
+    {
+        return $this->query->whereHas('tags', function ($query) use ($tagId): void {
+            $query->where('tags.id', $tagId);
+        })->get();
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1;
 
+use App\Http\Resources\DateTimeResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -18,8 +19,17 @@ class CategoryResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'createdAt' => $this->created_at,
+            'createdAt' => new DateTimeResource(
+                resource: $this->created_at,
+            ),
             'posts' => PostResource::collection($this->whenLoaded('posts')),
+
+            'image' => $this->getFirstMediaUrl(collectionName: 'categories'),
+            'thumbnail' => $this->getFirstMediaUrl(
+                collectionName: 'categories',
+                conversionName: 'thumb',
+            ),
+
             'updatedAt' => $this->updated_at,
             'postsCount' => $this->whenCounted('posts'),
         ];

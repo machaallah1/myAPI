@@ -24,11 +24,20 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
             'status' => 'nullable|string|max:255',
             'slug' => 'nullable|string|max:255|regex:/^[a-z0-9-]+$/',
             'user_id' => 'required|integer|exists:users,id',
             'category_id' => 'required|integer|exists:categories,id',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            'tag_id' => [
+                'nullable',
+                'array',
+            ],
+            'tag_id.*' => [
+                'string',
+                'exists:tags,id',
+            ],
         ];
     }
 
@@ -52,8 +61,7 @@ class PostRequest extends FormRequest
             ],
             'image' => [
                 'description' => 'The image of the post.',
-                'type' => 'string',
-                'example' => 'Post Image',
+                'type' => 'file',
             ],
             'status' => [
                 'description' => 'The status of the post.',
@@ -74,6 +82,11 @@ class PostRequest extends FormRequest
                 'description' => 'The ID of the category.',
                 'type' => 'integer',
                 'example' => 1,
+            ],
+            'tag_id' => [
+                'description' => 'List of tag IDs associated with the product.',
+                'type' => 'string',
+                'example' => '1, 2, 3',
             ],
         ];
     }

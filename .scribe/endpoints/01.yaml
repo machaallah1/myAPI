@@ -32,7 +32,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":76,"name":"ducimus","slug":"omnis-pariatur-aut-architecto-corrupti-excepturi-laudantium-eos-est","createdAt":"2024-11-12T21:52:31.000000Z","updatedAt":"2024-11-12T21:52:31.000000Z"}'
+        content: '{"id":43,"name":"sunt","slug":"eius-eos-est-modi-blanditiis","createdAt":{"datetime":"2025-02-24T15:18:58.000000Z","humanDiff":"0 seconds ago","human":"Mon, Feb 24, 2025 3:18 PM"},"image":"","thumbnail":"","updatedAt":"2025-02-24T15:18:58.000000Z"}'
         headers: []
         description: ''
         custom: []
@@ -71,7 +71,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":77,"name":"porro","slug":"quae-amet-in-animi-eveniet-quaerat-maiores","createdAt":"2024-11-12T21:52:31.000000Z","updatedAt":"2024-11-12T21:52:31.000000Z"}'
+        content: '{"id":44,"name":"ut","slug":"molestias-qui-et-officia-ducimus-harum","createdAt":{"datetime":"2025-02-24T15:18:59.000000Z","humanDiff":"0 seconds ago","human":"Mon, Feb 24, 2025 3:18 PM"},"image":"","thumbnail":"","updatedAt":"2025-02-24T15:18:59.000000Z"}'
         headers: []
         description: ''
         custom: []
@@ -105,14 +105,14 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: voluptas
+        example: recusandae
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: voluptas
+      id: recusandae
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -123,7 +123,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Category] voluptas"
+              "message": "No query results for model [App\\Models\\Category] recusandae"
           }
         headers:
           cache-control: 'no-cache, private'
@@ -154,7 +154,7 @@ endpoints:
       custom: []
     headers:
       Accept-Language: en
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
@@ -181,14 +181,25 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      image:
+        name: image
+        description: 'The image of the category. Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
       name: Electronics
       slug: electronics
-    fileParameters: []
+    fileParameters:
+      image: null
     responses:
       -
         status: 200
-        content: '{"id":78,"name":"consequatur","slug":"nemo-eaque-unde-debitis-aut","createdAt":"2024-11-12T21:52:32.000000Z","updatedAt":"2024-11-12T21:52:32.000000Z"}'
+        content: '{"id":45,"name":"aut","slug":"corrupti-hic-quia-suscipit-perferendis-et-esse-veritatis","createdAt":{"datetime":"2025-02-24T15:18:59.000000Z","humanDiff":"0 seconds ago","human":"Mon, Feb 24, 2025 3:18 PM"},"image":"","thumbnail":"","updatedAt":"2025-02-24T15:18:59.000000Z"}'
         headers: []
         description: ''
         custom: []
@@ -221,21 +232,21 @@ endpoints:
       custom: []
     headers:
       Accept-Language: en
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       id:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: et
-        type: string
+        example: 11
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: et
+      id: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -259,66 +270,30 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      image:
+        name: image
+        description: 'The image of the category. Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
       name: Electronics
       slug: electronics
-    fileParameters: []
+    fileParameters:
+      image: null
     responses:
       -
         status: 200
-        content: '{"message": "Category updated successfully."}'
+        content: |-
+          {
+            "message":"Category updated successfully"
+          }
         headers: []
-        description: Success
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/categories/{id}'
-    metadata:
-      groupName: Category
-      groupDescription: |-
-
-        APIs for category management
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Delete Category'
-      description: 'Remove the specified resource from storage.'
-      authenticated: false
-      custom: []
-    headers:
-      Accept-Language: en
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the category.'
-        required: true
-        example: cupiditate
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: cupiditate
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 204
-        content: '{"message": "Category deleted successfully."}'
-        headers: []
-        description: Success
+        description: Updated
         custom: []
     responseFields: []
     auth: []

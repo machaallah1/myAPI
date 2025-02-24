@@ -39,7 +39,7 @@ final class AuthenticationController extends Controller
      * Authenticate the user.
      *
      * Authenticates the user and sends an OTP (One-Time Password) to the user.
-     * The OTP is sent using the SMS service.
+     * The OTP is sent using the mail service.
      * Used for login and registration.
      *
      * @header Accept-Language en

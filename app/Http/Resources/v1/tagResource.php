@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1;
 
+use App\Http\Resources\DateTimeResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -16,10 +17,12 @@ class TagResource extends JsonResource
     {
        return [
            'id' => $this->id,
-           'name' => $this->name,
-           'slug' => $this->slug,
-           'createdAt' => $this->created_at,
-           'updatedAt' => $this->updated_at,
+            'name' => $this->name,
+            'slug' => $this->slug,
+
+            'createdAt' => new DateTimeResource(
+                resource: $this->created_at,
+            ),
        ];
     }
 }

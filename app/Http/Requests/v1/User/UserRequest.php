@@ -22,12 +22,19 @@ class UserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|min:8',
             'role' => 'required|string|max:255',
             'phone' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:8|max:12',
             'image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'address' => ['nullable', 'array'],
+            'address.place_id' => ['nullable', 'string'],
+            'address.place_name' => ['nullable', 'string', 'max:255'],
+            'address.longitude' => ['nullable', 'numeric'],
+            'address.latitude' => ['nullable', 'numeric'],
+            'address.street_name' => ['nullable', 'string', 'max:255'],
         ];
     }
 
@@ -39,10 +46,15 @@ class UserRequest extends FormRequest
     public function bodyParameters(): array
     {
         return [
-            'name' => [
-                'description' => 'The name of the user.',
+            'last_name' => [
+                'description' => 'The last name of the user.',
                 'type' => 'string',
-                'example' => 'John Doe',
+                'example' => 'Doe',
+            ],
+            'first_name' => [
+                'description' => 'The first name of the user.',
+                'type' => 'string',
+                'example' => 'John',
             ],
             'email' => [
                 'description' => 'The email of the user.',
@@ -67,7 +79,6 @@ class UserRequest extends FormRequest
             'image' => [
                 'description' => 'The image of the user.',
                 'type' => 'file',
-                'example' => 'image.png',
             ],
         ];
     }

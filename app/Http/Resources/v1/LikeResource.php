@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1;
 
+use App\Http\Resources\DateTimeResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,7 +18,9 @@ class LikeResource extends JsonResource
         return [
             'id' => $this->id,
             'liked' => $this->liked,
-            'createdAt' => $this->created_at,
+            'createdAt' => new DateTimeResource(
+                resource: $this->created_at,
+            ),
             'updatedAt' => $this->updated_at,
             'user' => UserResource::make($this->whenLoaded('user')),
             'post' => PostResource::make($this->whenLoaded('post')),

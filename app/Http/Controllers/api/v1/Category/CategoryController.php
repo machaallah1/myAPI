@@ -12,6 +12,7 @@ use App\Http\Resources\v1\CategoryResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Requests\v1\Category\CategoryRequest;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @group Category
@@ -98,15 +99,32 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request): JsonResponse
     {
+        $validated = $request->validated();
+
         $this->repository->create(
-            attributes: $request->validated(),
+            attributes: $validated,
         );
 
+        /** @var Category $category */
+        $category = Category::query()
+            ->where(
+                column: 'name',
+                operator: '=',
+                value: $validated['name'],
+            )
+            ->first();
+
+        if (isset($validated['image'])) {
+            $category->addMediaFromRequest(key: 'image')
+                ->toMediaCollection(collectionName: 'categories');
+        }
+
         return response()->json(
-            data:[
-                'message' => 'Category created successfully.',
-             ],
-              status: JsonResponse::HTTP_CREATED);
+            data: [
+                'message' => __('category.created'),
+            ],
+            status: Response::HTTP_CREATED,
+        );
     }
 
     /**
@@ -116,46 +134,34 @@ class CategoryController extends Controller
      *
      * @header Accept-Language en
      *
-     * @urlParam id string required The ID of the category.
-     *
-     * @response 200 scenario="Success" {"message": "Category updated successfully."}
-     *
-     * @param string $id
-     *
-     * @return JsonResponse
+     * @response 200 scenario="Updated"{
+     *   "message":"Category updated successfully"
+     * }
      */
     public function update(CategoryRequest $request, string $id): JsonResponse
     {
+        $validated = $request->validated();
+
         $this->repository->update(
             id: $id,
-            attributes: $request->validated(),
+            attributes: collect($validated)->except('image')->toArray(),
         );
-        return response()->json(
-         data:[
-            'message' => 'Category updated successfully.',
-        ],
-         status: JsonResponse::HTTP_OK);
-    }
 
-    /**
-     * Delete Category
-     *
-     * Remove the specified resource from storage.
-     *
-     * @header Accept-Language en
-     *
-     * @urlParam id string required The ID of the category.
-     *
-     * @response 204 scenario="Success" {"message": "Category deleted successfully."}
-     *
-     * @param string $id
-     *
-     * @return JsonResponse
-     */
-    public function destroy(string $id): JsonResponse
-    {
-        $this->repository->delete($id);
-        return response()->json(['message' => 'Category deleted successfully.'],
-         status: JsonResponse::HTTP_NO_CONTENT);
+        /** @var Category $category */
+        $category = Category::query()
+            ->findOrFail(id: $id);
+
+        if (isset($validated['image'])) {
+            $category->clearMediaCollection('categories');
+            $category->addMediaFromRequest(key: 'image')
+                ->toMediaCollection(collectionName: 'categories');
+        }
+
+        return response()->json(
+            data: [
+                'message' => __('category.updated'),
+            ],
+            status: Response::HTTP_OK,
+        );
     }
 }

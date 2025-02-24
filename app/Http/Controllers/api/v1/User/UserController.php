@@ -11,8 +11,11 @@ use App\Repositories\UserRepository;
 use App\Http\Resources\v1\UserResource;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\v1\User\UserRequest;
+use App\Repositories\AddressRepository;
+use Exception;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group User
@@ -27,9 +30,10 @@ class UserController extends Controller
      * UserController constructor
      *
      * @param UserRepository $repository the user repository instance
+* @param AddressRepository  $addressRepository The user profile repository instance.
      */
 
-    public function __construct(private UserRepository $repository) {}
+    public function __construct(private UserRepository $repository,private AddressRepository $addressRepository) {}
 
 
     /**
@@ -95,73 +99,114 @@ class UserController extends Controller
      *
      * @return JsonResponse
      */
-    public function store(UserRequest $request): JsonResponse
-{
-    $validated = $request->validated();
+  public function store(UserRequest $request): JsonResponse
+    {
+        DB::beginTransaction();
 
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $imagePath = $image->store('users', 'public');
-        $validated['image'] = $imagePath;
+        try {
+
+            $validated = $request->validated();
+
+            $user = $this->repository->store(
+                attributes: collect($validated)->except(['address'])->toArray(),
+            );
+            /** @var User $user */
+            $user = User::query()
+                ->where(
+                    column: 'phone',
+                    operator: '=',
+                    value: $validated['phone'],
+                )
+                ->first();
+
+            if (isset($validated['image'])) {
+                $user->addMediaFromRequest(key: 'image')
+                    ->toMediaCollection(collectionName: 'users');
+            }
+
+            if (isset($validated['address'])) {
+                $validatedAddress = $validated['address'];
+                $validatedAddress['user_id'] = $user->id;
+
+                $this->addressRepository->create($validatedAddress);
+            }
+
+            DB::commit();
+            return response()->json(
+                data: [
+                    'message' => __('user.created'),
+                ],
+                status: JsonResponse::HTTP_CREATED,
+            );
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            return response()->json(
+                data:[
+                    'message' => __('user.creation_failed'),
+                    'error' => $e->getMessage(),
+                ],
+                status: JsonResponse::HTTP_INTERNAL_SERVER_ERROR,
+            );
+        }
     }
-    $user = $this->repository->create(
-        attributes: $validated
-    );
-
-    return response()->json(
-        data: [
-            'message' => 'User created successfully.',
-            'user' => new \App\Http\Resources\v1\UserResource($user)
-        ],
-        status: JsonResponse::HTTP_CREATED
-    );
-}
 
 
-    /**
+   /**
      * Update User
      *
      * Update the specified resource in storage.
      *
      * @header Accept-Language en
      *
-     * @urlParam id string required The ID of the user.
+     * @response 200 scenario="Updated"{
+     * "message":"User updated successfully"
+     *  "data": {
+     *     // user and address details here
+     *   }
      *
-     * @response 200 scenario="Success" {"message": "User updated successfully."}
+     * }
      *
-     * @param UserRequest $request
+     * @param UpdateRequest $request
      * @param string $id
      *
      * @return JsonResponse
      */
     public function update(UserRequest $request, string $id): JsonResponse
-{
-    $validated = $request->validated();
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $imagePath = $image->store('users', 'public');
-        $validated['image'] = $imagePath;
+    {
+        $validated = $request->validated();
 
-        $user = $this->repository->find($id);
-        if ($user && $user->image) {
-            Storage::disk('public')->delete($user->image);
+        $this->repository->update(
+            id: $id,
+            attributes: collect($validated)->except(['image', 'address'])->toArray(),
+        );
+
+        /** @var User $user */
+        $user = User::query()
+            ->findOrFail(id: $id);
+
+        if (isset($validated['image'])) {
+            $user->clearMediaCollection('users');
+            $user->addMediaFromRequest(key: 'image')
+                ->toMediaCollection(collectionName: 'users');
         }
+
+        if (isset($validated['address'])) {
+            $addressData = array_merge($validated['address'], ['user_id' => $user->id]);
+
+            $user->addresses()->updateOrCreate(
+                ['user_id' => $user->id],
+                $addressData,
+            );
+        }
+        return response()->json(
+            data: [
+                'message' => __('user.updated'),
+                'data' => new UserResource($user),
+            ],
+            status: JsonResponse::HTTP_OK,
+        );
     }
-    $this->repository->update(
-        id: $id,
-        attributes: $validated
-    );
-
-    $user = User::query()->findOrFail($id);
-
-    return response()->json(
-        data: [
-            'message' => 'User updated successfully.',
-            'data' => new UserResource($user)
-        ],
-        status: JsonResponse::HTTP_OK
-    );
-}
 
 
     /**

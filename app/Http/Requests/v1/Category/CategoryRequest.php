@@ -32,6 +32,11 @@ class CategoryRequest extends FormRequest
                 'type' => 'string',
                 'example' => 'electronics',
             ],
+
+            'image' => [
+                'description' => 'The image of the category.',
+                'type' => 'file',
+            ],
         ];
     }
 
@@ -45,6 +50,7 @@ class CategoryRequest extends FormRequest
         return [
             'name' => 'required|string|max:255|unique:categories',
             'slug' => 'required|string|max:255',
+            'image' => 'sometimes|nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ];
     }
 }

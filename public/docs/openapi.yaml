@@ -29,15 +29,19 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 130
-                    name: 'Kim Hickle'
-                    email: thompson.stephan@example.net
-                    emailVerifiedAt: '2024-11-12T21:52:30.000000Z'
-                    image: 'https://via.placeholder.com/300x300.png/0011ee?text=people+faker+est'
-                    phone: +1-364-864-2056
+                    id: 66
+                    lastName: Murazik
+                    firstName: Shawn
+                    email: anais.jakubowski@example.org
+                    emailVerifiedAt: '2025-02-24T15:18:58.000000Z'
+                    phone: '+18035512506'
                     role: auteur
-                    createdAt: '2024-11-12T21:52:31.000000Z'
-                    updatedAt: '2024-11-12T21:52:31.000000Z'
+                    image: ''
+                    thumbnail: ''
+                    createdAt:
+                      datetime: '2025-02-24T15:18:58.000000Z'
+                      humanDiff: '0 seconds ago'
+                      human: 'Mon, Feb 24, 2025 3:18 PM'
                   message: 'An OTP code has been successfully sent'
                 properties:
                   data:
@@ -45,31 +49,43 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 130
-                      name:
+                        example: 66
+                      lastName:
                         type: string
-                        example: 'Kim Hickle'
+                        example: Murazik
+                      firstName:
+                        type: string
+                        example: Shawn
                       email:
                         type: string
-                        example: thompson.stephan@example.net
+                        example: anais.jakubowski@example.org
                       emailVerifiedAt:
                         type: string
-                        example: '2024-11-12T21:52:30.000000Z'
-                      image:
-                        type: string
-                        example: 'https://via.placeholder.com/300x300.png/0011ee?text=people+faker+est'
+                        example: '2025-02-24T15:18:58.000000Z'
                       phone:
                         type: string
-                        example: +1-364-864-2056
+                        example: '+18035512506'
                       role:
                         type: string
                         example: auteur
+                      image:
+                        type: string
+                        example: ''
+                      thumbnail:
+                        type: string
+                        example: ''
                       createdAt:
-                        type: string
-                        example: '2024-11-12T21:52:31.000000Z'
-                      updatedAt:
-                        type: string
-                        example: '2024-11-12T21:52:31.000000Z'
+                        type: object
+                        properties:
+                          datetime:
+                            type: string
+                            example: '2025-02-24T15:18:58.000000Z'
+                          humanDiff:
+                            type: string
+                            example: '0 seconds ago'
+                          human:
+                            type: string
+                            example: 'Mon, Feb 24, 2025 3:18 PM'
                   message:
                     type: string
                     example: 'An OTP code has been successfully sent'
@@ -124,15 +140,19 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 131
-                    name: 'Arnold Corkery'
-                    email: keebler.lukas@example.org
-                    emailVerifiedAt: '2024-11-12T21:52:31.000000Z'
-                    image: 'https://via.placeholder.com/300x300.png/009944?text=people+faker+esse'
-                    phone: '(539) 631-0608'
-                    role: auteur
-                    createdAt: '2024-11-12T21:52:31.000000Z'
-                    updatedAt: '2024-11-12T21:52:31.000000Z'
+                    id: 67
+                    lastName: Weissnat
+                    firstName: Pedro
+                    email: lubowitz.amani@example.org
+                    emailVerifiedAt: '2025-02-24T15:18:58.000000Z'
+                    phone: +1.678.975.8397
+                    role: admin
+                    image: ''
+                    thumbnail: ''
+                    createdAt:
+                      datetime: '2025-02-24T15:18:58.000000Z'
+                      humanDiff: '0 seconds ago'
+                      human: 'Mon, Feb 24, 2025 3:18 PM'
                   token: 48|78454
                 properties:
                   data:
@@ -140,31 +160,43 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 131
-                      name:
+                        example: 67
+                      lastName:
                         type: string
-                        example: 'Arnold Corkery'
+                        example: Weissnat
+                      firstName:
+                        type: string
+                        example: Pedro
                       email:
                         type: string
-                        example: keebler.lukas@example.org
+                        example: lubowitz.amani@example.org
                       emailVerifiedAt:
                         type: string
-                        example: '2024-11-12T21:52:31.000000Z'
-                      image:
-                        type: string
-                        example: 'https://via.placeholder.com/300x300.png/009944?text=people+faker+esse'
+                        example: '2025-02-24T15:18:58.000000Z'
                       phone:
                         type: string
-                        example: '(539) 631-0608'
+                        example: +1.678.975.8397
                       role:
                         type: string
-                        example: auteur
+                        example: admin
+                      image:
+                        type: string
+                        example: ''
+                      thumbnail:
+                        type: string
+                        example: ''
                       createdAt:
-                        type: string
-                        example: '2024-11-12T21:52:31.000000Z'
-                      updatedAt:
-                        type: string
-                        example: '2024-11-12T21:52:31.000000Z'
+                        type: object
+                        properties:
+                          datetime:
+                            type: string
+                            example: '2025-02-24T15:18:58.000000Z'
+                          humanDiff:
+                            type: string
+                            example: '0 seconds ago'
+                          human:
+                            type: string
+                            example: 'Mon, Feb 24, 2025 3:18 PM'
                   token:
                     type: string
                     example: 48|78454
@@ -180,12 +212,12 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: hohara@example.net
+                  example: izabella.mraz@example.net
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: repellat
+                  example: iure
                   nullable: false
               required:
                 - email
@@ -213,15 +245,19 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 132
-                    name: 'Zoie Toy'
-                    email: lubowitz.tre@example.net
-                    emailVerifiedAt: '2024-11-12T21:52:31.000000Z'
-                    image: 'https://via.placeholder.com/300x300.png/00ffbb?text=people+faker+et'
-                    phone: +1-228-216-3038
-                    role: lecteur
-                    createdAt: '2024-11-12T21:52:31.000000Z'
-                    updatedAt: '2024-11-12T21:52:31.000000Z'
+                    id: 68
+                    lastName: Skiles
+                    firstName: Andrew
+                    email: jacobi.citlalli@example.org
+                    emailVerifiedAt: '2025-02-24T15:18:58.000000Z'
+                    phone: 978-894-8597
+                    role: auteur
+                    image: ''
+                    thumbnail: ''
+                    createdAt:
+                      datetime: '2025-02-24T15:18:58.000000Z'
+                      humanDiff: '0 seconds ago'
+                      human: 'Mon, Feb 24, 2025 3:18 PM'
                   token: 48|78454
                 properties:
                   data:
@@ -229,31 +265,43 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 132
-                      name:
+                        example: 68
+                      lastName:
                         type: string
-                        example: 'Zoie Toy'
+                        example: Skiles
+                      firstName:
+                        type: string
+                        example: Andrew
                       email:
                         type: string
-                        example: lubowitz.tre@example.net
+                        example: jacobi.citlalli@example.org
                       emailVerifiedAt:
                         type: string
-                        example: '2024-11-12T21:52:31.000000Z'
-                      image:
-                        type: string
-                        example: 'https://via.placeholder.com/300x300.png/00ffbb?text=people+faker+et'
+                        example: '2025-02-24T15:18:58.000000Z'
                       phone:
                         type: string
-                        example: +1-228-216-3038
+                        example: 978-894-8597
                       role:
                         type: string
-                        example: lecteur
+                        example: auteur
+                      image:
+                        type: string
+                        example: ''
+                      thumbnail:
+                        type: string
+                        example: ''
                       createdAt:
-                        type: string
-                        example: '2024-11-12T21:52:31.000000Z'
-                      updatedAt:
-                        type: string
-                        example: '2024-11-12T21:52:31.000000Z'
+                        type: object
+                        properties:
+                          datetime:
+                            type: string
+                            example: '2025-02-24T15:18:58.000000Z'
+                          humanDiff:
+                            type: string
+                            example: '0 seconds ago'
+                          human:
+                            type: string
+                            example: 'Mon, Feb 24, 2025 3:18 PM'
                   token:
                     type: string
                     example: 48|78454
@@ -368,15 +416,19 @@ paths:
                 type: object
                 example:
                   data:
-                    id: 133
-                    name: 'Dorcas Hilpert'
-                    email: zbailey@example.org
-                    emailVerifiedAt: '2024-11-12T21:52:31.000000Z'
-                    image: 'https://via.placeholder.com/300x300.png/00bb66?text=people+faker+quam'
-                    phone: 838-332-7779
-                    role: admin
-                    createdAt: '2024-11-12T21:52:31.000000Z'
-                    updatedAt: '2024-11-12T21:52:31.000000Z'
+                    id: 69
+                    lastName: Breitenberg
+                    firstName: Dee
+                    email: ghintz@example.com
+                    emailVerifiedAt: '2025-02-24T15:18:58.000000Z'
+                    phone: '(480) 540-3701'
+                    role: lecteur
+                    image: ''
+                    thumbnail: ''
+                    createdAt:
+                      datetime: '2025-02-24T15:18:58.000000Z'
+                      humanDiff: '0 seconds ago'
+                      human: 'Mon, Feb 24, 2025 3:18 PM'
                   token: 48|78454
                 properties:
                   data:
@@ -384,31 +436,43 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 133
-                      name:
+                        example: 69
+                      lastName:
                         type: string
-                        example: 'Dorcas Hilpert'
+                        example: Breitenberg
+                      firstName:
+                        type: string
+                        example: Dee
                       email:
                         type: string
-                        example: zbailey@example.org
+                        example: ghintz@example.com
                       emailVerifiedAt:
                         type: string
-                        example: '2024-11-12T21:52:31.000000Z'
-                      image:
-                        type: string
-                        example: 'https://via.placeholder.com/300x300.png/00bb66?text=people+faker+quam'
+                        example: '2025-02-24T15:18:58.000000Z'
                       phone:
                         type: string
-                        example: 838-332-7779
+                        example: '(480) 540-3701'
                       role:
                         type: string
-                        example: admin
+                        example: lecteur
+                      image:
+                        type: string
+                        example: ''
+                      thumbnail:
+                        type: string
+                        example: ''
                       createdAt:
-                        type: string
-                        example: '2024-11-12T21:52:31.000000Z'
-                      updatedAt:
-                        type: string
-                        example: '2024-11-12T21:52:31.000000Z'
+                        type: object
+                        properties:
+                          datetime:
+                            type: string
+                            example: '2025-02-24T15:18:58.000000Z'
+                          humanDiff:
+                            type: string
+                            example: '0 seconds ago'
+                          human:
+                            type: string
+                            example: 'Mon, Feb 24, 2025 3:18 PM'
                   token:
                     type: string
                     example: 48|78454
@@ -436,27 +500,47 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 76
-                  name: ducimus
-                  slug: omnis-pariatur-aut-architecto-corrupti-excepturi-laudantium-eos-est
-                  createdAt: '2024-11-12T21:52:31.000000Z'
-                  updatedAt: '2024-11-12T21:52:31.000000Z'
+                  id: 43
+                  name: sunt
+                  slug: eius-eos-est-modi-blanditiis
+                  createdAt:
+                    datetime: '2025-02-24T15:18:58.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:18 PM'
+                  image: ''
+                  thumbnail: ''
+                  updatedAt: '2025-02-24T15:18:58.000000Z'
                 properties:
                   id:
                     type: integer
-                    example: 76
+                    example: 43
                   name:
                     type: string
-                    example: ducimus
+                    example: sunt
                   slug:
                     type: string
-                    example: omnis-pariatur-aut-architecto-corrupti-excepturi-laudantium-eos-est
+                    example: eius-eos-est-modi-blanditiis
                   createdAt:
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:18:58.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:18 PM'
+                  image:
                     type: string
-                    example: '2024-11-12T21:52:31.000000Z'
+                    example: ''
+                  thumbnail:
+                    type: string
+                    example: ''
                   updatedAt:
                     type: string
-                    example: '2024-11-12T21:52:31.000000Z'
+                    example: '2025-02-24T15:18:58.000000Z'
       tags:
         - Category
       security: []
@@ -480,27 +564,47 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 78
-                  name: consequatur
-                  slug: nemo-eaque-unde-debitis-aut
-                  createdAt: '2024-11-12T21:52:32.000000Z'
-                  updatedAt: '2024-11-12T21:52:32.000000Z'
+                  id: 45
+                  name: aut
+                  slug: corrupti-hic-quia-suscipit-perferendis-et-esse-veritatis
+                  createdAt:
+                    datetime: '2025-02-24T15:18:59.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:18 PM'
+                  image: ''
+                  thumbnail: ''
+                  updatedAt: '2025-02-24T15:18:59.000000Z'
                 properties:
                   id:
                     type: integer
-                    example: 78
+                    example: 45
                   name:
                     type: string
-                    example: consequatur
+                    example: aut
                   slug:
                     type: string
-                    example: nemo-eaque-unde-debitis-aut
+                    example: corrupti-hic-quia-suscipit-perferendis-et-esse-veritatis
                   createdAt:
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:18:59.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:18 PM'
+                  image:
                     type: string
-                    example: '2024-11-12T21:52:32.000000Z'
+                    example: ''
+                  thumbnail:
+                    type: string
+                    example: ''
                   updatedAt:
                     type: string
-                    example: '2024-11-12T21:52:32.000000Z'
+                    example: '2025-02-24T15:18:59.000000Z'
         201:
           description: Success
           content:
@@ -518,7 +622,7 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
@@ -532,6 +636,11 @@ paths:
                   description: 'The slug of the category. Must not be greater than 255 characters.'
                   example: electronics
                   nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'The image of the category. Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
               required:
                 - name
                 - slug
@@ -557,27 +666,47 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 77
-                  name: porro
-                  slug: quae-amet-in-animi-eveniet-quaerat-maiores
-                  createdAt: '2024-11-12T21:52:31.000000Z'
-                  updatedAt: '2024-11-12T21:52:31.000000Z'
+                  id: 44
+                  name: ut
+                  slug: molestias-qui-et-officia-ducimus-harum
+                  createdAt:
+                    datetime: '2025-02-24T15:18:59.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:18 PM'
+                  image: ''
+                  thumbnail: ''
+                  updatedAt: '2025-02-24T15:18:59.000000Z'
                 properties:
                   id:
                     type: integer
-                    example: 77
+                    example: 44
                   name:
                     type: string
-                    example: porro
+                    example: ut
                   slug:
                     type: string
-                    example: quae-amet-in-animi-eveniet-quaerat-maiores
+                    example: molestias-qui-et-officia-ducimus-harum
                   createdAt:
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:18:59.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:18 PM'
+                  image:
                     type: string
-                    example: '2024-11-12T21:52:31.000000Z'
+                    example: ''
+                  thumbnail:
+                    type: string
+                    example: ''
                   updatedAt:
                     type: string
-                    example: '2024-11-12T21:52:31.000000Z'
+                    example: '2025-02-24T15:18:59.000000Z'
       tags:
         - Category
       security: []
@@ -602,11 +731,11 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Category] voluptas'
+                  message: 'No query results for model [App\Models\Category] recusandae'
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Category] voluptas'
+                    example: 'No query results for model [App\Models\Category] recusandae'
       tags:
         - Category
       security: []
@@ -624,23 +753,23 @@ paths:
             type: string
       responses:
         200:
-          description: Success
+          description: Updated
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: 'Category updated successfully.'
+                  message: 'Category updated successfully'
                 properties:
                   message:
                     type: string
-                    example: 'Category updated successfully.'
+                    example: 'Category updated successfully'
       tags:
         - Category
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
@@ -654,34 +783,21 @@ paths:
                   description: 'The slug of the category. Must not be greater than 255 characters.'
                   example: electronics
                   nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'The image of the category. Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
               required:
                 - name
                 - slug
-      security: []
-    delete:
-      summary: 'Delete Category'
-      operationId: deleteCategory
-      description: 'Remove the specified resource from storage.'
-      parameters:
-        -
-          in: header
-          name: Accept-Language
-          description: ''
-          example: en
-          schema:
-            type: string
-      responses:
-        204:
-          description: Success
-      tags:
-        - Category
       security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the category.'
-        example: voluptas
+        example: recusandae
         required: true
         schema:
           type: string
@@ -706,23 +822,19 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 32
-                  content: 'Doloremque in nesciunt laborum temporibus hic molestias. Dicta qui culpa iusto sunt sed aut. Ea ut quod soluta sequi. Rerum neque perspiciatis aliquid eligendi sequi qui.'
-                  createdAt: '2024-11-12T21:52:33.000000Z'
-                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                  id: null
+                  content: null
+                  createdAt: null
                 properties:
                   id:
-                    type: integer
-                    example: 32
+                    type: string
+                    example: null
                   content:
                     type: string
-                    example: 'Doloremque in nesciunt laborum temporibus hic molestias. Dicta qui culpa iusto sunt sed aut. Ea ut quod soluta sequi. Rerum neque perspiciatis aliquid eligendi sequi qui.'
+                    example: null
                   createdAt:
                     type: string
-                    example: '2024-11-12T21:52:33.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:33.000000Z'
+                    example: null
       tags:
         - Comment
       security: []
@@ -746,23 +858,19 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 33
-                  content: 'Voluptas quos pariatur et in tenetur corrupti. Ut nemo mollitia aut saepe molestiae. Dolorum odit aliquid nihil praesentium. Et esse tempore qui maiores.'
-                  createdAt: '2024-11-12T21:52:33.000000Z'
-                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                  id: null
+                  content: null
+                  createdAt: null
                 properties:
                   id:
-                    type: integer
-                    example: 33
+                    type: string
+                    example: null
                   content:
                     type: string
-                    example: 'Voluptas quos pariatur et in tenetur corrupti. Ut nemo mollitia aut saepe molestiae. Dolorum odit aliquid nihil praesentium. Et esse tempore qui maiores.'
+                    example: null
                   createdAt:
                     type: string
-                    example: '2024-11-12T21:52:33.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:33.000000Z'
+                    example: null
         201:
           description: Success
           content:
@@ -804,6 +912,43 @@ paths:
                 - content
                 - user_id
       security: []
+  /api/v1/comments/paginate:
+    get:
+      summary: 'Get a paginate listing of the comment resources.'
+      operationId: getAPaginateListingOfTheCommentResources
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: null
+                  content: null
+                  createdAt: null
+                properties:
+                  id:
+                    type: string
+                    example: null
+                  content:
+                    type: string
+                    example: null
+                  createdAt:
+                    type: string
+                    example: null
+      tags:
+        - Comment
+      security: []
   '/api/v1/comments/{id}':
     get:
       summary: 'Show the specified resource.'
@@ -825,23 +970,19 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 34
-                  content: 'Excepturi perspiciatis nulla pariatur enim perspiciatis dolores. Quibusdam inventore aperiam dicta eos nihil nesciunt. Occaecati praesentium minima nihil animi sit praesentium et.'
-                  createdAt: '2024-11-12T21:52:33.000000Z'
-                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                  id: null
+                  content: null
+                  createdAt: null
                 properties:
                   id:
-                    type: integer
-                    example: 34
+                    type: string
+                    example: null
                   content:
                     type: string
-                    example: 'Excepturi perspiciatis nulla pariatur enim perspiciatis dolores. Quibusdam inventore aperiam dicta eos nihil nesciunt. Occaecati praesentium minima nihil animi sit praesentium et.'
+                    example: null
                   createdAt:
                     type: string
-                    example: '2024-11-12T21:52:33.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:33.000000Z'
+                    example: null
       tags:
         - Comment
       security: []
@@ -922,7 +1063,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the comment.'
-        example: eum
+        example: voluptatibus
         required: true
         schema:
           type: string
@@ -947,23 +1088,23 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 13
-                  liked: 1
-                  createdAt: '2024-11-12T21:52:33.000000Z'
-                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                  id: null
+                  liked: null
+                  createdAt: null
+                  updatedAt: null
                 properties:
                   id:
-                    type: integer
-                    example: 13
+                    type: string
+                    example: null
                   liked:
-                    type: integer
-                    example: 1
+                    type: string
+                    example: null
                   createdAt:
                     type: string
-                    example: '2024-11-12T21:52:33.000000Z'
+                    example: null
                   updatedAt:
                     type: string
-                    example: '2024-11-12T21:52:33.000000Z'
+                    example: null
       tags:
         - Like
       security: []
@@ -980,23 +1121,23 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 16
-                  liked: 0
-                  createdAt: '2024-11-12T21:52:34.000000Z'
-                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                  id: null
+                  liked: null
+                  createdAt: null
+                  updatedAt: null
                 properties:
                   id:
-                    type: integer
-                    example: 16
+                    type: string
+                    example: null
                   liked:
-                    type: integer
-                    example: 0
+                    type: string
+                    example: null
                   createdAt:
                     type: string
-                    example: '2024-11-12T21:52:34.000000Z'
+                    example: null
                   updatedAt:
                     type: string
-                    example: '2024-11-12T21:52:34.000000Z'
+                    example: null
       tags:
         - Like
       requestBody:
@@ -1052,23 +1193,23 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 14
-                  liked: 1
-                  createdAt: '2024-11-12T21:52:33.000000Z'
-                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                  id: null
+                  liked: null
+                  createdAt: null
+                  updatedAt: null
                 properties:
                   id:
-                    type: integer
-                    example: 14
+                    type: string
+                    example: null
                   liked:
-                    type: integer
-                    example: 1
+                    type: string
+                    example: null
                   createdAt:
                     type: string
-                    example: '2024-11-12T21:52:33.000000Z'
+                    example: null
                   updatedAt:
                     type: string
-                    example: '2024-11-12T21:52:33.000000Z'
+                    example: null
       tags:
         - Like
       security: []
@@ -1086,23 +1227,23 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 15
-                  liked: 1
-                  createdAt: '2024-11-12T21:52:34.000000Z'
-                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                  id: null
+                  liked: null
+                  createdAt: null
+                  updatedAt: null
                 properties:
                   id:
-                    type: integer
-                    example: 15
+                    type: string
+                    example: null
                   liked:
-                    type: integer
-                    example: 1
+                    type: string
+                    example: null
                   createdAt:
                     type: string
-                    example: '2024-11-12T21:52:34.000000Z'
+                    example: null
                   updatedAt:
                     type: string
-                    example: '2024-11-12T21:52:34.000000Z'
+                    example: null
       tags:
         - Like
       security: []
@@ -1111,7 +1252,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the like.'
-        example: 9
+        example: 6
         required: true
         schema:
           type: integer
@@ -1136,41 +1277,151 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 68
-                  title: 'Accusamus beatae excepturi qui sit ipsa molestiae iusto enim.'
-                  content: 'Ipsum vel est provident ex tempore quia corrupti pariatur. Et voluptatem hic porro quisquam. Praesentium corrupti cupiditate et sit molestias autem cumque.'
-                  image: 'https://via.placeholder.com/300x300.png/009944?text=people+faker+ipsa'
+                  id: null
+                  title: 'Tenetur aut natus aspernatur tenetur.'
+                  content: 'Est hic porro doloremque impedit voluptatibus est nemo. Modi sed accusantium voluptas iure qui. Consequatur ipsam ipsam veritatis eligendi nobis omnis rem. In rerum sit porro ea.'
                   status: published
-                  slug: accusantium-sit-alias-ex-voluptatem-quidem-suscipit
-                  createdAt: '2024-11-12T21:52:34.000000Z'
-                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                  slug: architecto-eligendi-commodi-odit-natus
+                  createdAt: null
+                  image: ''
+                  thumbnail: ''
                 properties:
                   id:
-                    type: integer
-                    example: 68
+                    type: string
+                    example: null
                   title:
                     type: string
-                    example: 'Accusamus beatae excepturi qui sit ipsa molestiae iusto enim.'
+                    example: 'Tenetur aut natus aspernatur tenetur.'
                   content:
                     type: string
-                    example: 'Ipsum vel est provident ex tempore quia corrupti pariatur. Et voluptatem hic porro quisquam. Praesentium corrupti cupiditate et sit molestias autem cumque.'
-                  image:
-                    type: string
-                    example: 'https://via.placeholder.com/300x300.png/009944?text=people+faker+ipsa'
+                    example: 'Est hic porro doloremque impedit voluptatibus est nemo. Modi sed accusantium voluptas iure qui. Consequatur ipsam ipsam veritatis eligendi nobis omnis rem. In rerum sit porro ea.'
                   status:
                     type: string
                     example: published
                   slug:
                     type: string
-                    example: accusantium-sit-alias-ex-voluptatem-quidem-suscipit
+                    example: architecto-eligendi-commodi-odit-natus
                   createdAt:
                     type: string
-                    example: '2024-11-12T21:52:34.000000Z'
-                  updatedAt:
+                    example: null
+                  image:
                     type: string
-                    example: '2024-11-12T21:52:34.000000Z'
+                    example: ''
+                  thumbnail:
+                    type: string
+                    example: ''
       tags:
         - Post
+      security: []
+    post:
+      summary: 'Store Post'
+      operationId: storePost
+      description: 'Store a newly created resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: null
+                  title: 'Non odit nulla quia accusantium.'
+                  content: 'Quia et beatae repudiandae magnam aut quaerat in perferendis. Reprehenderit eveniet explicabo vero ut ex. Distinctio repudiandae ut labore.'
+                  status: published
+                  slug: quas-ullam-earum-excepturi-est-hic-eum
+                  createdAt: null
+                  image: ''
+                  thumbnail: ''
+                properties:
+                  id:
+                    type: string
+                    example: null
+                  title:
+                    type: string
+                    example: 'Non odit nulla quia accusantium.'
+                  content:
+                    type: string
+                    example: 'Quia et beatae repudiandae magnam aut quaerat in perferendis. Reprehenderit eveniet explicabo vero ut ex. Distinctio repudiandae ut labore.'
+                  status:
+                    type: string
+                    example: published
+                  slug:
+                    type: string
+                    example: quas-ullam-earum-excepturi-est-hic-eum
+                  createdAt:
+                    type: string
+                    example: null
+                  image:
+                    type: string
+                    example: ''
+                  thumbnail:
+                    type: string
+                    example: ''
+      tags:
+        - Post
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The title of the post. Must not be greater than 255 characters.'
+                  example: 'Post Title'
+                  nullable: false
+                content:
+                  type: string
+                  description: 'The content of the post.'
+                  example: 'Post Content'
+                  nullable: false
+                status:
+                  type: string
+                  description: 'The status of the post. Must not be greater than 255 characters.'
+                  example: 'Post Status'
+                  nullable: true
+                slug:
+                  type: string
+                  description: 'The slug of the post. Must match the regex /^[a-z0-9-]+$/. Must not be greater than 255 characters.'
+                  example: post-slug
+                  nullable: true
+                user_id:
+                  type: integer
+                  description: 'The ID of the user. The <code>id</code> of an existing record in the users table.'
+                  example: 1
+                  nullable: false
+                category_id:
+                  type: integer
+                  description: 'The ID of the category. The <code>id</code> of an existing record in the categories table.'
+                  example: 1
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'The image of the post. Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+                tag_id:
+                  type: array
+                  description: 'The <code>id</code> of an existing record in the tags table.'
+                  example:
+                    - dolorem
+                  items:
+                    type: string
+              required:
+                - title
+                - content
+                - user_id
+                - category_id
       security: []
   '/api/v1/posts/{id}':
     get:
@@ -1186,20 +1437,102 @@ paths:
           schema:
             type: string
       responses:
-        401:
+        404:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  message: 'No query results for model [App\Models\Post] dolore'
                 properties:
                   message:
                     type: string
-                    example: Unauthenticated.
+                    example: 'No query results for model [App\Models\Post] dolore'
       tags:
         - Post
+      security: []
+    put:
+      summary: 'Update Post'
+      operationId: updatePost
+      description: 'Update the specified resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Post updated successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Post updated successfully.'
+      tags:
+        - Post
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The title of the post. Must not be greater than 255 characters.'
+                  example: 'Post Title'
+                  nullable: false
+                content:
+                  type: string
+                  description: 'The content of the post.'
+                  example: 'Post Content'
+                  nullable: false
+                status:
+                  type: string
+                  description: 'The status of the post. Must not be greater than 255 characters.'
+                  example: 'Post Status'
+                  nullable: true
+                slug:
+                  type: string
+                  description: 'The slug of the post. Must match the regex /^[a-z0-9-]+$/. Must not be greater than 255 characters.'
+                  example: post-slug
+                  nullable: true
+                user_id:
+                  type: integer
+                  description: 'The ID of the user. The <code>id</code> of an existing record in the users table.'
+                  example: 1
+                  nullable: false
+                category_id:
+                  type: integer
+                  description: 'The ID of the category. The <code>id</code> of an existing record in the categories table.'
+                  example: 1
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'The image of the post. Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+                tag_id:
+                  type: array
+                  description: 'The <code>id</code> of an existing record in the tags table.'
+                  example:
+                    - voluptatem
+                  items:
+                    type: string
+              required:
+                - title
+                - content
+                - user_id
+                - category_id
       security: []
     delete:
       summary: 'Delete Post'
@@ -1224,7 +1557,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the post.'
-        example: temporibus
+        example: dolore
         required: true
         schema:
           type: string
@@ -1249,27 +1582,35 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 23
-                  name: sed
-                  slug: exercitationem-tempore-modi-rerum-maxime-consequatur-a-voluptas
-                  createdAt: '2024-11-12T21:52:34.000000Z'
-                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                  id: 9
+                  name: ratione
+                  slug: deserunt-porro-ut-doloribus
+                  createdAt:
+                    datetime: '2025-02-24T15:19:00.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:19 PM'
                 properties:
                   id:
                     type: integer
-                    example: 23
+                    example: 9
                   name:
                     type: string
-                    example: sed
+                    example: ratione
                   slug:
                     type: string
-                    example: exercitationem-tempore-modi-rerum-maxime-consequatur-a-voluptas
+                    example: deserunt-porro-ut-doloribus
                   createdAt:
-                    type: string
-                    example: '2024-11-12T21:52:34.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:34.000000Z'
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:19:00.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:19 PM'
       tags:
         - Tag
       security: []
@@ -1293,27 +1634,35 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 25
-                  name: natus
-                  slug: velit-ut-placeat-ullam-vel
-                  createdAt: '2024-11-12T21:52:35.000000Z'
-                  updatedAt: '2024-11-12T21:52:35.000000Z'
+                  id: 11
+                  name: labore
+                  slug: perspiciatis-consequuntur-hic-assumenda-consectetur-nihil
+                  createdAt:
+                    datetime: '2025-02-24T15:19:00.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:19 PM'
                 properties:
                   id:
                     type: integer
-                    example: 25
+                    example: 11
                   name:
                     type: string
-                    example: natus
+                    example: labore
                   slug:
                     type: string
-                    example: velit-ut-placeat-ullam-vel
+                    example: perspiciatis-consequuntur-hic-assumenda-consectetur-nihil
                   createdAt:
-                    type: string
-                    example: '2024-11-12T21:52:35.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:35.000000Z'
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:19:00.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:19 PM'
         201:
           description: Success
           content:
@@ -1370,27 +1719,35 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 24
-                  name: ut
-                  slug: aut-repudiandae-occaecati-doloribus-autem
-                  createdAt: '2024-11-12T21:52:34.000000Z'
-                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                  id: 10
+                  name: sequi
+                  slug: voluptatem-amet-enim-aperiam-aspernatur-saepe-dolor-saepe
+                  createdAt:
+                    datetime: '2025-02-24T15:19:00.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:19 PM'
                 properties:
                   id:
                     type: integer
-                    example: 24
+                    example: 10
                   name:
                     type: string
-                    example: ut
+                    example: sequi
                   slug:
                     type: string
-                    example: aut-repudiandae-occaecati-doloribus-autem
+                    example: voluptatem-amet-enim-aperiam-aspernatur-saepe-dolor-saepe
                   createdAt:
-                    type: string
-                    example: '2024-11-12T21:52:34.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:34.000000Z'
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:19:00.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:19 PM'
       tags:
         - Tag
       security: []
@@ -1415,27 +1772,35 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 26
-                  name: sint
-                  slug: ut-temporibus-eaque-nisi-pariatur-quis
-                  createdAt: '2024-11-12T21:52:35.000000Z'
-                  updatedAt: '2024-11-12T21:52:35.000000Z'
+                  id: 12
+                  name: rerum
+                  slug: reiciendis-fuga-culpa-accusamus-voluptas-rerum
+                  createdAt:
+                    datetime: '2025-02-24T15:19:00.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:19 PM'
                 properties:
                   id:
                     type: integer
-                    example: 26
+                    example: 12
                   name:
                     type: string
-                    example: sint
+                    example: rerum
                   slug:
                     type: string
-                    example: ut-temporibus-eaque-nisi-pariatur-quis
+                    example: reiciendis-fuga-culpa-accusamus-voluptas-rerum
                   createdAt:
-                    type: string
-                    example: '2024-11-12T21:52:35.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:35.000000Z'
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:19:00.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:19 PM'
       tags:
         - Tag
       security: []
@@ -1520,7 +1885,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the tag.'
-        example: alias
+        example: sit
         required: true
         schema:
           type: string
@@ -1538,45 +1903,168 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 157
-                  name: 'Jamison Boyle'
-                  email: jalyn.wintheiser@example.org
-                  emailVerifiedAt: '2024-11-12T21:52:35.000000Z'
-                  image: 'https://via.placeholder.com/300x300.png/004422?text=people+faker+autem'
-                  phone: +1.475.878.5587
+                  id: 98
+                  lastName: McDermott
+                  firstName: Malika
+                  email: ocartwright@example.net
+                  emailVerifiedAt: '2025-02-24T15:19:01.000000Z'
+                  phone: 1-332-353-7525
                   role: auteur
-                  createdAt: '2024-11-12T21:52:35.000000Z'
-                  updatedAt: '2024-11-12T21:52:35.000000Z'
+                  image: ''
+                  thumbnail: ''
+                  createdAt:
+                    datetime: '2025-02-24T15:19:01.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:19 PM'
                 properties:
                   id:
                     type: integer
-                    example: 157
-                  name:
+                    example: 98
+                  lastName:
                     type: string
-                    example: 'Jamison Boyle'
+                    example: McDermott
+                  firstName:
+                    type: string
+                    example: Malika
                   email:
                     type: string
-                    example: jalyn.wintheiser@example.org
+                    example: ocartwright@example.net
                   emailVerifiedAt:
                     type: string
-                    example: '2024-11-12T21:52:35.000000Z'
-                  image:
-                    type: string
-                    example: 'https://via.placeholder.com/300x300.png/004422?text=people+faker+autem'
+                    example: '2025-02-24T15:19:01.000000Z'
                   phone:
                     type: string
-                    example: +1.475.878.5587
+                    example: 1-332-353-7525
                   role:
                     type: string
                     example: auteur
+                  image:
+                    type: string
+                    example: ''
+                  thumbnail:
+                    type: string
+                    example: ''
                   createdAt:
-                    type: string
-                    example: '2024-11-12T21:52:35.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:35.000000Z'
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:19:01.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:19 PM'
       tags:
         - User
+    post:
+      summary: 'Store User'
+      operationId: storeUser
+      description: 'Strore a newly created resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        201:
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User created successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'User created successfully.'
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'The first name of the user. Must not be greater than 255 characters.'
+                  example: John
+                  nullable: false
+                last_name:
+                  type: string
+                  description: 'The last name of the user. Must not be greater than 255 characters.'
+                  example: Doe
+                  nullable: false
+                email:
+                  type: string
+                  description: 'The email of the user. Must be a valid email address. Must not be greater than 255 characters.'
+                  example: n9vI3@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password of the user. Must be at least 8 characters.'
+                  example: password
+                  nullable: false
+                role:
+                  type: string
+                  description: 'The role of the user. Must not be greater than 255 characters.'
+                  example: admin
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'The phone number of the user. Must match the regex /^([0-9\s\-\+\(\)]*)$/. Must be at least 8 characters. Must not be greater than 12 characters.'
+                  example: '123456789'
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'The image of the user. Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+                address:
+                  type: object
+                  description: ''
+                  example: null
+                  nullable: true
+                  properties:
+                    place_id:
+                      type: string
+                      description: ''
+                      example: dolorem
+                      nullable: true
+                    place_name:
+                      type: string
+                      description: 'Must not be greater than 255 characters.'
+                      example: whcxxtcyv
+                      nullable: true
+                    longitude:
+                      type: number
+                      description: ''
+                      example: 499.5
+                      nullable: true
+                    latitude:
+                      type: number
+                      description: ''
+                      example: 259.94172
+                      nullable: true
+                    street_name:
+                      type: string
+                      description: 'Must not be greater than 255 characters.'
+                      example: cdtcsybdmcjwpvbvemtwku
+                      nullable: true
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+                - role
+                - phone
   /api/v1/users/paginate:
     get:
       summary: 'Get a paginate listing of the user resources.'
@@ -1598,43 +2086,59 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 158
-                  name: 'Dr. Pedro Klein'
-                  email: phackett@example.org
-                  emailVerifiedAt: '2024-11-12T21:52:35.000000Z'
-                  image: 'https://via.placeholder.com/300x300.png/009999?text=people+faker+omnis'
-                  phone: '(607) 288-7794'
+                  id: 99
+                  lastName: Christiansen
+                  firstName: Manuela
+                  email: schowalter.ted@example.net
+                  emailVerifiedAt: '2025-02-24T15:19:01.000000Z'
+                  phone: 559-480-0534
                   role: admin
-                  createdAt: '2024-11-12T21:52:35.000000Z'
-                  updatedAt: '2024-11-12T21:52:35.000000Z'
+                  image: ''
+                  thumbnail: ''
+                  createdAt:
+                    datetime: '2025-02-24T15:19:01.000000Z'
+                    humanDiff: '0 seconds ago'
+                    human: 'Mon, Feb 24, 2025 3:19 PM'
                 properties:
                   id:
                     type: integer
-                    example: 158
-                  name:
+                    example: 99
+                  lastName:
                     type: string
-                    example: 'Dr. Pedro Klein'
+                    example: Christiansen
+                  firstName:
+                    type: string
+                    example: Manuela
                   email:
                     type: string
-                    example: phackett@example.org
+                    example: schowalter.ted@example.net
                   emailVerifiedAt:
                     type: string
-                    example: '2024-11-12T21:52:35.000000Z'
-                  image:
-                    type: string
-                    example: 'https://via.placeholder.com/300x300.png/009999?text=people+faker+omnis'
+                    example: '2025-02-24T15:19:01.000000Z'
                   phone:
                     type: string
-                    example: '(607) 288-7794'
+                    example: 559-480-0534
                   role:
                     type: string
                     example: admin
+                  image:
+                    type: string
+                    example: ''
+                  thumbnail:
+                    type: string
+                    example: ''
                   createdAt:
-                    type: string
-                    example: '2024-11-12T21:52:35.000000Z'
-                  updatedAt:
-                    type: string
-                    example: '2024-11-12T21:52:35.000000Z'
+                    type: object
+                    properties:
+                      datetime:
+                        type: string
+                        example: '2025-02-24T15:19:01.000000Z'
+                      humanDiff:
+                        type: string
+                        example: '0 seconds ago'
+                      human:
+                        type: string
+                        example: 'Mon, Feb 24, 2025 3:19 PM'
       tags:
         - User
   '/api/v1/users/{id}':
@@ -1651,20 +2155,122 @@ paths:
           schema:
             type: string
       responses:
-        401:
+        404:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: Unauthenticated.
+                  message: 'No query results for model [App\Models\User] error'
                 properties:
                   message:
                     type: string
-                    example: Unauthenticated.
+                    example: 'No query results for model [App\Models\User] error'
       tags:
         - User
+    put:
+      summary: 'Update User'
+      operationId: updateUser
+      description: 'Update the specified resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: Updated
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"message\":\"User updated successfully\"\n \"data\": {\n    // user and address details here\n  }\n\n}"
+      tags:
+        - User
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'The first name of the user. Must not be greater than 255 characters.'
+                  example: John
+                  nullable: false
+                last_name:
+                  type: string
+                  description: 'The last name of the user. Must not be greater than 255 characters.'
+                  example: Doe
+                  nullable: false
+                email:
+                  type: string
+                  description: 'The email of the user. Must be a valid email address. Must not be greater than 255 characters.'
+                  example: n9vI3@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password of the user. Must be at least 8 characters.'
+                  example: password
+                  nullable: false
+                role:
+                  type: string
+                  description: 'The role of the user. Must not be greater than 255 characters.'
+                  example: admin
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'The phone number of the user. Must match the regex /^([0-9\s\-\+\(\)]*)$/. Must be at least 8 characters. Must not be greater than 12 characters.'
+                  example: '123456789'
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'The image of the user. Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+                address:
+                  type: object
+                  description: ''
+                  example: null
+                  nullable: true
+                  properties:
+                    place_id:
+                      type: string
+                      description: ''
+                      example: id
+                      nullable: true
+                    place_name:
+                      type: string
+                      description: 'Must not be greater than 255 characters.'
+                      example: qlrjdcxoqcds
+                      nullable: true
+                    longitude:
+                      type: number
+                      description: ''
+                      example: 1190215.35
+                      nullable: true
+                    latitude:
+                      type: number
+                      description: ''
+                      example: 33070199.9
+                      nullable: true
+                    street_name:
+                      type: string
+                      description: 'Must not be greater than 255 characters.'
+                      example: obfynlchefdiunwwi
+                      nullable: true
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+                - role
+                - phone
     delete:
       summary: 'Delete User'
       operationId: deleteUser
@@ -1687,7 +2293,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: sit
+        example: error
         required: true
         schema:
           type: string

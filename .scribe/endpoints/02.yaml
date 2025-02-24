@@ -32,7 +32,46 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":32,"content":"Doloremque in nesciunt laborum temporibus hic molestias. Dicta qui culpa iusto sunt sed aut. Ea ut quod soluta sequi. Rerum neque perspiciatis aliquid eligendi sequi qui.","createdAt":"2024-11-12T21:52:33.000000Z","updatedAt":"2024-11-12T21:52:33.000000Z"}'
+        content: '{"id":null,"content":null,"createdAt":null}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/comments/paginate
+    metadata:
+      groupName: Comment
+      groupDescription: |-
+
+        APIs for comment management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a paginate listing of the comment resources.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":null,"content":null,"createdAt":null}'
         headers: []
         description: ''
         custom: []
@@ -104,7 +143,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":33,"content":"Voluptas quos pariatur et in tenetur corrupti. Ut nemo mollitia aut saepe molestiae. Dolorum odit aliquid nihil praesentium. Et esse tempore qui maiores.","createdAt":"2024-11-12T21:52:33.000000Z","updatedAt":"2024-11-12T21:52:33.000000Z"}'
+        content: '{"id":null,"content":null,"createdAt":null}'
         headers: []
         description: ''
         custom: []
@@ -144,14 +183,14 @@ endpoints:
         name: id
         description: 'The ID of the comment.'
         required: true
-        example: eum
+        example: voluptatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: eum
+      id: voluptatibus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -160,7 +199,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":34,"content":"Excepturi perspiciatis nulla pariatur enim perspiciatis dolores. Quibusdam inventore aperiam dicta eos nihil nesciunt. Occaecati praesentium minima nihil animi sit praesentium et.","createdAt":"2024-11-12T21:52:33.000000Z","updatedAt":"2024-11-12T21:52:33.000000Z"}'
+        content: '{"id":null,"content":null,"createdAt":null}'
         headers: []
         description: ''
         custom: []
@@ -194,14 +233,14 @@ endpoints:
         name: id
         description: 'The ID of the comment.'
         required: true
-        example: vel
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: vel
+      id: rerum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -277,14 +316,14 @@ endpoints:
         name: id
         description: 'The ID of the comment.'
         required: true
-        example: tempore
+        example: voluptas
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: tempore
+      id: voluptas
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

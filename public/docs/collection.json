@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "9ca2a413-a518-4da2-823f-b7aadb4bdd12",
+        "_postman_id": "d01dd12e-f247-489e-bfb5-334b51140e4c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -56,7 +56,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":130,\"name\":\"Kim Hickle\",\"email\":\"thompson.stephan@example.net\",\"emailVerifiedAt\":\"2024-11-12T21:52:30.000000Z\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/300x300.png\\\/0011ee?text=people+faker+est\",\"phone\":\"+1-364-864-2056\",\"role\":\"auteur\",\"createdAt\":\"2024-11-12T21:52:31.000000Z\",\"updatedAt\":\"2024-11-12T21:52:31.000000Z\"},\"message\":\"An OTP code has been successfully sent\"}",
+                            "body": "{\"data\":{\"id\":66,\"lastName\":\"Murazik\",\"firstName\":\"Shawn\",\"email\":\"anais.jakubowski@example.org\",\"emailVerifiedAt\":\"2025-02-24T15:18:58.000000Z\",\"phone\":\"+18035512506\",\"role\":\"auteur\",\"image\":\"\",\"thumbnail\":\"\",\"createdAt\":{\"datetime\":\"2025-02-24T15:18:58.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:18 PM\"}},\"message\":\"An OTP code has been successfully sent\"}",
                             "name": ""
                         },
                         {
@@ -93,7 +93,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"hohara@example.net\",\"password\":\"repellat\"}"
+                            "raw": "{\"email\":\"izabella.mraz@example.net\",\"password\":\"iure\"}"
                         },
                         "description": "Log in a user.",
                         "auth": {
@@ -104,7 +104,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":131,\"name\":\"Arnold Corkery\",\"email\":\"keebler.lukas@example.org\",\"emailVerifiedAt\":\"2024-11-12T21:52:31.000000Z\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/300x300.png\\\/009944?text=people+faker+esse\",\"phone\":\"(539) 631-0608\",\"role\":\"auteur\",\"createdAt\":\"2024-11-12T21:52:31.000000Z\",\"updatedAt\":\"2024-11-12T21:52:31.000000Z\"},\"token\":\"48|78454\"}",
+                            "body": "{\"data\":{\"id\":67,\"lastName\":\"Weissnat\",\"firstName\":\"Pedro\",\"email\":\"lubowitz.amani@example.org\",\"emailVerifiedAt\":\"2025-02-24T15:18:58.000000Z\",\"phone\":\"+1.678.975.8397\",\"role\":\"admin\",\"image\":\"\",\"thumbnail\":\"\",\"createdAt\":{\"datetime\":\"2025-02-24T15:18:58.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:18 PM\"}},\"token\":\"48|78454\"}",
                             "name": ""
                         }
                     ]
@@ -146,7 +146,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":132,\"name\":\"Zoie Toy\",\"email\":\"lubowitz.tre@example.net\",\"emailVerifiedAt\":\"2024-11-12T21:52:31.000000Z\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/300x300.png\\\/00ffbb?text=people+faker+et\",\"phone\":\"+1-228-216-3038\",\"role\":\"lecteur\",\"createdAt\":\"2024-11-12T21:52:31.000000Z\",\"updatedAt\":\"2024-11-12T21:52:31.000000Z\"},\"token\":\"48|78454\"}",
+                            "body": "{\"data\":{\"id\":68,\"lastName\":\"Skiles\",\"firstName\":\"Andrew\",\"email\":\"jacobi.citlalli@example.org\",\"emailVerifiedAt\":\"2025-02-24T15:18:58.000000Z\",\"phone\":\"978-894-8597\",\"role\":\"auteur\",\"image\":\"\",\"thumbnail\":\"\",\"createdAt\":{\"datetime\":\"2025-02-24T15:18:58.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:18 PM\"}},\"token\":\"48|78454\"}",
                             "name": ""
                         },
                         {
@@ -244,7 +244,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":133,\"name\":\"Dorcas Hilpert\",\"email\":\"zbailey@example.org\",\"emailVerifiedAt\":\"2024-11-12T21:52:31.000000Z\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/300x300.png\\\/00bb66?text=people+faker+quam\",\"phone\":\"838-332-7779\",\"role\":\"admin\",\"createdAt\":\"2024-11-12T21:52:31.000000Z\",\"updatedAt\":\"2024-11-12T21:52:31.000000Z\"},\"token\":\"48|78454\"}",
+                            "body": "{\"data\":{\"id\":69,\"lastName\":\"Breitenberg\",\"firstName\":\"Dee\",\"email\":\"ghintz@example.com\",\"emailVerifiedAt\":\"2025-02-24T15:18:58.000000Z\",\"phone\":\"(480) 540-3701\",\"role\":\"lecteur\",\"image\":\"\",\"thumbnail\":\"\",\"createdAt\":{\"datetime\":\"2025-02-24T15:18:58.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:18 PM\"}},\"token\":\"48|78454\"}",
                             "name": ""
                         }
                     ]
@@ -289,7 +289,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":76,\"name\":\"ducimus\",\"slug\":\"omnis-pariatur-aut-architecto-corrupti-excepturi-laudantium-eos-est\",\"createdAt\":\"2024-11-12T21:52:31.000000Z\",\"updatedAt\":\"2024-11-12T21:52:31.000000Z\"}",
+                            "body": "{\"id\":43,\"name\":\"sunt\",\"slug\":\"eius-eos-est-modi-blanditiis\",\"createdAt\":{\"datetime\":\"2025-02-24T15:18:58.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:18 PM\"},\"image\":\"\",\"thumbnail\":\"\",\"updatedAt\":\"2025-02-24T15:18:58.000000Z\"}",
                             "name": ""
                         }
                     ]
@@ -328,7 +328,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":77,\"name\":\"porro\",\"slug\":\"quae-amet-in-animi-eveniet-quaerat-maiores\",\"createdAt\":\"2024-11-12T21:52:31.000000Z\",\"updatedAt\":\"2024-11-12T21:52:31.000000Z\"}",
+                            "body": "{\"id\":44,\"name\":\"ut\",\"slug\":\"molestias-qui-et-officia-ducimus-harum\",\"createdAt\":{\"datetime\":\"2025-02-24T15:18:59.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:18 PM\"},\"image\":\"\",\"thumbnail\":\"\",\"updatedAt\":\"2025-02-24T15:18:59.000000Z\"}",
                             "name": ""
                         }
                     ]
@@ -345,7 +345,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "voluptas",
+                                    "value": "recusandae",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -388,7 +388,7 @@
                                 }
                             ],
                             "code": 404,
-                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Category] voluptas\"\n}",
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Category] recusandae\"\n}",
                             "name": ""
                         }
                     ]
@@ -410,7 +410,7 @@
                             },
                             {
                                 "key": "Content-Type",
-                                "value": "application\/json"
+                                "value": "multipart\/form-data"
                             },
                             {
                                 "key": "Accept",
@@ -418,8 +418,26 @@
                             }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"Electronics\",\"slug\":\"electronics\"}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Electronics",
+                                    "type": "text",
+                                    "description": "The name of the category. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "slug",
+                                    "value": "electronics",
+                                    "type": "text",
+                                    "description": "The slug of the category. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
                         },
                         "description": "Store a newly created resource in storage.",
                         "auth": {
@@ -430,7 +448,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":78,\"name\":\"consequatur\",\"slug\":\"nemo-eaque-unde-debitis-aut\",\"createdAt\":\"2024-11-12T21:52:32.000000Z\",\"updatedAt\":\"2024-11-12T21:52:32.000000Z\"}",
+                            "body": "{\"id\":45,\"name\":\"aut\",\"slug\":\"corrupti-hic-quia-suscipit-perferendis-et-esse-veritatis\",\"createdAt\":{\"datetime\":\"2025-02-24T15:18:59.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:18 PM\"},\"image\":\"\",\"thumbnail\":\"\",\"updatedAt\":\"2025-02-24T15:18:59.000000Z\"}",
                             "name": ""
                         },
                         {
@@ -453,12 +471,12 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "et",
+                                    "value": "11",
                                     "description": "The ID of the category."
                                 }
                             ]
                         },
-                        "method": "PUT",
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Accept-Language",
@@ -466,7 +484,7 @@
                             },
                             {
                                 "key": "Content-Type",
-                                "value": "application\/json"
+                                "value": "multipart\/form-data"
                             },
                             {
                                 "key": "Accept",
@@ -474,8 +492,31 @@
                             }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"Electronics\",\"slug\":\"electronics\"}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Electronics",
+                                    "type": "text",
+                                    "description": "The name of the category. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "slug",
+                                    "value": "electronics",
+                                    "type": "text",
+                                    "description": "The slug of the category. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
                         },
                         "description": "Update the specified resource in storage.",
                         "auth": {
@@ -486,55 +527,8 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"message\": \"Category updated successfully.\"}",
-                            "name": "Success"
-                        }
-                    ]
-                },
-                {
-                    "name": "Delete Category",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/categories\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "cupiditate",
-                                    "description": "The ID of the category."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Accept-Language",
-                                "value": "en"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "Remove the specified resource from storage.",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 204,
-                            "body": "{\"message\": \"Category deleted successfully.\"}",
-                            "name": "Success"
+                            "body": "{\n  \"message\":\"Category updated successfully\"\n}",
+                            "name": "Updated"
                         }
                     ]
                 }
@@ -578,7 +572,46 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":32,\"content\":\"Doloremque in nesciunt laborum temporibus hic molestias. Dicta qui culpa iusto sunt sed aut. Ea ut quod soluta sequi. Rerum neque perspiciatis aliquid eligendi sequi qui.\",\"createdAt\":\"2024-11-12T21:52:33.000000Z\",\"updatedAt\":\"2024-11-12T21:52:33.000000Z\"}",
+                            "body": "{\"id\":null,\"content\":null,\"createdAt\":null}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get a paginate listing of the comment resources.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/comments\/paginate",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/comments\/paginate"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept-Language",
+                                "value": "en"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\":null,\"content\":null,\"createdAt\":null}",
                             "name": ""
                         }
                     ]
@@ -620,7 +653,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":33,\"content\":\"Voluptas quos pariatur et in tenetur corrupti. Ut nemo mollitia aut saepe molestiae. Dolorum odit aliquid nihil praesentium. Et esse tempore qui maiores.\",\"createdAt\":\"2024-11-12T21:52:33.000000Z\",\"updatedAt\":\"2024-11-12T21:52:33.000000Z\"}",
+                            "body": "{\"id\":null,\"content\":null,\"createdAt\":null}",
                             "name": ""
                         },
                         {
@@ -643,7 +676,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "eum",
+                                    "value": "voluptatibus",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -673,7 +706,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":34,\"content\":\"Excepturi perspiciatis nulla pariatur enim perspiciatis dolores. Quibusdam inventore aperiam dicta eos nihil nesciunt. Occaecati praesentium minima nihil animi sit praesentium et.\",\"createdAt\":\"2024-11-12T21:52:33.000000Z\",\"updatedAt\":\"2024-11-12T21:52:33.000000Z\"}",
+                            "body": "{\"id\":null,\"content\":null,\"createdAt\":null}",
                             "name": ""
                         }
                     ]
@@ -690,7 +723,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "vel",
+                                    "value": "rerum",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -740,7 +773,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "tempore",
+                                    "value": "voluptas",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -815,7 +848,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":13,\"liked\":1,\"createdAt\":\"2024-11-12T21:52:33.000000Z\",\"updatedAt\":\"2024-11-12T21:52:33.000000Z\"}",
+                            "body": "{\"id\":null,\"liked\":null,\"createdAt\":null,\"updatedAt\":null}",
                             "name": ""
                         }
                     ]
@@ -854,7 +887,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":14,\"liked\":1,\"createdAt\":\"2024-11-12T21:52:33.000000Z\",\"updatedAt\":\"2024-11-12T21:52:33.000000Z\"}",
+                            "body": "{\"id\":null,\"liked\":null,\"createdAt\":null,\"updatedAt\":null}",
                             "name": ""
                         }
                     ]
@@ -871,7 +904,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
+                                    "value": "6",
                                     "description": "The ID of the like."
                                 }
                             ]
@@ -897,7 +930,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":15,\"liked\":1,\"createdAt\":\"2024-11-12T21:52:34.000000Z\",\"updatedAt\":\"2024-11-12T21:52:34.000000Z\"}",
+                            "body": "{\"id\":null,\"liked\":null,\"createdAt\":null,\"updatedAt\":null}",
                             "name": ""
                         }
                     ]
@@ -935,7 +968,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":16,\"liked\":0,\"createdAt\":\"2024-11-12T21:52:34.000000Z\",\"updatedAt\":\"2024-11-12T21:52:34.000000Z\"}",
+                            "body": "{\"id\":null,\"liked\":null,\"createdAt\":null,\"updatedAt\":null}",
                             "name": ""
                         }
                     ]
@@ -980,7 +1013,97 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":68,\"title\":\"Accusamus beatae excepturi qui sit ipsa molestiae iusto enim.\",\"content\":\"Ipsum vel est provident ex tempore quia corrupti pariatur. Et voluptatem hic porro quisquam. Praesentium corrupti cupiditate et sit molestias autem cumque.\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/300x300.png\\\/009944?text=people+faker+ipsa\",\"status\":\"published\",\"slug\":\"accusantium-sit-alias-ex-voluptatem-quidem-suscipit\",\"createdAt\":\"2024-11-12T21:52:34.000000Z\",\"updatedAt\":\"2024-11-12T21:52:34.000000Z\"}",
+                            "body": "{\"id\":null,\"title\":\"Tenetur aut natus aspernatur tenetur.\",\"content\":\"Est hic porro doloremque impedit voluptatibus est nemo. Modi sed accusantium voluptas iure qui. Consequatur ipsam ipsam veritatis eligendi nobis omnis rem. In rerum sit porro ea.\",\"status\":\"published\",\"slug\":\"architecto-eligendi-commodi-odit-natus\",\"createdAt\":null,\"image\":\"\",\"thumbnail\":\"\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store Post",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/posts",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/posts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept-Language",
+                                "value": "en"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "Post Title",
+                                    "type": "text",
+                                    "description": "The title of the post. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "content",
+                                    "value": "Post Content",
+                                    "type": "text",
+                                    "description": "The content of the post."
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "Post Status",
+                                    "type": "text",
+                                    "description": "The status of the post. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "slug",
+                                    "value": "post-slug",
+                                    "type": "text",
+                                    "description": "The slug of the post. Must match the regex \/^[a-z0-9-]+$\/. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "user_id",
+                                    "value": 1,
+                                    "type": "text",
+                                    "description": "The ID of the user. The <code>id<\/code> of an existing record in the users table."
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": 1,
+                                    "type": "text",
+                                    "description": "The ID of the category. The <code>id<\/code> of an existing record in the categories table."
+                                },
+                                {
+                                    "key": "tag_id[0]",
+                                    "value": "dolorem",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "Store a newly created resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\":null,\"title\":\"Non odit nulla quia accusantium.\",\"content\":\"Quia et beatae repudiandae magnam aut quaerat in perferendis. Reprehenderit eveniet explicabo vero ut ex. Distinctio repudiandae ut labore.\",\"status\":\"published\",\"slug\":\"quas-ullam-earum-excepturi-est-hic-eum\",\"createdAt\":null,\"image\":\"\",\"thumbnail\":\"\"}",
                             "name": ""
                         }
                     ]
@@ -997,7 +1120,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "temporibus",
+                                    "value": "dolore",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -1039,9 +1162,112 @@
                                     "value": "*"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Post] dolore\"\n}",
                             "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update Post",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/posts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "aperiam",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept-Language",
+                                "value": "en"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "Post Title",
+                                    "type": "text",
+                                    "description": "The title of the post. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "content",
+                                    "value": "Post Content",
+                                    "type": "text",
+                                    "description": "The content of the post."
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "Post Status",
+                                    "type": "text",
+                                    "description": "The status of the post. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "slug",
+                                    "value": "post-slug",
+                                    "type": "text",
+                                    "description": "The slug of the post. Must match the regex \/^[a-z0-9-]+$\/. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "user_id",
+                                    "value": 1,
+                                    "type": "text",
+                                    "description": "The ID of the user. The <code>id<\/code> of an existing record in the users table."
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": 1,
+                                    "type": "text",
+                                    "description": "The ID of the category. The <code>id<\/code> of an existing record in the categories table."
+                                },
+                                {
+                                    "key": "tag_id[0]",
+                                    "value": "voluptatem",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "description": "Update the specified resource in storage.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"Post updated successfully.\"}",
+                            "name": "Success"
                         }
                     ]
                 },
@@ -1057,7 +1283,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "optio",
+                                    "value": "accusamus",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -1132,7 +1358,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":23,\"name\":\"sed\",\"slug\":\"exercitationem-tempore-modi-rerum-maxime-consequatur-a-voluptas\",\"createdAt\":\"2024-11-12T21:52:34.000000Z\",\"updatedAt\":\"2024-11-12T21:52:34.000000Z\"}",
+                            "body": "{\"id\":9,\"name\":\"ratione\",\"slug\":\"deserunt-porro-ut-doloribus\",\"createdAt\":{\"datetime\":\"2025-02-24T15:19:00.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:19 PM\"}}",
                             "name": ""
                         }
                     ]
@@ -1171,7 +1397,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":24,\"name\":\"ut\",\"slug\":\"aut-repudiandae-occaecati-doloribus-autem\",\"createdAt\":\"2024-11-12T21:52:34.000000Z\",\"updatedAt\":\"2024-11-12T21:52:34.000000Z\"}",
+                            "body": "{\"id\":10,\"name\":\"sequi\",\"slug\":\"voluptatem-amet-enim-aperiam-aspernatur-saepe-dolor-saepe\",\"createdAt\":{\"datetime\":\"2025-02-24T15:19:00.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:19 PM\"}}",
                             "name": ""
                         }
                     ]
@@ -1213,7 +1439,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":25,\"name\":\"natus\",\"slug\":\"velit-ut-placeat-ullam-vel\",\"createdAt\":\"2024-11-12T21:52:35.000000Z\",\"updatedAt\":\"2024-11-12T21:52:35.000000Z\"}",
+                            "body": "{\"id\":11,\"name\":\"labore\",\"slug\":\"perspiciatis-consequuntur-hic-assumenda-consectetur-nihil\",\"createdAt\":{\"datetime\":\"2025-02-24T15:19:00.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:19 PM\"}}",
                             "name": ""
                         },
                         {
@@ -1236,7 +1462,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "alias",
+                                    "value": "sit",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -1266,7 +1492,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":26,\"name\":\"sint\",\"slug\":\"ut-temporibus-eaque-nisi-pariatur-quis\",\"createdAt\":\"2024-11-12T21:52:35.000000Z\",\"updatedAt\":\"2024-11-12T21:52:35.000000Z\"}",
+                            "body": "{\"id\":12,\"name\":\"rerum\",\"slug\":\"reiciendis-fuga-culpa-accusamus-voluptas-rerum\",\"createdAt\":{\"datetime\":\"2025-02-24T15:19:00.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:19 PM\"}}",
                             "name": ""
                         }
                     ]
@@ -1283,7 +1509,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "eum",
+                                    "value": "itaque",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -1333,7 +1559,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "reiciendis",
+                                    "value": "ut",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -1401,7 +1627,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":157,\"name\":\"Jamison Boyle\",\"email\":\"jalyn.wintheiser@example.org\",\"emailVerifiedAt\":\"2024-11-12T21:52:35.000000Z\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/300x300.png\\\/004422?text=people+faker+autem\",\"phone\":\"+1.475.878.5587\",\"role\":\"auteur\",\"createdAt\":\"2024-11-12T21:52:35.000000Z\",\"updatedAt\":\"2024-11-12T21:52:35.000000Z\"}",
+                            "body": "{\"id\":98,\"lastName\":\"McDermott\",\"firstName\":\"Malika\",\"email\":\"ocartwright@example.net\",\"emailVerifiedAt\":\"2025-02-24T15:19:01.000000Z\",\"phone\":\"1-332-353-7525\",\"role\":\"auteur\",\"image\":\"\",\"thumbnail\":\"\",\"createdAt\":{\"datetime\":\"2025-02-24T15:19:01.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:19 PM\"}}",
                             "name": ""
                         }
                     ]
@@ -1437,8 +1663,119 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":158,\"name\":\"Dr. Pedro Klein\",\"email\":\"phackett@example.org\",\"emailVerifiedAt\":\"2024-11-12T21:52:35.000000Z\",\"image\":\"https:\\\/\\\/via.placeholder.com\\\/300x300.png\\\/009999?text=people+faker+omnis\",\"phone\":\"(607) 288-7794\",\"role\":\"admin\",\"createdAt\":\"2024-11-12T21:52:35.000000Z\",\"updatedAt\":\"2024-11-12T21:52:35.000000Z\"}",
+                            "body": "{\"id\":99,\"lastName\":\"Christiansen\",\"firstName\":\"Manuela\",\"email\":\"schowalter.ted@example.net\",\"emailVerifiedAt\":\"2025-02-24T15:19:01.000000Z\",\"phone\":\"559-480-0534\",\"role\":\"admin\",\"image\":\"\",\"thumbnail\":\"\",\"createdAt\":{\"datetime\":\"2025-02-24T15:19:01.000000Z\",\"humanDiff\":\"0 seconds ago\",\"human\":\"Mon, Feb 24, 2025 3:19 PM\"}}",
                             "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept-Language",
+                                "value": "en"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "first_name",
+                                    "value": "John",
+                                    "type": "text",
+                                    "description": "The first name of the user. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "last_name",
+                                    "value": "Doe",
+                                    "type": "text",
+                                    "description": "The last name of the user. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "n9vI3@example.com",
+                                    "type": "text",
+                                    "description": "The email of the user. Must be a valid email address. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "password",
+                                    "type": "text",
+                                    "description": "The password of the user. Must be at least 8 characters."
+                                },
+                                {
+                                    "key": "role",
+                                    "value": "admin",
+                                    "type": "text",
+                                    "description": "The role of the user. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "123456789",
+                                    "type": "text",
+                                    "description": "The phone number of the user. Must match the regex \/^([0-9\\s\\-\\+\\(\\)]*)$\/. Must be at least 8 characters. Must not be greater than 12 characters."
+                                },
+                                {
+                                    "key": "address[place_id]",
+                                    "value": "dolorem",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "address[place_name]",
+                                    "value": "whcxxtcyv",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "address[longitude]",
+                                    "value": 499.5,
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "address[latitude]",
+                                    "value": 259.94172,
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "address[street_name]",
+                                    "value": "cdtcsybdmcjwpvbvemtwku",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "Strore a newly created resource in storage."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"message\": \"User created successfully.\"}",
+                            "name": "Created"
                         }
                     ]
                 },
@@ -1454,7 +1791,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "sit",
+                                    "value": "error",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -1493,9 +1830,133 @@
                                     "value": "*"
                                 }
                             ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\User] error\"\n}",
                             "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept-Language",
+                                "value": "en"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "first_name",
+                                    "value": "John",
+                                    "type": "text",
+                                    "description": "The first name of the user. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "last_name",
+                                    "value": "Doe",
+                                    "type": "text",
+                                    "description": "The last name of the user. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "n9vI3@example.com",
+                                    "type": "text",
+                                    "description": "The email of the user. Must be a valid email address. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "password",
+                                    "type": "text",
+                                    "description": "The password of the user. Must be at least 8 characters."
+                                },
+                                {
+                                    "key": "role",
+                                    "value": "admin",
+                                    "type": "text",
+                                    "description": "The role of the user. Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "123456789",
+                                    "type": "text",
+                                    "description": "The phone number of the user. Must match the regex \/^([0-9\\s\\-\\+\\(\\)]*)$\/. Must be at least 8 characters. Must not be greater than 12 characters."
+                                },
+                                {
+                                    "key": "address[place_id]",
+                                    "value": "id",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "address[place_name]",
+                                    "value": "qlrjdcxoqcds",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "address[longitude]",
+                                    "value": 1190215.35,
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "address[latitude]",
+                                    "value": 33070199.9,
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "address[street_name]",
+                                    "value": "obfynlchefdiunwwi",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "description": "Update the specified resource in storage."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"message\":\"User updated successfully\"\n \"data\": {\n    \/\/ user and address details here\n  }\n\n}",
+                            "name": "Updated"
                         }
                     ]
                 },
@@ -1511,7 +1972,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "consequatur",
+                                    "value": "similique",
                                     "description": "The ID of the user."
                                 }
                             ]

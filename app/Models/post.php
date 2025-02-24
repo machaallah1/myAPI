@@ -3,12 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Post extends Model
+class Post extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
+    use InteractsWithMedia;
+
+    protected $appends = [
+        'image',
+        'thumbnail',
+    ];
 
     protected $fillable = [
         'title',
@@ -16,11 +27,10 @@ class Post extends Model
         'user_id',
         'category_id',
         'slug',
-        'image',
         'status',
     ];
 
-    protected $with= [
+    protected $with = [
         'user',
         'category'
     ];
@@ -73,5 +83,49 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    /**
+     * @return Attribute<string, never-return>
+     */
+    public function image(): Attribute
+    {
+        $media = $this->media->first();
+
+        return Attribute::make(
+            get: fn() => $media instanceof Media
+                ? $media->getUrl()
+                : null,
+        );
+    }
+
+    public function registerMediaCollections(?Media $media = null): void
+    {
+        $this->addMediaCollection(name: 'posts')
+            ->singleFile();
+
+        $this->addMediaConversion(name: 'thumb')
+            ->fit(
+                fit: Fit::Crop,
+                desiredWidth: 80,
+                desiredHeight: 80,
+            )
+            ->sharpen(amount: 10);
+    }
+
+    /**
+     * @return Attribute<string, never-return>
+     */
+    public function thumbnail(): Attribute
+    {
+        $media = $this->media->first();
+
+        return Attribute::make(
+            get: fn() => $media instanceof Media
+                ? $media->getUrl(
+                    conversionName: 'thumb',
+                )
+                : null,
+        );
     }
 }

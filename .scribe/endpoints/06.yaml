@@ -31,7 +31,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":157,"name":"Jamison Boyle","email":"jalyn.wintheiser@example.org","emailVerifiedAt":"2024-11-12T21:52:35.000000Z","image":"https:\/\/via.placeholder.com\/300x300.png\/004422?text=people+faker+autem","phone":"+1.475.878.5587","role":"auteur","createdAt":"2024-11-12T21:52:35.000000Z","updatedAt":"2024-11-12T21:52:35.000000Z"}'
+        content: '{"id":98,"lastName":"McDermott","firstName":"Malika","email":"ocartwright@example.net","emailVerifiedAt":"2025-02-24T15:19:01.000000Z","phone":"1-332-353-7525","role":"auteur","image":"","thumbnail":"","createdAt":{"datetime":"2025-02-24T15:19:01.000000Z","humanDiff":"0 seconds ago","human":"Mon, Feb 24, 2025 3:19 PM"}}'
         headers: []
         description: ''
         custom: []
@@ -70,9 +70,191 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":158,"name":"Dr. Pedro Klein","email":"phackett@example.org","emailVerifiedAt":"2024-11-12T21:52:35.000000Z","image":"https:\/\/via.placeholder.com\/300x300.png\/009999?text=people+faker+omnis","phone":"(607) 288-7794","role":"admin","createdAt":"2024-11-12T21:52:35.000000Z","updatedAt":"2024-11-12T21:52:35.000000Z"}'
+        content: '{"id":99,"lastName":"Christiansen","firstName":"Manuela","email":"schowalter.ted@example.net","emailVerifiedAt":"2025-02-24T15:19:01.000000Z","phone":"559-480-0534","role":"admin","image":"","thumbnail":"","createdAt":{"datetime":"2025-02-24T15:19:01.000000Z","humanDiff":"0 seconds ago","human":"Mon, Feb 24, 2025 3:19 PM"}}'
         headers: []
         description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/users
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        APIs for user
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store User'
+      description: 'Strore a newly created resource in storage.'
+      authenticated: true
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'The first name of the user. Must not be greater than 255 characters.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The last name of the user. Must not be greater than 255 characters.'
+        required: true
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'The email of the user. Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: n9vI3@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user. Must be at least 8 characters.'
+        required: true
+        example: password
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      role:
+        name: role
+        description: 'The role of the user. Must not be greater than 255 characters.'
+        required: true
+        example: admin
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: 'The phone number of the user. Must match the regex /^([0-9\s\-\+\(\)]*)$/. Must be at least 8 characters. Must not be greater than 12 characters.'
+        required: true
+        example: '123456789'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      image:
+        name: image
+        description: 'The image of the user. Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.place_id:
+        name: address.place_id
+        description: ''
+        required: false
+        example: dolorem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.place_name:
+        name: address.place_name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: whcxxtcyv
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.longitude:
+        name: address.longitude
+        description: ''
+        required: false
+        example: 499.5
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.latitude:
+        name: address.latitude
+        description: ''
+        required: false
+        example: 259.94172
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.street_name:
+        name: address.street_name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: cdtcsybdmcjwpvbvemtwku
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      first_name: John
+      last_name: Doe
+      email: n9vI3@example.com
+      password: password
+      role: admin
+      phone: '123456789'
+      address:
+        place_id: dolorem
+        place_name: whcxxtcyv
+        longitude: 499.5
+        latitude: 259.94172
+        street_name: cdtcsybdmcjwpvbvemtwku
+    fileParameters:
+      image: null
+    responses:
+      -
+        status: 201
+        content: '{"message": "User created successfully."}'
+        headers: []
+        description: Created
         custom: []
     responseFields: []
     auth: []
@@ -104,14 +286,14 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: sit
+        example: error
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: sit
+      id: error
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -119,13 +301,216 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\User] error"
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        APIs for user
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update User'
+      description: 'Update the specified resource in storage.'
+      authenticated: true
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'The first name of the user. Must not be greater than 255 characters.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The last name of the user. Must not be greater than 255 characters.'
+        required: true
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'The email of the user. Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: n9vI3@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user. Must be at least 8 characters.'
+        required: true
+        example: password
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      role:
+        name: role
+        description: 'The role of the user. Must not be greater than 255 characters.'
+        required: true
+        example: admin
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: 'The phone number of the user. Must match the regex /^([0-9\s\-\+\(\)]*)$/. Must be at least 8 characters. Must not be greater than 12 characters.'
+        required: true
+        example: '123456789'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      image:
+        name: image
+        description: 'The image of the user. Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.place_id:
+        name: address.place_id
+        description: ''
+        required: false
+        example: id
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.place_name:
+        name: address.place_name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: qlrjdcxoqcds
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.longitude:
+        name: address.longitude
+        description: ''
+        required: false
+        example: 1190215.35
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.latitude:
+        name: address.latitude
+        description: ''
+        required: false
+        example: 33070199.9
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      address.street_name:
+        name: address.street_name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: obfynlchefdiunwwi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      first_name: John
+      last_name: Doe
+      email: n9vI3@example.com
+      password: password
+      role: admin
+      phone: '123456789'
+      address:
+        place_id: id
+        place_name: qlrjdcxoqcds
+        longitude: 1190215.35
+        latitude: 33070199.9
+        street_name: obfynlchefdiunwwi
+    fileParameters:
+      image: null
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "message":"User updated successfully"
+           "data": {
+              // user and address details here
+            }
+
+          }
+        headers: []
+        description: Updated
         custom: []
     responseFields: []
     auth: []
@@ -157,14 +542,14 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: consequatur
+        example: similique
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: consequatur
+      id: similique
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

@@ -32,7 +32,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":13,"liked":1,"createdAt":"2024-11-12T21:52:33.000000Z","updatedAt":"2024-11-12T21:52:33.000000Z"}'
+        content: '{"id":null,"liked":null,"createdAt":null,"updatedAt":null}'
         headers: []
         description: ''
         custom: []
@@ -71,7 +71,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":14,"liked":1,"createdAt":"2024-11-12T21:52:33.000000Z","updatedAt":"2024-11-12T21:52:33.000000Z"}'
+        content: '{"id":null,"liked":null,"createdAt":null,"updatedAt":null}'
         headers: []
         description: ''
         custom: []
@@ -104,14 +104,14 @@ endpoints:
         name: id
         description: 'The ID of the like.'
         required: true
-        example: 9
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 9
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -120,7 +120,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":15,"liked":1,"createdAt":"2024-11-12T21:52:34.000000Z","updatedAt":"2024-11-12T21:52:34.000000Z"}'
+        content: '{"id":null,"liked":null,"createdAt":null,"updatedAt":null}'
         headers: []
         description: ''
         custom: []
@@ -202,7 +202,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":16,"liked":0,"createdAt":"2024-11-12T21:52:34.000000Z","updatedAt":"2024-11-12T21:52:34.000000Z"}'
+        content: '{"id":null,"liked":null,"createdAt":null,"updatedAt":null}'
         headers: []
         description: ''
         custom: []
