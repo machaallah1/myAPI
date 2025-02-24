@@ -18,11 +18,11 @@ Route::prefix('tags')
             ->name('store');
 
         Route::get('{id}', [TagController::class, 'show'])
-            ->name('show');
+            ->name('show')->middleware('auth:sanctum');
 
         Route::put('{id}', [TagController::class, 'update'])
-            ->name('update');
+            ->name('update')->middleware('auth:sanctum');
 
         Route::delete('{id}', [TagController::class, 'destroy'])
-            ->name('destroy');
+            ->name('destroy')->middleware('auth:sanctum');
     });

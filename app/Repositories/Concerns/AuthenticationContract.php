@@ -41,4 +41,5 @@ interface AuthenticationContract
      * Check if a the provided otp code is valid
      */
     public function verifyOtp(OtpCode $otpCode): JsonResponse|bool;
+    
 }

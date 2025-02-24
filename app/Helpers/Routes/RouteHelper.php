@@ -6,6 +6,7 @@ namespace App\Helpers\Routes;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use Illuminate\Support\Facades\Log; // Ajouter cette ligne pour importer Log
 
 final class RouteHelper
 {
@@ -18,6 +19,8 @@ final class RouteHelper
 
         while ($iterator->valid()) {
             if ( ! $iterator->isDot() && $iterator->isFile() && $iterator->isReadable() && 'php' === $iterator->current()->getExtension()) {
+                // Log de debug pour afficher les fichiers inclus
+                Log::info("Inclusion du fichier : " . $iterator->key());
                 require $iterator->key();
             }
 

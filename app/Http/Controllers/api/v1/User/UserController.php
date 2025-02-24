@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\api\v1\User;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\v1\User\UserRequest;
 use App\Repositories\UserRepository;
 use App\Http\Resources\v1\UserResource;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\v1\User\UserRequest;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -94,26 +96,27 @@ class UserController extends Controller
      * @return JsonResponse
      */
     public function store(UserRequest $request): JsonResponse
-    {
-        $validated = $request->validated();
-        $this->repository->create(
-            attributes: $validated
-        );
+{
+    $validated = $request->validated();
 
-        /** @var \App\Models\User $user */
-        $user = User::query()
-            ->where(
-                column: 'email',
-                operator: '=',
-                value: $validated['email']
-            )->first();
-        return response()->json(
-            data: [
-                'message' => 'User created successfully.'
-            ],
-            status: JsonResponse::HTTP_CREATED
-        );
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imagePath = $image->store('users', 'public');
+        $validated['image'] = $imagePath;
     }
+    $user = $this->repository->create(
+        attributes: $validated
+    );
+
+    return response()->json(
+        data: [
+            'message' => 'User created successfully.',
+            'user' => new \App\Http\Resources\v1\UserResource($user)
+        ],
+        status: JsonResponse::HTTP_CREATED
+    );
+}
+
 
     /**
      * Update User
@@ -132,26 +135,34 @@ class UserController extends Controller
      * @return JsonResponse
      */
     public function update(UserRequest $request, string $id): JsonResponse
-    {
-        $validated = $request->validated();
-        $this->repository->update(
-            id: $id,
-            attributes: $validated
-        );
+{
+    $validated = $request->validated();
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imagePath = $image->store('users', 'public');
+        $validated['image'] = $imagePath;
 
-        /** @var \App\Models\User $user */
-        $user = User::query()
-            ->findOrFail(
-                id: $id
-            );
-        return response()->json(
-            data: [
-                'message' => 'User updated successfully.',
-                'data' => new UserResource($user)
-            ],
-            status: JsonResponse::HTTP_OK
-        );
+        $user = $this->repository->find($id);
+        if ($user && $user->image) {
+            Storage::disk('public')->delete($user->image);
+        }
     }
+    $this->repository->update(
+        id: $id,
+        attributes: $validated
+    );
+
+    $user = User::query()->findOrFail($id);
+
+    return response()->json(
+        data: [
+            'message' => 'User updated successfully.',
+            'data' => new UserResource($user)
+        ],
+        status: JsonResponse::HTTP_OK
+    );
+}
+
 
     /**
      * Delete User

@@ -8,9 +8,11 @@
         "php": "^8.2",
         "cviebrock/eloquent-sluggable": "^11.0",
         "ichtrojan/laravel-otp": "^2.0",
+        "knuckleswtf/scribe": "^4.38",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "spatie/laravel-medialibrary": "^11.10",
         "spomky-labs/otphp": "^11.3"
     },
     "require-dev": {

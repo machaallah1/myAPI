@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\api\v1\Authentication;
 
-use Exception;
 use App\Models\User;
 use App\Mail\OtpMail;
 use App\Models\OtpCode;
@@ -140,9 +139,8 @@ final class AuthenticationController extends Controller
      */
     public function loginWithOtp(LoginWithOtpRequest $request): JsonResource|JsonResponse
     {
-        print($request->all());
-        // Authenticate the user using the repository
-        // return $this->repository->loginWithOtp(request: $request);
+         // Authenticate the user using the repository
+         return $this->repository->loginWithOtp(request: $request);
     }
 
     /**
@@ -209,6 +207,5 @@ public function logout(): JsonResponse
 {
     return $this->repository->logout();
 }
-
 
 }

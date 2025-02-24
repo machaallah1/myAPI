@@ -1,0 +1,328 @@
+name: Category
+description: |-
+
+  APIs for category management
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/categories
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        APIs for category management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get the list of categories'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":76,"name":"ducimus","slug":"omnis-pariatur-aut-architecto-corrupti-excepturi-laudantium-eos-est","createdAt":"2024-11-12T21:52:31.000000Z","updatedAt":"2024-11-12T21:52:31.000000Z"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/categories/paginate
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        APIs for category management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a paginate listing of the category resources.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":77,"name":"porro","slug":"quae-amet-in-animi-eveniet-quaerat-maiores","createdAt":"2024-11-12T21:52:31.000000Z","updatedAt":"2024-11-12T21:52:31.000000Z"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/categories/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        APIs for category management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show Category'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: voluptas
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: voluptas
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Category] voluptas"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/categories
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        APIs for category management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store Category'
+      description: 'Store a newly created resource in storage.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the category. Must not be greater than 255 characters.'
+        required: true
+        example: Electronics
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      slug:
+        name: slug
+        description: 'The slug of the category. Must not be greater than 255 characters.'
+        required: true
+        example: electronics
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: Electronics
+      slug: electronics
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":78,"name":"consequatur","slug":"nemo-eaque-unde-debitis-aut","createdAt":"2024-11-12T21:52:32.000000Z","updatedAt":"2024-11-12T21:52:32.000000Z"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 201
+        content: '{"message": "Category created successfully."}'
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/categories/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        APIs for category management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update Category'
+      description: 'Update the specified resource in storage.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: et
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the category. Must not be greater than 255 characters.'
+        required: true
+        example: Electronics
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      slug:
+        name: slug
+        description: 'The slug of the category. Must not be greater than 255 characters.'
+        required: true
+        example: electronics
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: Electronics
+      slug: electronics
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"message": "Category updated successfully."}'
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/categories/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        APIs for category management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Category'
+      description: 'Remove the specified resource from storage.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: cupiditate
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: cupiditate
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{"message": "Category deleted successfully."}'
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

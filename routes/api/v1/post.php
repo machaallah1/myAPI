@@ -11,8 +11,8 @@ Route::prefix('posts')
         Route::get('', [PostController::class, 'index'])
             ->name('index');
 
-        Route::get('pagination', [PostController::class, 'pagination'])
-            ->name('pagination');
+        Route::get('paginnate', [PostController::class, 'paginnate'])
+            ->name('paginnate');
 
         Route::post('', [PostController::class, 'store'])
             ->name('store');
@@ -21,7 +21,7 @@ Route::prefix('posts')
             ->name('show');
 
         Route::put('{id}', [PostController::class, 'update'])
-            ->name('update');
+            ->name('update')->middleware('auth:sanctum');
 
         Route::delete('{id}', [PostController::class, 'destroy'])
             ->name('destroy');

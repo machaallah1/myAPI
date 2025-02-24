@@ -1,0 +1,185 @@
+name: User
+description: |-
+
+  APIs for user
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/users
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        APIs for user
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get the list of users'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":157,"name":"Jamison Boyle","email":"jalyn.wintheiser@example.org","emailVerifiedAt":"2024-11-12T21:52:35.000000Z","image":"https:\/\/via.placeholder.com\/300x300.png\/004422?text=people+faker+autem","phone":"+1.475.878.5587","role":"auteur","createdAt":"2024-11-12T21:52:35.000000Z","updatedAt":"2024-11-12T21:52:35.000000Z"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/users/paginate
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        APIs for user
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a paginate listing of the user resources.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":158,"name":"Dr. Pedro Klein","email":"phackett@example.org","emailVerifiedAt":"2024-11-12T21:52:35.000000Z","image":"https:\/\/via.placeholder.com\/300x300.png\/009999?text=people+faker+omnis","phone":"(607) 288-7794","role":"admin","createdAt":"2024-11-12T21:52:35.000000Z","updatedAt":"2024-11-12T21:52:35.000000Z"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        APIs for user
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show User'
+      description: 'Show the specified resource.'
+      authenticated: true
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: sit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: sit
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/users/{id}'
+    metadata:
+      groupName: User
+      groupDescription: |-
+
+        APIs for user
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete User'
+      description: 'Remove the specified resource from storage.'
+      authenticated: true
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{"message": "User deleted successfully."}'
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

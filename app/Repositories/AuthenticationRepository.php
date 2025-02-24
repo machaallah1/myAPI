@@ -46,9 +46,9 @@ final class AuthenticationRepository implements AuthenticationContract
         /**
          * @var User|null $user
          */
-        $user=null;
+        $user = null;
 
-        $user=User::query()->where('email', $validated['email'])->first();
+        $user = User::query()->where('email', $validated['email'])->first();
 
         if (null === $user) {
             $user = User::query()->create($validated);
@@ -63,84 +63,81 @@ final class AuthenticationRepository implements AuthenticationContract
      * @return OtpCode
      */
     public function generateOtp(string $email): OtpCode
-{
-    // Trouver l'utilisateur avec l'email donné
-    $user = User::query()
-        ->where('email', $email)
-        ->first();
+    {
+        // Trouver l'utilisateur avec l'email donné
+        $user = User::query()
+            ->where('email', $email)
+            ->first();
 
-    $otpCode = OtpCode::query()
-        ->where('user_id', $user->id)
-        ->latest()
-        ->first();
+        $otpCode = OtpCode::query()
+            ->where('user_id', $user->id)
+            ->latest()
+            ->first();
 
-    if ($otpCode && $otpCode->expire_at > now()) {
-        return $otpCode;
-    }
+        if ($otpCode && $otpCode->expire_at > now()) {
+            return $otpCode;
+        }
 
-    // Créer un nouvel OTP pour l'utilisateur
-    $otpCode = OtpCode::query()->create([
-        'user_id' => $user->id,
-        'otp' => rand(100000, 999999), // Générer un code OTP aléatoire de 6 chiffres
-        'expire_at' => now()->addMinutes(10), // Définir l'heure d'expiration à 10 minutes à partir de maintenant
-    ]);
-
-    // Envoyer l'OTP par email
-    try {
-        Mail::to($user->email)->send(new OtpMail((string)$otpCode->otp));
-    } catch (\Exception $e) {
-        // Gérer l'erreur d'envoi d'email
-        throw new \Exception(__('messages.error.email_failed'), 0, $e);
-    }
-
-    return $otpCode; // Retourner l'OTP
-}
-
-
-
-   /**
- * Log in the user with a given email and password.
- *
- * This function attempts to authenticate the user with the provided email and password.
- * If the authentication is successful, it generates a token for the user and returns
- * a JSON response containing the user resource and the token. If the authentication fails,
- * it returns a JSON response indicating the failure.
- *
- * @param  FormRequest  $request  The request containing the user's email and password.
- * @return JsonResource|JsonResponse The user resource with the token or a JSON response indicating the failure.
- */
-public function login(FormRequest $request): JsonResource|JsonResponse
-{
-    // Valider les données de la requête
-    $validated = $request->validated();
-
-    // Tenter d'authentifier l'utilisateur avec les informations fournies
-    if (!Auth::attempt($validated)) {
-        // Retourner une réponse JSON indiquant l'échec de l'authentification
-        return response()->json(
-            [
-                'message' => __('auth.failed'), // Utiliser la fonction __() pour la traduction
-            ],
-            JsonResponse::HTTP_UNAUTHORIZED // Indiquer que l'authentification a échoué avec un code 401
-        );
-    }
-
-    // Récupérer l'utilisateur authentifié
-    /** @var User $user */
-    $user = Auth::user();
-
-    // Générer un token d'accès pour l'utilisateur
-    $accessToken = $user->createToken(config('app.name'))->plainTextToken;
-
-    // Retourner une réponse JSON avec les informations de l'utilisateur et le token
-    return UserResource::make($user)
-        ->additional([
-            'token' => $accessToken,
-            'message' => __('messages.success.login'), // Message de succès
+        // Créer un nouvel OTP pour l'utilisateur
+        $otpCode = OtpCode::query()->create([
+            'user_id' => $user->id,
+            'otp' => rand(100000, 999999), // Générer un code OTP aléatoire de 6 chiffres
+            'expire_at' => now()->addMinutes(10), // Définir l'heure d'expiration à 10 minutes à partir de maintenant
         ]);
-}
+
+        // Envoyer l'OTP par email
+        try {
+            Mail::to($user->email)->send(new OtpMail((string)$otpCode->otp));
+        } catch (\Exception $e) {
+            // Gérer l'erreur d'envoi d'email
+            throw new \Exception(__('messages.error.email_failed'), 0, $e);
+        }
+
+        return $otpCode; // Retourner l'OTP
+    }
 
 
+
+    /**
+     * Log in the user with a given email and password.
+     *
+     * This function attempts to authenticate the user with the provided email and password.
+     * If the authentication is successful, it generates a token for the user and returns
+     * a JSON response containing the user resource and the token. If the authentication fails,
+     * it returns a JSON response indicating the failure.
+     *
+     * @param  FormRequest  $request  The request containing the user's email and password.
+     * @return JsonResource|JsonResponse The user resource with the token or a JSON response indicating the failure.
+     */
+    public function login(FormRequest $request): JsonResource|JsonResponse
+    {
+        $validated = $request->validated();
+
+        // Tenter d'authentifier l'utilisateur avec les informations fournies
+        if (! auth()->guard()->attempt(credentials: $validated)) {
+            // Retourner une réponse JSON indiquant l'échec de l'authentification
+            return response()->json(
+                [
+                    'message' => __('auth.failed'), // Utiliser la fonction __() pour la traduction
+                ],
+                JsonResponse::HTTP_UNAUTHORIZED // Indiquer que l'authentification a échoué avec un code 401
+            );
+        }
+
+        // Récupérer l'utilisateur authentifié
+        /** @var User $user */
+        $user = Auth::user();
+
+        // Générer un token d'accès pour l'utilisateur
+        $accessToken = $user->createToken(config('app.name'))->plainTextToken;
+
+        // Retourner une réponse JSON avec les informations de l'utilisateur et le token
+        return UserResource::make($user)
+            ->additional([
+                'token' => $accessToken,
+                'message' => __('messages.success.login'), // Message de succès
+            ]);
+    }
 
     /**
      * OTP Login.
@@ -156,44 +153,70 @@ public function login(FormRequest $request): JsonResource|JsonResponse
      * @return JsonResource|JsonResponse
      */
     public function loginWithOtp(FormRequest $request): JsonResource|JsonResponse
-    {
-        // Request validation
-        $validated = $request->validated();
+{
+    // Validation des données de la requête
+    $validated = $request->validated();
 
-        // Find the OTP code with the given user ID and OTP code
-        $otpCode = OtpCode::query()
-            ->where('email', $validated['email'])
-            ->where('otp', $validated['otp'])
-            ->first();
+    // Recherche du code OTP dans la base de données
+    $otpCode = OtpCode::query()
+        ->where('user_id', $validated['user_id'])
+        ->where('otp', $validated['otp'])
+        ->first();
 
-        // Check if the OTP code is valid
-        if ($otpCode && $this->verifyOtp($otpCode)) {
-            /** @var User $user */
-            $user = User::query()->find($validated['user_id']);
-
-            // Expire the OTP
-            $otpCode->update(['expire_at' => now()]);
-
-            // Log the user in
-            auth()->login($user);
-            $token = $user->createToken(config('app.name'))->plainTextToken;
-
-            // Return the user resource with the token and success message
-            return UserResource::make($user)->additional([
-                'token' => $token,
-                'message' => __('messages.success.login'),
-            ]);
-        }
-
-        // Return a JSON response indicating the OTP code is invalid or expired
+    // Vérification si le code OTP existe
+    if (!$otpCode) {
+        // Si le code OTP est introuvable
         return response()->json([
-            'message' => $otpCode
-                ? __('otp.expired') // Si le code OTP a été trouvé mais est expiré
-                : __('messages.error.otp'), // Si le code OTP est incorrect
+            'message' => __('messages.error.otp_not_found'), // Message pour code OTP introuvable
             'action' => __('messages.action.login'),
-        ], JsonResponse::HTTP_BAD_REQUEST);
+        ], JsonResponse::HTTP_BAD_REQUEST); // Code d'état 400 : mauvaise requête
     }
 
+    // Vérification de la validité du code OTP
+    if (!$this->verifyOtp($otpCode)) {
+        // Si la vérification du code OTP échoue
+        return response()->json([
+            'message' => __('messages.error.invalid_otp'),
+            'action' => __('messages.action.login'),
+        ], JsonResponse::HTTP_UNAUTHORIZED);
+    }
+
+    // Vérification si le code OTP est expiré
+    if ($otpCode->expire_at && $otpCode->expire_at < now()) {
+        // Si le code OTP a expiré
+        return response()->json([
+            'message' => __('otp.expired'),
+            'action' => __('messages.action.login'),
+        ], JsonResponse::HTTP_GONE); // Code d'état 410 : code OTP expiré
+    }
+
+    // Trouver l'utilisateur avec l'ID fourni
+    /** @var User $user */
+    $user = User::query()->find($validated['user_id']);
+
+    // Si l'utilisateur n'est pas trouvé
+    if (!$user) {
+        return response()->json([
+            'message' => __('messages.error.user_not_found'), // Message pour utilisateur non trouvé
+            'action' => __('messages.action.login'),
+        ], JsonResponse::HTTP_NOT_FOUND); // Code d'état 404 : non trouvé
+    }
+
+    // Expirer le code OTP (mise à jour)
+    $otpCode->update(['expire_at' => now()]);
+
+    // Authentification de l'utilisateur
+    Auth::login($user);
+
+    // Création du token d'accès
+    $token = $user->createToken(config('app.name'))->plainTextToken;
+
+    // Retourner les données de l'utilisateur avec le token
+    return UserResource::make($user)->additional([
+        'token' => $token,
+        'message' => __('messages.success.login'), 
+    ]);
+}
 
     /**
      * Logout the user.
@@ -204,17 +227,16 @@ public function login(FormRequest $request): JsonResource|JsonResponse
      */
     public function logout(): JsonResponse
     {
-        $user = auth()->user();
-
+        $user = Auth::user();
         if ($user) {
             $user->tokens()->delete();
         }
         return response()->json(
-            data:[
+            data: [
                 'message' => __('messages.success.logout')
             ],
             status: JsonResponse::HTTP_OK
-            );
+        );
     }
 
     /**
@@ -235,10 +257,10 @@ public function login(FormRequest $request): JsonResource|JsonResponse
             $otp = rand(100000, 999999); // Code OTP de 6 chiffres
 
             $user = User::where('email', $email)->first();
-                // Envoyer l'OTP par e-mail
-                Mail::to($user->email)->send(new OtpMail((string)$otp));
+            // Envoyer l'OTP par e-mail
+            Mail::to($user->email)->send(new OtpMail((string)$otp));
 
-            return true; // Indique que l'envoi a réussi
+            return true;
         } catch (\Exception $e) {
             return false;
         }
@@ -256,6 +278,4 @@ public function login(FormRequest $request): JsonResource|JsonResponse
         // check if the current time is before the expiration time
         return $otpCode->expire_at->isFuture();
     }
-
-
 }

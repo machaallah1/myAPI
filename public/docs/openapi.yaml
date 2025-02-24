@@ -1,0 +1,1715 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/authenticate:
+    post:
+      summary: 'Authenticate the user.'
+      operationId: authenticateTheUser
+      description: "Authenticates the user and sends an OTP (One-Time Password) to the user.\nThe OTP is sent using the SMS service.\nUsed for login and registration."
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 130
+                    name: 'Kim Hickle'
+                    email: thompson.stephan@example.net
+                    emailVerifiedAt: '2024-11-12T21:52:30.000000Z'
+                    image: 'https://via.placeholder.com/300x300.png/0011ee?text=people+faker+est'
+                    phone: +1-364-864-2056
+                    role: auteur
+                    createdAt: '2024-11-12T21:52:31.000000Z'
+                    updatedAt: '2024-11-12T21:52:31.000000Z'
+                  message: 'An OTP code has been successfully sent'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 130
+                      name:
+                        type: string
+                        example: 'Kim Hickle'
+                      email:
+                        type: string
+                        example: thompson.stephan@example.net
+                      emailVerifiedAt:
+                        type: string
+                        example: '2024-11-12T21:52:30.000000Z'
+                      image:
+                        type: string
+                        example: 'https://via.placeholder.com/300x300.png/0011ee?text=people+faker+est'
+                      phone:
+                        type: string
+                        example: +1-364-864-2056
+                      role:
+                        type: string
+                        example: auteur
+                      createdAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                      updatedAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                  message:
+                    type: string
+                    example: 'An OTP code has been successfully sent'
+        400:
+          description: 'Bad Request'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Oops! An error occurred. Please try again.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Oops! An error occurred. Please try again.'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email address of the user. Must be a valid email address. Must not be greater than 255 characters.'
+                  example: user@example.com
+                  nullable: false
+              required:
+                - email
+      security: []
+  /api/v1/login:
+    post:
+      summary: Login
+      operationId: login
+      description: 'Log in a user.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 131
+                    name: 'Arnold Corkery'
+                    email: keebler.lukas@example.org
+                    emailVerifiedAt: '2024-11-12T21:52:31.000000Z'
+                    image: 'https://via.placeholder.com/300x300.png/009944?text=people+faker+esse'
+                    phone: '(539) 631-0608'
+                    role: auteur
+                    createdAt: '2024-11-12T21:52:31.000000Z'
+                    updatedAt: '2024-11-12T21:52:31.000000Z'
+                  token: 48|78454
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 131
+                      name:
+                        type: string
+                        example: 'Arnold Corkery'
+                      email:
+                        type: string
+                        example: keebler.lukas@example.org
+                      emailVerifiedAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                      image:
+                        type: string
+                        example: 'https://via.placeholder.com/300x300.png/009944?text=people+faker+esse'
+                      phone:
+                        type: string
+                        example: '(539) 631-0608'
+                      role:
+                        type: string
+                        example: auteur
+                      createdAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                      updatedAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                  token:
+                    type: string
+                    example: 48|78454
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: hohara@example.net
+                  nullable: false
+                password:
+                  type: string
+                  description: ''
+                  example: repellat
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/otp-login:
+    post:
+      summary: 'OTP Login'
+      operationId: oTPLogin
+      description: "Log in a user by sending an OTP code to their phone number.\nThis method is used to authenticate a registered user by sending an OTP (One-Time Password)\nto their phone number. The OTP code is sent using the SMS service."
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 132
+                    name: 'Zoie Toy'
+                    email: lubowitz.tre@example.net
+                    emailVerifiedAt: '2024-11-12T21:52:31.000000Z'
+                    image: 'https://via.placeholder.com/300x300.png/00ffbb?text=people+faker+et'
+                    phone: +1-228-216-3038
+                    role: lecteur
+                    createdAt: '2024-11-12T21:52:31.000000Z'
+                    updatedAt: '2024-11-12T21:52:31.000000Z'
+                  token: 48|78454
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 132
+                      name:
+                        type: string
+                        example: 'Zoie Toy'
+                      email:
+                        type: string
+                        example: lubowitz.tre@example.net
+                      emailVerifiedAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                      image:
+                        type: string
+                        example: 'https://via.placeholder.com/300x300.png/00ffbb?text=people+faker+et'
+                      phone:
+                        type: string
+                        example: +1-228-216-3038
+                      role:
+                        type: string
+                        example: lecteur
+                      createdAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                      updatedAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                  token:
+                    type: string
+                    example: 48|78454
+        400:
+          description: 'Bad Request'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Your OTP is not correct.'
+                  action: 'Redirect to the login page.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Your OTP is not correct.'
+                  action:
+                    type: string
+                    example: 'Redirect to the login page.'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: 'The ID of the user. The <code>id</code> of an existing record in the users table.'
+                  example: '1'
+                  nullable: false
+                otp:
+                  type: number
+                  description: 'The OTP code.'
+                  example: 123456.0
+                  nullable: false
+              required:
+                - user_id
+                - otp
+      security: []
+  '/api/v1/resend-otp/{user_id}':
+    post:
+      summary: 'Resend OTP code'
+      operationId: resendOTPCode
+      description: 'Resends the OTP (One-Time Password).'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'An OTP code has been successfully sent.'
+                properties:
+                  message:
+                    type: string
+                    example: 'An OTP code has been successfully sent.'
+        400:
+          description: 'Bad Request'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Oops! An error occurred. Please try again.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Oops! An error occurred. Please try again.'
+      tags:
+        - Authentication
+      security: []
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/logout:
+    post:
+      summary: logout
+      operationId: logout
+      description: 'Log out a user.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 133
+                    name: 'Dorcas Hilpert'
+                    email: zbailey@example.org
+                    emailVerifiedAt: '2024-11-12T21:52:31.000000Z'
+                    image: 'https://via.placeholder.com/300x300.png/00bb66?text=people+faker+quam'
+                    phone: 838-332-7779
+                    role: admin
+                    createdAt: '2024-11-12T21:52:31.000000Z'
+                    updatedAt: '2024-11-12T21:52:31.000000Z'
+                  token: 48|78454
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 133
+                      name:
+                        type: string
+                        example: 'Dorcas Hilpert'
+                      email:
+                        type: string
+                        example: zbailey@example.org
+                      emailVerifiedAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                      image:
+                        type: string
+                        example: 'https://via.placeholder.com/300x300.png/00bb66?text=people+faker+quam'
+                      phone:
+                        type: string
+                        example: 838-332-7779
+                      role:
+                        type: string
+                        example: admin
+                      createdAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                      updatedAt:
+                        type: string
+                        example: '2024-11-12T21:52:31.000000Z'
+                  token:
+                    type: string
+                    example: 48|78454
+      tags:
+        - Authentication
+      security: []
+  /api/v1/categories:
+    get:
+      summary: 'Get the list of categories'
+      operationId: getTheListOfCategories
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 76
+                  name: ducimus
+                  slug: omnis-pariatur-aut-architecto-corrupti-excepturi-laudantium-eos-est
+                  createdAt: '2024-11-12T21:52:31.000000Z'
+                  updatedAt: '2024-11-12T21:52:31.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 76
+                  name:
+                    type: string
+                    example: ducimus
+                  slug:
+                    type: string
+                    example: omnis-pariatur-aut-architecto-corrupti-excepturi-laudantium-eos-est
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:31.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:31.000000Z'
+      tags:
+        - Category
+      security: []
+    post:
+      summary: 'Store Category'
+      operationId: storeCategory
+      description: 'Store a newly created resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 78
+                  name: consequatur
+                  slug: nemo-eaque-unde-debitis-aut
+                  createdAt: '2024-11-12T21:52:32.000000Z'
+                  updatedAt: '2024-11-12T21:52:32.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 78
+                  name:
+                    type: string
+                    example: consequatur
+                  slug:
+                    type: string
+                    example: nemo-eaque-unde-debitis-aut
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:32.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:32.000000Z'
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Category created successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Category created successfully.'
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the category. Must not be greater than 255 characters.'
+                  example: Electronics
+                  nullable: false
+                slug:
+                  type: string
+                  description: 'The slug of the category. Must not be greater than 255 characters.'
+                  example: electronics
+                  nullable: false
+              required:
+                - name
+                - slug
+      security: []
+  /api/v1/categories/paginate:
+    get:
+      summary: 'Get a paginate listing of the category resources.'
+      operationId: getAPaginateListingOfTheCategoryResources
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 77
+                  name: porro
+                  slug: quae-amet-in-animi-eveniet-quaerat-maiores
+                  createdAt: '2024-11-12T21:52:31.000000Z'
+                  updatedAt: '2024-11-12T21:52:31.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 77
+                  name:
+                    type: string
+                    example: porro
+                  slug:
+                    type: string
+                    example: quae-amet-in-animi-eveniet-quaerat-maiores
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:31.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:31.000000Z'
+      tags:
+        - Category
+      security: []
+  '/api/v1/categories/{id}':
+    get:
+      summary: 'Show Category'
+      operationId: showCategory
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Category] voluptas'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Category] voluptas'
+      tags:
+        - Category
+      security: []
+    put:
+      summary: 'Update Category'
+      operationId: updateCategory
+      description: 'Update the specified resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Category updated successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Category updated successfully.'
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the category. Must not be greater than 255 characters.'
+                  example: Electronics
+                  nullable: false
+                slug:
+                  type: string
+                  description: 'The slug of the category. Must not be greater than 255 characters.'
+                  example: electronics
+                  nullable: false
+              required:
+                - name
+                - slug
+      security: []
+    delete:
+      summary: 'Delete Category'
+      operationId: deleteCategory
+      description: 'Remove the specified resource from storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        204:
+          description: Success
+      tags:
+        - Category
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: voluptas
+        required: true
+        schema:
+          type: string
+  /api/v1/comments:
+    get:
+      summary: 'Get the list of comments'
+      operationId: getTheListOfComments
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 32
+                  content: 'Doloremque in nesciunt laborum temporibus hic molestias. Dicta qui culpa iusto sunt sed aut. Ea ut quod soluta sequi. Rerum neque perspiciatis aliquid eligendi sequi qui.'
+                  createdAt: '2024-11-12T21:52:33.000000Z'
+                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 32
+                  content:
+                    type: string
+                    example: 'Doloremque in nesciunt laborum temporibus hic molestias. Dicta qui culpa iusto sunt sed aut. Ea ut quod soluta sequi. Rerum neque perspiciatis aliquid eligendi sequi qui.'
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+      tags:
+        - Comment
+      security: []
+    post:
+      summary: 'Store Comment'
+      operationId: storeComment
+      description: 'Store a newly created resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 33
+                  content: 'Voluptas quos pariatur et in tenetur corrupti. Ut nemo mollitia aut saepe molestiae. Dolorum odit aliquid nihil praesentium. Et esse tempore qui maiores.'
+                  createdAt: '2024-11-12T21:52:33.000000Z'
+                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 33
+                  content:
+                    type: string
+                    example: 'Voluptas quos pariatur et in tenetur corrupti. Ut nemo mollitia aut saepe molestiae. Dolorum odit aliquid nihil praesentium. Et esse tempore qui maiores.'
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Comment created successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Comment created successfully.'
+      tags:
+        - Comment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post_id:
+                  type: string
+                  description: 'The ID of the post that the comment belongs to. The <code>id</code> of an existing record in the posts table.'
+                  example: '1'
+                  nullable: false
+                content:
+                  type: string
+                  description: 'The content of the comment. Must not be greater than 255 characters.'
+                  example: 'This is a comment.'
+                  nullable: false
+                user_id:
+                  type: string
+                  description: 'The ID of the user who created the comment. The <code>id</code> of an existing record in the users table.'
+                  example: '1'
+                  nullable: false
+              required:
+                - post_id
+                - content
+                - user_id
+      security: []
+  '/api/v1/comments/{id}':
+    get:
+      summary: 'Show the specified resource.'
+      operationId: showTheSpecifiedResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 34
+                  content: 'Excepturi perspiciatis nulla pariatur enim perspiciatis dolores. Quibusdam inventore aperiam dicta eos nihil nesciunt. Occaecati praesentium minima nihil animi sit praesentium et.'
+                  createdAt: '2024-11-12T21:52:33.000000Z'
+                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 34
+                  content:
+                    type: string
+                    example: 'Excepturi perspiciatis nulla pariatur enim perspiciatis dolores. Quibusdam inventore aperiam dicta eos nihil nesciunt. Occaecati praesentium minima nihil animi sit praesentium et.'
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+      tags:
+        - Comment
+      security: []
+    put:
+      summary: 'Update Comment'
+      operationId: updateComment
+      description: 'Update the specified resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Comment updated successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Comment updated successfully.'
+      tags:
+        - Comment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post_id:
+                  type: string
+                  description: 'The ID of the post that the comment belongs to. The <code>id</code> of an existing record in the posts table.'
+                  example: '1'
+                  nullable: false
+                content:
+                  type: string
+                  description: 'The content of the comment. Must not be greater than 255 characters.'
+                  example: 'This is a comment.'
+                  nullable: false
+                user_id:
+                  type: string
+                  description: 'The ID of the user who created the comment. The <code>id</code> of an existing record in the users table.'
+                  example: '1'
+                  nullable: false
+              required:
+                - post_id
+                - content
+                - user_id
+      security: []
+    delete:
+      summary: 'Delete the specified resource from storage.'
+      operationId: deleteTheSpecifiedResourceFromStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        204:
+          description: Success
+      tags:
+        - Comment
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the comment.'
+        example: eum
+        required: true
+        schema:
+          type: string
+  /api/v1/likes:
+    get:
+      summary: 'Get the list of likes'
+      operationId: getTheListOfLikes
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 13
+                  liked: 1
+                  createdAt: '2024-11-12T21:52:33.000000Z'
+                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 13
+                  liked:
+                    type: integer
+                    example: 1
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+      tags:
+        - Like
+      security: []
+    post:
+      summary: 'Store a new like'
+      operationId: storeANewLike
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 16
+                  liked: 0
+                  createdAt: '2024-11-12T21:52:34.000000Z'
+                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 16
+                  liked:
+                    type: integer
+                    example: 0
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+      tags:
+        - Like
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: 'The ID of the user who liked the post. The <code>id</code> of an existing record in the users table.'
+                  example: '1'
+                  nullable: false
+                post_id:
+                  type: string
+                  description: 'The ID of the post that was liked. The <code>id</code> of an existing record in the posts table.'
+                  example: '1'
+                  nullable: false
+                liked:
+                  type: boolean
+                  description: 'Whether the user liked the post or not.'
+                  example: true
+                  nullable: false
+                comment_id:
+                  type: string
+                  description: 'The ID of the comment that was liked, if applicable. The <code>id</code> of an existing record in the comments table.'
+                  example: '1'
+                  nullable: true
+              required:
+                - user_id
+                - post_id
+                - liked
+      security: []
+  /api/v1/likes/paginate:
+    get:
+      summary: 'Get a paginate listing of the like resources.'
+      operationId: getAPaginateListingOfTheLikeResources
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 14
+                  liked: 1
+                  createdAt: '2024-11-12T21:52:33.000000Z'
+                  updatedAt: '2024-11-12T21:52:33.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 14
+                  liked:
+                    type: integer
+                    example: 1
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:33.000000Z'
+      tags:
+        - Like
+      security: []
+  '/api/v1/likes/{id}':
+    delete:
+      summary: 'Delete a like'
+      operationId: deleteALike
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 15
+                  liked: 1
+                  createdAt: '2024-11-12T21:52:34.000000Z'
+                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 15
+                  liked:
+                    type: integer
+                    example: 1
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+      tags:
+        - Like
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the like.'
+        example: 9
+        required: true
+        schema:
+          type: integer
+  /api/v1/posts:
+    get:
+      summary: 'Get the list of posts'
+      operationId: getTheListOfPosts
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 68
+                  title: 'Accusamus beatae excepturi qui sit ipsa molestiae iusto enim.'
+                  content: 'Ipsum vel est provident ex tempore quia corrupti pariatur. Et voluptatem hic porro quisquam. Praesentium corrupti cupiditate et sit molestias autem cumque.'
+                  image: 'https://via.placeholder.com/300x300.png/009944?text=people+faker+ipsa'
+                  status: published
+                  slug: accusantium-sit-alias-ex-voluptatem-quidem-suscipit
+                  createdAt: '2024-11-12T21:52:34.000000Z'
+                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 68
+                  title:
+                    type: string
+                    example: 'Accusamus beatae excepturi qui sit ipsa molestiae iusto enim.'
+                  content:
+                    type: string
+                    example: 'Ipsum vel est provident ex tempore quia corrupti pariatur. Et voluptatem hic porro quisquam. Praesentium corrupti cupiditate et sit molestias autem cumque.'
+                  image:
+                    type: string
+                    example: 'https://via.placeholder.com/300x300.png/009944?text=people+faker+ipsa'
+                  status:
+                    type: string
+                    example: published
+                  slug:
+                    type: string
+                    example: accusantium-sit-alias-ex-voluptatem-quidem-suscipit
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+      tags:
+        - Post
+      security: []
+  '/api/v1/posts/{id}':
+    get:
+      summary: 'Show Post'
+      operationId: showPost
+      description: 'Show the specified resource.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Post
+      security: []
+    delete:
+      summary: 'Delete Post'
+      operationId: deletePost
+      description: 'Remove the specified resource from storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        204:
+          description: Success
+      tags:
+        - Post
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the post.'
+        example: temporibus
+        required: true
+        schema:
+          type: string
+  /api/v1/tags:
+    get:
+      summary: 'Get the list of tags.'
+      operationId: getTheListOfTags
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 23
+                  name: sed
+                  slug: exercitationem-tempore-modi-rerum-maxime-consequatur-a-voluptas
+                  createdAt: '2024-11-12T21:52:34.000000Z'
+                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 23
+                  name:
+                    type: string
+                    example: sed
+                  slug:
+                    type: string
+                    example: exercitationem-tempore-modi-rerum-maxime-consequatur-a-voluptas
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+      tags:
+        - Tag
+      security: []
+    post:
+      summary: 'Store tag'
+      operationId: storeTag
+      description: 'Store a newly created resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 25
+                  name: natus
+                  slug: velit-ut-placeat-ullam-vel
+                  createdAt: '2024-11-12T21:52:35.000000Z'
+                  updatedAt: '2024-11-12T21:52:35.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 25
+                  name:
+                    type: string
+                    example: natus
+                  slug:
+                    type: string
+                    example: velit-ut-placeat-ullam-vel
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+        201:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Tag created successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Tag created successfully.'
+      tags:
+        - Tag
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the tag. Must not be greater than 255 characters.'
+                  example: 'Tag Name'
+                  nullable: false
+                slug:
+                  type: string
+                  description: 'The slug of the tag. Must not be greater than 255 characters.'
+                  example: tag-slug
+                  nullable: false
+              required:
+                - name
+                - slug
+      security: []
+  /api/v1/tags/paginate:
+    get:
+      summary: 'Get a paginate listing of the tag resources.'
+      operationId: getAPaginateListingOfTheTagResources
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 24
+                  name: ut
+                  slug: aut-repudiandae-occaecati-doloribus-autem
+                  createdAt: '2024-11-12T21:52:34.000000Z'
+                  updatedAt: '2024-11-12T21:52:34.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 24
+                  name:
+                    type: string
+                    example: ut
+                  slug:
+                    type: string
+                    example: aut-repudiandae-occaecati-doloribus-autem
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:34.000000Z'
+      tags:
+        - Tag
+      security: []
+  '/api/v1/tags/{id}':
+    get:
+      summary: 'Show the specified resource.'
+      operationId: showTheSpecifiedResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 26
+                  name: sint
+                  slug: ut-temporibus-eaque-nisi-pariatur-quis
+                  createdAt: '2024-11-12T21:52:35.000000Z'
+                  updatedAt: '2024-11-12T21:52:35.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 26
+                  name:
+                    type: string
+                    example: sint
+                  slug:
+                    type: string
+                    example: ut-temporibus-eaque-nisi-pariatur-quis
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+      tags:
+        - Tag
+      security: []
+    put:
+      summary: 'Update tag'
+      operationId: updateTag
+      description: 'Update the specified resource in storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Tag updated successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Tag updated successfully.'
+      tags:
+        - Tag
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the tag. Must not be greater than 255 characters.'
+                  example: 'Tag Name'
+                  nullable: false
+                slug:
+                  type: string
+                  description: 'The slug of the tag. Must not be greater than 255 characters.'
+                  example: tag-slug
+                  nullable: false
+              required:
+                - name
+                - slug
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Tag deleted successfully.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Tag deleted successfully.'
+      tags:
+        - Tag
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tag.'
+        example: alias
+        required: true
+        schema:
+          type: string
+  /api/v1/users:
+    get:
+      summary: 'Get the list of users'
+      operationId: getTheListOfUsers
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 157
+                  name: 'Jamison Boyle'
+                  email: jalyn.wintheiser@example.org
+                  emailVerifiedAt: '2024-11-12T21:52:35.000000Z'
+                  image: 'https://via.placeholder.com/300x300.png/004422?text=people+faker+autem'
+                  phone: +1.475.878.5587
+                  role: auteur
+                  createdAt: '2024-11-12T21:52:35.000000Z'
+                  updatedAt: '2024-11-12T21:52:35.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 157
+                  name:
+                    type: string
+                    example: 'Jamison Boyle'
+                  email:
+                    type: string
+                    example: jalyn.wintheiser@example.org
+                  emailVerifiedAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+                  image:
+                    type: string
+                    example: 'https://via.placeholder.com/300x300.png/004422?text=people+faker+autem'
+                  phone:
+                    type: string
+                    example: +1.475.878.5587
+                  role:
+                    type: string
+                    example: auteur
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+      tags:
+        - User
+  /api/v1/users/paginate:
+    get:
+      summary: 'Get a paginate listing of the user resources.'
+      operationId: getAPaginateListingOfTheUserResources
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 158
+                  name: 'Dr. Pedro Klein'
+                  email: phackett@example.org
+                  emailVerifiedAt: '2024-11-12T21:52:35.000000Z'
+                  image: 'https://via.placeholder.com/300x300.png/009999?text=people+faker+omnis'
+                  phone: '(607) 288-7794'
+                  role: admin
+                  createdAt: '2024-11-12T21:52:35.000000Z'
+                  updatedAt: '2024-11-12T21:52:35.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 158
+                  name:
+                    type: string
+                    example: 'Dr. Pedro Klein'
+                  email:
+                    type: string
+                    example: phackett@example.org
+                  emailVerifiedAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+                  image:
+                    type: string
+                    example: 'https://via.placeholder.com/300x300.png/009999?text=people+faker+omnis'
+                  phone:
+                    type: string
+                    example: '(607) 288-7794'
+                  role:
+                    type: string
+                    example: admin
+                  createdAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+                  updatedAt:
+                    type: string
+                    example: '2024-11-12T21:52:35.000000Z'
+      tags:
+        - User
+  '/api/v1/users/{id}':
+    get:
+      summary: 'Show User'
+      operationId: showUser
+      description: 'Show the specified resource.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - User
+    delete:
+      summary: 'Delete User'
+      operationId: deleteUser
+      description: 'Remove the specified resource from storage.'
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        204:
+          description: Success
+      tags:
+        - User
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: sit
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Authentication
+    description: "\nAPIs for authentication"
+  -
+    name: Category
+    description: "\nAPIs for category management"
+  -
+    name: Comment
+    description: "\nAPIs for comment management"
+  -
+    name: Like
+    description: "\nAPIs for like management"
+  -
+    name: Post
+    description: "\nAPIs for post management"
+  -
+    name: Tag
+    description: "\n APIs for tag management"
+  -
+    name: User
+    description: "\nAPIs for user"

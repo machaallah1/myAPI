@@ -15,8 +15,8 @@ Route::prefix('likes')
             ->name('paginate');
 
         Route::delete('/{id}', [LikeController::class, 'destroy'])
-            ->name('destroy');
+            ->name('destroy')->middleware('auth:sanctum');
 
         Route::post('', [LikeController::class, 'store'])
-            ->name('store');
+            ->name('store')->middleware('auth:sanctum');
     });

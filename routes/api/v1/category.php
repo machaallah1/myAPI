@@ -15,9 +15,9 @@ Route::prefix('categories')
         Route::get('{id}', [CategoryController::class, 'show'])
             ->name('show');
         Route::post('', [CategoryController::class, 'store'])
-            ->name('store');
+            ->name('store')->middleware('auth:sanctum');
         Route::put('{id}', [CategoryController::class, 'update'])
-            ->name('update');
+            ->name('update')->middleware('auth:sanctum');
         Route::delete('{id}', [CategoryController::class, 'destroy'])
-            ->name('destroy');
+            ->name('destroy')->middleware('auth:sanctum');
     });

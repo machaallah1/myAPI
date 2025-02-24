@@ -11,8 +11,8 @@ Route::prefix('comments')
         Route::get('', [CommentController::class, 'index'])
             ->name('index');
 
-        Route::get('pagination', [CommentController::class, 'pagination'])
-            ->name('pagination');
+        Route::get('paginate', [CommentController::class, 'paginate'])
+            ->name('paginate');
 
         Route::post('', [CommentController::class, 'store'])
             ->name('store');

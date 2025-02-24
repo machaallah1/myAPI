@@ -1,0 +1,147 @@
+name: Post
+description: |-
+
+  APIs for post management
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/posts
+    metadata:
+      groupName: Post
+      groupDescription: |-
+
+        APIs for post management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get the list of posts'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":68,"title":"Accusamus beatae excepturi qui sit ipsa molestiae iusto enim.","content":"Ipsum vel est provident ex tempore quia corrupti pariatur. Et voluptatem hic porro quisquam. Praesentium corrupti cupiditate et sit molestias autem cumque.","image":"https:\/\/via.placeholder.com\/300x300.png\/009944?text=people+faker+ipsa","status":"published","slug":"accusantium-sit-alias-ex-voluptatem-quidem-suscipit","createdAt":"2024-11-12T21:52:34.000000Z","updatedAt":"2024-11-12T21:52:34.000000Z"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/posts/{id}'
+    metadata:
+      groupName: Post
+      groupDescription: |-
+
+        APIs for post management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show Post'
+      description: 'Show the specified resource.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: temporibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: temporibus
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/posts/{id}'
+    metadata:
+      groupName: Post
+      groupDescription: |-
+
+        APIs for post management
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete Post'
+      description: 'Remove the specified resource from storage.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: optio
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: optio
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '{"message": "Post deleted successfully."}'
+        headers: []
+        description: Success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

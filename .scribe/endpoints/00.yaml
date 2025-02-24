@@ -1,0 +1,303 @@
+name: Authentication
+description: |-
+
+  APIs for authentication
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/authenticate
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Authenticate the user.'
+      description: |-
+        Authenticates the user and sends an OTP (One-Time Password) to the user.
+        The OTP is sent using the SMS service.
+        Used for login and registration.
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email address of the user. Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: user@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: user@example.com
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":130,"name":"Kim Hickle","email":"thompson.stephan@example.net","emailVerifiedAt":"2024-11-12T21:52:30.000000Z","image":"https:\/\/via.placeholder.com\/300x300.png\/0011ee?text=people+faker+est","phone":"+1-364-864-2056","role":"auteur","createdAt":"2024-11-12T21:52:31.000000Z","updatedAt":"2024-11-12T21:52:31.000000Z"},"message":"An OTP code has been successfully sent"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Oops! An error occurred. Please try again."
+          }
+        headers: []
+        description: 'Bad Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/login
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: 'Log in a user.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: hohara@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: repellat
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: hohara@example.net
+      password: repellat
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":131,"name":"Arnold Corkery","email":"keebler.lukas@example.org","emailVerifiedAt":"2024-11-12T21:52:31.000000Z","image":"https:\/\/via.placeholder.com\/300x300.png\/009944?text=people+faker+esse","phone":"(539) 631-0608","role":"auteur","createdAt":"2024-11-12T21:52:31.000000Z","updatedAt":"2024-11-12T21:52:31.000000Z"},"token":"48|78454"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/otp-login
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'OTP Login'
+      description: |-
+        Log in a user by sending an OTP code to their phone number.
+        This method is used to authenticate a registered user by sending an OTP (One-Time Password)
+        to their phone number. The OTP code is sent using the SMS service.
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user. The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: '1'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      otp:
+        name: otp
+        description: 'The OTP code.'
+        required: true
+        example: 123456.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      user_id: '1'
+      otp: 123456.0
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":132,"name":"Zoie Toy","email":"lubowitz.tre@example.net","emailVerifiedAt":"2024-11-12T21:52:31.000000Z","image":"https:\/\/via.placeholder.com\/300x300.png\/00ffbb?text=people+faker+et","phone":"+1-228-216-3038","role":"lecteur","createdAt":"2024-11-12T21:52:31.000000Z","updatedAt":"2024-11-12T21:52:31.000000Z"},"token":"48|78454"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Your OTP is not correct.",
+            "action": "Redirect to the login page."
+          }
+        headers: []
+        description: 'Bad Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/resend-otp/{user_id}'
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Resend OTP code'
+      description: 'Resends the OTP (One-Time Password).'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "An OTP code has been successfully sent."
+          }
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 400
+        content: |-
+          {
+            "message": "Oops! An error occurred. Please try again."
+          }
+        headers: []
+        description: 'Bad Request'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/logout
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for authentication
+      subgroup: ''
+      subgroupDescription: ''
+      title: logout
+      description: 'Log out a user.'
+      authenticated: false
+      custom: []
+    headers:
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":133,"name":"Dorcas Hilpert","email":"zbailey@example.org","emailVerifiedAt":"2024-11-12T21:52:31.000000Z","image":"https:\/\/via.placeholder.com\/300x300.png\/00bb66?text=people+faker+quam","phone":"838-332-7779","role":"admin","createdAt":"2024-11-12T21:52:31.000000Z","updatedAt":"2024-11-12T21:52:31.000000Z"},"token":"48|78454"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
