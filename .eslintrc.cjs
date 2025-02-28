@@ -4,11 +4,13 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    '.eslintrc-auto-import.json',
+    '@antfu/eslint-config-vue',
     'plugin:vue/vue3-recommended',
     'plugin:import/recommended',
+    'plugin:import/typescript',
     'plugin:promise/recommended',
     'plugin:sonarjs/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:case-police/recommended',
     'plugin:regexp/recommended',
 
@@ -17,14 +19,16 @@ module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 13,
+    parser: '@typescript-eslint/parser',
     sourceType: 'module',
   },
   plugins: [
     'vue',
+    '@typescript-eslint',
     'regex',
     'regexp',
   ],
-  ignorePatterns: ['resources/js/plugins/iconify/*.js', 'node_modules', 'dist', '*.d.ts', 'vendor', '*.json'],
+  ignorePatterns: ['resources/ts/plugins/iconify/*.js', 'node_modules', 'dist', '*.d.ts', 'vendor', '*.json'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -40,6 +44,8 @@ module.exports = {
       multiline: 'below',
     }],
 
+    'antfu/top-level-function': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
 
     // indentation (Already present in TypeScript)
     'indent': ['error', 2],
@@ -82,6 +88,7 @@ module.exports = {
     ],
 
     // Ignore _ as unused variable
+    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^_+$', argsIgnorePattern: '^_+$' }],
 
     'array-element-newline': ['error', 'consistent'],
     'array-bracket-newline': ['error', 'consistent'],
@@ -131,7 +138,9 @@ module.exports = {
 
     // Thanks: https://stackoverflow.com/a/63961972/10796681
     'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error'],
 
+    '@typescript-eslint/consistent-type-imports': 'error',
 
     // Plugin: eslint-plugin-promise
     'promise/always-return': 'off',
@@ -186,6 +195,10 @@ module.exports = {
     //   },
     // }],
 
+    // Internal Rules
+    'valid-appcardcode-code-prop': 'error',
+    'valid-appcardcode-demo-sfc': 'error',
+
     // https://github.com/gmullerb/eslint-plugin-regex
     'regex/invalid': [
       'error',
@@ -198,7 +211,7 @@ module.exports = {
         {
           regex: '@/assets/styles',
           replacement: '@styles',
-          message: 'Use \'@styles\' path alias for importing styles from \'resources/js/assets/styles\'',
+          message: 'Use \'@styles\' path alias for importing styles from \'resources/ts/assets/styles\'',
         },
         {
           regex: '@core/\\w',
@@ -223,7 +236,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: true,
-      typescript: { project: './jsconfig.json' },
+      typescript: {},
     },
   },
 }
